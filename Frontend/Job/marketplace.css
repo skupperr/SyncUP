@@ -1,0 +1,271 @@
+.container{
+    margin-top: 50px;
+    display: flex;
+    font-family: Roboto, arial;
+}
+
+.market-menu{
+    flex: 1;
+    background-color:rgb(255, 255, 255);
+    box-shadow: 5px 0 5px -5px rgba(0, 0, 0, 0.3);
+}
+.market-search{
+    display: flex;
+    flex: 1;
+    margin-right: 25px;
+    position: relative;
+}
+.search-icon{
+    position: absolute;
+    top: 9px;
+    left: 10px;
+    color: rgb(90, 90, 90);
+}
+.market-input {
+    border: none;
+    height: 30px;
+    border-radius: 20px;
+    padding-left: 35px;
+    background-color: rgb(242, 242, 242);
+    border-style: solid;
+    border-color: rgb(157, 157, 157);
+    border-width: 0px;
+    flex: 1;
+}
+
+.navigation-class{
+    margin-top: 20px;
+    margin-right: 25px;
+}
+.navigation{
+    height: 45px;
+    margin-bottom: 15px;
+    position: relative;
+}
+.nav-button{
+    display: block;
+    font-size: 20px;
+    padding-left: 50px;
+    padding-right: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-style: solid;
+    border-radius: 20px;
+    border-width: 0px;
+    color: black;
+    text-decoration: none;
+    transition: .3s;
+}
+.nav-button:hover{
+    background-color: #dad8d8
+}
+a:is(:link, :active, :visited).active{
+    background-color: black;
+    color: white;
+}
+
+.active{
+    background-color: black;
+    color: white;
+}
+
+.listing-button{
+    margin-top: 25px;
+    margin-bottom: 10px;
+    margin-right: 20px;
+    height: 40px;
+    font-size: 20px;
+    border-width: 0px;
+    border-radius: 5px;
+    background-color: #000000;
+    color: white;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+.listing-button:hover{
+    background-color: #2c2c2c;
+}
+
+.category-nav{
+    height: 45px;
+    margin-bottom: 0px;
+    position: relative;
+}
+.category-button{
+    display: block;
+    font-size: 15px;
+    padding-left: 50px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-style: solid;
+    border-radius: 20px;
+    border-width: 0px;
+    color: black;
+    text-decoration: none;
+    transition: .3s;
+}
+.category-button:hover{
+    background-color: #dad8d8
+}
+
+.product-class{
+    display: grid;
+    column-gap: 20px;
+    grid-template-columns: 1fr 1fr;
+}
+
+/* @media (max-width: 309px) {
+    .product-class{
+        grid-template-columns: 1fr 1fr;
+    }
+} */
+ 
+@media (min-width: 310px) {
+    .product-class{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+@media (min-width: 1000px) {
+    .product-class{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+.product {
+    width: 200px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    vertical-align: top;
+    margin-right: 15px;
+    background-color: rgb(234, 234, 234);
+    height: 300px;
+    margin-left: 15px;
+    margin-top: 15px;
+    border-style: solid;
+    border-radius: 15px;
+    border-width: 0px;
+    cursor: pointer;
+}
+.product-pic {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 12px;
+    border-style: solid;
+    border-radius: 15px;
+    border-width: 0px;
+}
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0px 0px 5px 8px;
+}
+.product-name{
+    font-size: 15px;
+    margin-left: 8px;
+}
+.listing-class{
+    margin: 10px;
+    background-color: rgb(188, 188, 188);
+    padding-top: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 15px;
+    border-radius: 5px;
+}
+
+.myPostSection{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 20px 10px 10px 20px;
+    border-radius: 10px 10px 10px 10px;
+    background-color: white;
+}
+.myPostTop{
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+#myPostPic{
+    position: absolute;
+    top: 7px;
+    left: 5px;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    
+}
+.postText{
+    /* padding: 20px; */
+    width: 95%;
+    height: 100%;
+    min-height: 100%;
+    
+    max-width: 100%;
+}
+
+#myPostText{
+    padding: 10px 0px 0px 10px;
+    /* width: 99%; */
+    max-width: 99%;
+    min-width: 99%;
+    /* height: 63%; */
+    min-height: 30px;
+    border-radius: 20px;
+    border: 2px solid rgb(124, 124, 124);
+}
+
+#name-of-product,
+#price-of-product{
+    padding: 0px 0px 0px 10px;
+    /* width: 99%; */
+    max-width: 99%;
+    /* height: 63%; */
+    height: 35px;
+    margin-right: 50px;
+    min-height: 30px;
+    border-radius: 20px;
+    border: 2px solid rgb(124, 124, 124);
+    margin-bottom: 10px;
+}
+
+/* @media screen and (min-width: 1960px) {
+    #myPostText{
+        min-width: 97%;
+    }
+    
+} */
+
+.myPostBottom{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-right: 10px;
+
+}
+.myFile label{
+    font-weight: bolder;
+}
+.myFile select{
+    font-weight: bold;
+    border-radius: 5px;
+    border: 2px solid rgb(129, 129, 129);
+}
+
+
+#postSubmitButton{
+    font-weight: bolder;
+    color: white;
+    background-color: black;
+    padding: 7px 15px;
+    border-radius: 10px;
+    border: none;
+}

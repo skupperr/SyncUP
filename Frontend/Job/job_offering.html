@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My Network</title>
+
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/fontawesome.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="marketplace.css">
+    <link rel="stylesheet" href="header.css">
+</head>
+<body>
+    
+    <div class="header">
+        <div class="left">
+            <a href="../newsFeed/newsFeed.html">
+                <img class="logo" src="../file.png">
+            </a>
+        </div>
+        <div class="middle">
+            <input class="input" id="search-profile" type="text" placeholder="Search" oninput="searching()">
+            <button class="search-btn">
+                <i class="fa-solid fa-magnifying-glass search-img"></i>
+            </button>
+        </div>
+        <div class="right">
+            <a style="text-decoration: none; color: black;" href="../messenger/messenger.html"><i class="fa-regular fa-envelope message-icon"></i></a>
+            
+            <a href="user_Profile.html"><img id="header-profile-pic" class="channel-picture" src=""></a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div style="padding-left: 10px;" class="market-menu">
+            <h1>Job</h1>
+            <div class="market-search"> <i class="fa-solid fa-magnifying-glass search-icon"></i> <input class="market-input" type="text" placeholder="Search Marketplace"></div>
+
+            <div class="navigation-class">
+                <nav class="navigation">
+                    <i class="fa-solid fa-shop" style="color: #000000; position: absolute; top: 18px; left: 15px;"></i>
+                    <a href="/job_browse.html" id="nav-button-1" class="nav-button">Browse all</a><br>
+                </nav>
+                <nav class="navigation">
+                    <i class="fa-solid fa-envelope-open" style="color: rgb(0, 0, 0); position: absolute; top: 18px; left: 15px; font-size: 20px;"></i>
+                    <a href="/marketplace_inbox.html" id="nav-button-3" class="nav-button">Inbox</a><br>
+                </nav>
+                <nav class="navigation">
+                    <i class="fa-solid fa-tag" style="color: white; position: absolute; top: 18px; left: 15px; font-size: 20px;"></i>
+                    <a href="/job_offering.html" id="nav-button-5" class="nav-button active">Job offering</a><br>
+                </nav>
+            </div>
+        </div>
+
+        
+        <div style="flex: 3;">
+            <div class="product-class">
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

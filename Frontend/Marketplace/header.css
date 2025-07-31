@@ -1,0 +1,161 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    height: 55px;
+    justify-content: space-between;
+
+    position: fixed;
+    background-color: white;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+}
+
+.hamburger-menu {
+    height: 26px;
+    margin-left: 24px;
+    margin-right: 24px;
+}
+
+.logo {
+    height: 40px;
+    width: 100px;
+    padding-left: 20px;
+    object-fit: cover;
+    padding-left: 0px;
+}
+
+.middle {
+    display: flex;
+    flex: 1;
+    margin-left: 70px;
+    margin-right: 35px;
+    max-width: 500px;
+    align-items: center;
+}
+
+.search-btn {
+    height: 40px;
+    width: 66px;
+    border-width: 1px;
+    border-color: rgb(191, 189, 189);
+    border-style: solid;
+    margin-left: -1px;
+    background-color: white;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding-left: 3px;
+    cursor: pointer;
+}
+
+.search-img {
+    font-size: 18px;
+}
+
+
+#search-profile {
+    flex: 1;
+    height: 36px;
+    border-radius: 2px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(191, 189, 189);
+    font-size: 16px;
+    padding-left: 10px;
+    box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.05);
+    width: 0px;
+    /* so that the search bar can shrink */
+}
+
+.input::placeholder {
+    font-family: roboto, arial;
+    font-size: 16px;
+}
+
+.right {
+    width: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-right: 20px;
+    flex-shrink: 0;
+    /* stop shrinking items */
+}
+
+.video-icon {
+    height: 26px;
+    font-size: 25px;
+    padding-top: 5px;
+    cursor: pointer;
+}
+
+.message-icon {
+    height: 26px;
+    font-size: 25px;
+    padding-top: 5px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.notifications-icon {
+    height: 26px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.notifications-icon-container {
+    position: relative;
+    margin-top: 6px;
+}
+
+.notification-count {
+    position: absolute;
+    background-color: red;
+    color: white;
+    top: -17px;
+    right: -11px;
+    border-radius: 10px;
+    font-family: roboto, arial;
+    font-size: 11px;
+    padding-top: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 2px;
+}
+
+.channel-picture {
+    height: 34px;
+    width: 34px;
+    border-radius: 16px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+/* tooltip */
+.search-btn .tooltip {
+    background-color: gray;
+    color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-top: 10px;
+    opacity: 0;
+    transition: opacity 0.15s;
+    pointer-events: none;
+}
+
+.search-btn:hover .tooltip {
+    opacity: 1;
+}
+

@@ -1,0 +1,155 @@
+body {
+    font-family: Arial, sans-serif;
+    background:
+        linear-gradient(45deg, #007bff, #27ae60);
+    color: #fff;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    min-height: 100vh;
+    margin-top: 10px;
+    overflow: hidden;
+    /* height: calc(100vh - 20px);
+    margin-top: 20px;  
+    margin-bottom: 20px;  */
+}
+
+.clock {
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 300px;
+    flex: 1;
+}
+
+h1 {
+    font-size: 2rem;
+    color: green;
+}
+
+h3 {
+    font-size: 1.0rem;
+    color: #333;
+}
+
+.time {
+    font-size: 2rem;
+    margin: 20px 0;
+    color: #333;
+}
+
+.input-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.input-field {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input[type="date"],
+input[type="time"] {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 200px;
+}
+
+.button-row {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+#setAlarm,
+#updateTime {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+#setAlarm:hover,
+#updateTime:hover {
+    background-color: #0056b3;
+}
+
+.alarms {
+    margin-top: 20px;
+    text-align: left;
+    color: #333;
+}
+
+.alarmFilter{
+    background-color: #32df89;
+    color: rgb(255, 255, 255);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: center;
+    /* display: flex;
+    justify-content: space-between;
+    align-items: center; */
+    animation: fadeIn 0.5s ease-in-out;
+    font-size: 14px;
+}
+.alarmFilterIcon{
+    color: black;
+    margin-left: 20px;
+    font-size: 25px;
+}
+.alarm {
+    background-color: #f0f0f0;
+    color: black;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadeIn 0.5s ease-in-out;
+    font-size: 14px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.allAlarmsListMain-div{
+    /* display: flex; */
+    flex: 4;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    height: 100vh;
+    width: 100vh;
+    /* width: 300px; */
+    background-color: #a5a5a5;
+    overflow-y: auto;  /* EDITED: Enable vertical scroll */
+    padding: 10px;  
+    height: calc(100vh - 20px);
+    margin-top: 0px;  /* Added top margin */
+    margin-bottom: 0px;  /* Added bottom margin */
+    box-sizing: border-box; /* Ensure padding doesn't affect height */
+    border-radius: 10px;
+}

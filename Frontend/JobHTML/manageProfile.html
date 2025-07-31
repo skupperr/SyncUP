@@ -1,0 +1,370 @@
+<html>
+  <head>
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link
+      as="style"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+      onload="this.rel='stylesheet'"
+      rel="stylesheet"
+    />
+    <title>SyncUp</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+    <meta charset="utf-8" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+      :root {
+        --primary-color: #0c7ff2;
+      }
+    </style>
+  </head>
+  <body class="bg-slate-50" style="font-family: Inter, 'Noto Sans', sans-serif">
+    <div
+      class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden"
+    >
+      <div class="layout-container flex h-full grow flex-col">
+        <header
+          class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 px-10 py-4 shadow-sm"
+        >
+          <div class="flex items-center gap-8">
+            <div class="flex items-center gap-3 text-slate-900">
+              <a href="../newsFeed/newsFeed.html">
+                <div class="flex items-center gap-4 text-[#1b0e0e]">
+                    <div class="size-4">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z" fill="currentColor"></path>
+                        </svg>
+                    </div>
+                    <h2 class="text-[#1b0e0e] text-lg font-bold leading-tight tracking-[-0.015em]">SyncUP</h2>
+                </div>
+            </a>
+            </div>
+            <nav class="hidden md:flex items-center gap-6">
+              <a
+                id="jobHomePage"
+                class="text-[var(--secondary-text-color)] hover:text-[var(--primary-color)] text-sm font-medium leading-normal transition-colors"
+                href="#"
+                >Home</a
+              >
+              <a
+                id="jobSearchSection"
+                class="text-[var(--secondary-text-color)] hover:text-[var(--primary-color)] text-sm font-medium leading-normal transition-colors"
+                href="#"
+                >Jobs</a
+              >
+              <a
+                id="jobStatusLink"
+                class="text-[var(--secondary-text-color)] hover:text-[var(--primary-color)] text-sm font-medium leading-normal transition-colors"
+                href="#"
+                >Job Status</a
+              >
+              <a
+                id="jobManagePost"
+                class="text-[var(--secondary-text-color)] hover:text-[var(--primary-color)] text-sm font-medium leading-normal transition-colors"
+                href="#"
+                >Manage Posted Job</a
+              >
+              <a
+                class="text-[var(--secondary-text-color)] hover:text-[var(--primary-color)] text-sm font-medium leading-normal transition-colors"
+                href="#"
+                >Career Advice</a
+              >
+            </nav>
+          </div>
+          <div class="flex items-center gap-4">
+            <label class="relative">
+              <div
+                class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-500"
+              >
+                <svg
+                  fill="currentColor"
+                  height="20px"
+                  viewBox="0 0 256 256"
+                  width="20px"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
+                  ></path>
+                </svg>
+              </div>
+              <input
+                class="form-input w-full min-w-40 max-w-64 rounded-lg border-slate-300 bg-white py-2.5 pl-10 pr-3 text-sm text-slate-900 placeholder-slate-400 focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)]"
+                placeholder="Search"
+                value=""
+              />
+            </label>
+            <button
+              class="p-2 text-slate-600 hover:text-[var(--primary-color)] transition-colors rounded-lg hover:bg-slate-100"
+            >
+              <svg
+                fill="currentColor"
+                height="24px"
+                viewBox="0 0 256 256"
+                width="24px"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"
+                ></path>
+              </svg>
+            </button>
+            <div
+              id="profileImage"
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-white shadow-md"
+              style="
+                background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA4j-kpVU-ViIlnDhxJLkBRzBM-40yMktTC7S7_yiE9SXKXpr_amMGsnMFAqy-Mkt1yTCQLvtxPaQ2rI4utk4kw3xj_8rz55BgiXyrTj9awDFiQuSDqcb_HUSnE0ZiRrJ2Dg4boBPrJibP_Dl6ebgQazjk3UzzN5FGcjHQG83SuO6J1xdwPB5NMshWSd9GqW-FBd7kpnprpFqJ5U-4-mI-XDqcCED-y-PzKo28G_LQ5KXGxCJF_28mBajL_A4rsUnARVGx4GxcHNw');
+              "
+            ></div>
+          </div>
+        </header>
+        <main class="flex-1 px-10 py-8 lg:px-20 xl:px-40">
+          <div class="mx-auto max-w-4xl">
+            <div class="mb-8">
+              <h1 class="text-3xl font-bold text-slate-900">Manage Profile</h1>
+              <p class="mt-1 text-slate-600">
+                Update your profile to reflect your latest skills and
+                experience.
+              </p>
+            </div>
+            <div class="space-y-10">
+              <section>
+                <h2
+                  class="text-xl font-semibold text-slate-800 mb-6 pb-2 border-b border-slate-200"
+                >
+                  Personal Information
+                </h2>
+                <div class="grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-2">
+                  <div>
+                    <label
+                      class="block text-sm font-medium text-slate-700 mb-1.5"
+                      for="fullName"
+                      >Full Name</label
+                    >
+                    <input
+                      class="form-input block w-full rounded-md border-slate-300 shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)] sm:text-sm py-2.5 px-3.5"
+                      id="fullName"
+                      name="fullName"
+                      type="text"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      class="block text-sm font-medium text-slate-700 mb-1.5"
+                      for="email"
+                      >Email</label
+                    >
+                    <input
+                      class="form-input block w-full rounded-md border-slate-300 shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)] sm:text-sm py-2.5 px-3.5"
+                      id="email"
+                      name="email"
+                      type="email"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      class="block text-sm font-medium text-slate-700 mb-1.5"
+                      for="phone"
+                      >Phone Number</label
+                    >
+                    <input
+                      class="form-input block w-full rounded-md border-slate-300 shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)] sm:text-sm py-2.5 px-3.5"
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                    />
+                  </div>
+                </div>
+              </section>
+              <section>
+                <h2
+                  class="text-xl font-semibold text-slate-800 mb-6 pb-2 border-b border-slate-200"
+                >
+                  Work Experience
+                </h2>
+                <div class="grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-2">
+                  <div>
+                    <label
+                      class="block text-sm font-medium text-slate-700 mb-1.5"
+                      for="jobTitle"
+                      >Job Title</label
+                    >
+                    <input
+                      class="form-input block w-full rounded-md border-slate-300 shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)] sm:text-sm py-2.5 px-3.5"
+                      id="jobTitle"
+                      name="jobTitle"
+                      type="text"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      class="block text-sm font-medium text-slate-700 mb-1.5"
+                      for="company"
+                      >Company</label
+                    >
+                    <input
+                      class="form-input block w-full rounded-md border-slate-300 shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)] sm:text-sm py-2.5 px-3.5"
+                      id="company"
+                      name="company"
+                      type="text"
+                    />
+                  </div>
+                  <div class="sm:col-span-2">
+                    <label
+                      class="block text-sm font-medium text-slate-700 mb-1.5"
+                      for="jobDescription"
+                      >Description</label
+                    >
+                    <textarea
+                      class="form-textarea block w-full rounded-md border-slate-300 shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)] sm:text-sm py-2.5 px-3.5"
+                      id="jobDescription"
+                      name="jobDescription"
+                      rows="4"
+                    ></textarea>
+                  </div>
+                </div>
+              </section>
+              <section>
+                <h2
+                  class="text-xl font-semibold text-slate-800 mb-6 pb-2 border-b border-slate-200"
+                >
+                  Education
+                </h2>
+                <div class="grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-2">
+                  <div>
+                    <label
+                      class="block text-sm font-medium text-slate-700 mb-1.5"
+                      for="degree"
+                      >Degree</label
+                    >
+                    <input
+                      class="form-input block w-full rounded-md border-slate-300 shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)] sm:text-sm py-2.5 px-3.5"
+                      id="degree"
+                      name="degree"
+                      type="text"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      class="block text-sm font-medium text-slate-700 mb-1.5"
+                      for="university"
+                      >University</label
+                    >
+                    <input
+                      class="form-input block w-full rounded-md border-slate-300 shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)] sm:text-sm py-2.5 px-3.5"
+                      id="university"
+                      name="university"
+                      type="text"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      class="block text-sm font-medium text-slate-700 mb-1.5"
+                      for="graduationYear"
+                      >Graduation Year</label
+                    >
+                    <input
+                      class="form-input block w-full rounded-md border-slate-300 shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)] sm:text-sm py-2.5 px-3.5"
+                      id="graduationYear"
+                      name="graduationYear"
+                      type="text"
+                    />
+                  </div>
+                </div>
+              </section>
+              <section>
+                <h2
+                  class="text-xl font-semibold text-slate-800 mb-6 pb-2 border-b border-slate-200"
+                >
+                  Skills
+                </h2>
+                <div>
+                  <label
+                    class="block text-sm font-medium text-slate-700 mb-1.5"
+                    for="skills"
+                    >Skills (comma-separated)</label
+                  >
+                  <input
+                    class="form-input block w-full rounded-md border-slate-300 shadow-sm focus:border-[var(--primary-color)] focus:ring-[var(--primary-color)] sm:text-sm py-2.5 px-3.5"
+                    id="skills"
+                    name="skills"
+                    placeholder="e.g., HTML, CSS, JavaScript, React"
+                    type="text"
+                  />
+                </div>
+              </section>
+              <section>
+                <h2
+                  class="text-xl font-semibold text-slate-800 mb-6 pb-2 border-b border-slate-200"
+                >
+                  CV / Resume
+                </h2>
+                <!-- File Upload Box -->
+                <div
+                  class="mt-1 flex justify-center rounded-lg border-2 border-dashed border-slate-300 px-6 py-10"
+                >
+                  <div class="text-center">
+                    <!-- SVG Icon -->
+                    <svg
+                      aria-hidden="true"
+                      class="mx-auto h-12 w-12 text-slate-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 48 48"
+                    >
+                      <path
+                        d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      ></path>
+                    </svg>
+
+                    <!-- Text and Button -->
+                    <p id="selectedFileName" class="mt-2 text-sm text-slate-600"></p>
+                    <p class="mt-3 text-sm text-slate-600">
+                      <span class="font-semibold text-[var(--primary-color)]"
+                        >Upload a file</span
+                      >
+                      or drag and drop
+                    </p>
+                    <p class="text-xs text-slate-500">
+                      PDF, DOC, DOCX up to 10MB
+                    </p>
+
+                    <!-- Upload Button -->
+                    <button
+                      class="mt-4 rounded-md bg-[var(--primary-color)] px-3.5 py-2 text-sm font-semibold text-white shadow-sm hover:bg-opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary-color)]"
+                      type="button"
+                      id="uploadBtn"
+                    >
+                      Upload CV
+                    </button>
+
+                    <!-- Hidden File Input -->
+                    <input
+                      type="file"
+                      id="fileInput"
+                      accept=".pdf,.doc,.docx"
+                      hidden
+                    />
+                  </div>
+                </div>
+              </section>
+              <div class="flex justify-end pt-6 border-t border-slate-200">
+                <button
+                  class="rounded-md bg-[var(--primary-color)] px-6 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary-color)]"
+                  type="submit"
+                >
+                  Save Profile
+                </button>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script src="../jobJS/manageProfile.js" defer></script>
+    <script src="../jobJS/commonForAll.js" defer></script>
+  </body>
+</html>

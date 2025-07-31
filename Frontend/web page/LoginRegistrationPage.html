@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SyncUp</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playwrite+HR:wght@100..400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="LoginPageStyle.css">
+</head>
+<body class="main-body">
+    <form action="" id="loginForm">
+        <div class="login-div">
+            <p class="form-title">Login to <br>MyZone</p><br>
+            <div class="Name-div">
+                <i class="fa-solid fa-user login-userIcon"></i>
+                <input type="text" name="UserName" id="UserName" class="loginInput" placeholder=" UserName or Email" required><br><br>
+            </div>
+            <div class="Password-div">
+                <i class="fa-solid fa-lock login-passIcon"></i>
+                <input type="password" name="UserPassword" id="UserPassword" class="loginInput" placeholder=" Password" required><br><br>
+                <i class="fa-solid fa-eye login-showPass" id="login-showPass"></i>
+            </div>
+            <!-- <label for="Remember" class="RememberMe"><input type="checkbox"> Remember me </label>
+            <a class="forgetPass" href="#">Forget Password</a> <br> -->
+            
+            
+            <button type="submit" id="LoginButton" class="buttonStyle">Login</button><br>
+            <label class="registration" for="Registration">Don't have an account? <a id="RegistrationLink" href="#" style="font-weight: bold;">Registration</a></label><br>
+            <!-- <label class="login" for="login">Admin Login? <a id="admin" href="adminLogin.html">Admin</a></label> -->
+            
+        </div>
+    </form>
+    <form action="" id="registrationForm">
+        <div class="registration-div">
+            <p class="form-title">Welcome to <br>MyZone</p><br>
+            <div class="FullName-div">
+                <i class="fa-solid fa-user registration-userIcon"></i>
+                <input type="text" name="FullName" id="FullName" class="registrationInput" placeholder=" Full Name" required><br><br>
+            </div>
+            <div class="Name-div">
+                <i class="fa-solid fa-id-badge registration-userNameIcon"></i>
+                <input type="text" name="UserName" id="UserNameOfRegistration" class="registrationInput" placeholder=" User Name" required><br><br>
+            </div>
+            <div class="email-div">
+                <i class="fa-solid fa-envelope registration-emailIcon"></i>
+                <input type="email" name="email" id="email" class="registrationInput" placeholder=" email" required><br><br>
+            </div>
+            <div class="birth-div">
+                
+                <input type="date" name="dateOfBirth" id="dateOfBirth" class="dateOfBirth registrationInput"  required><br><br>
+            </div>
+            <div class="gender-div">
+                <label for="gender"><b>Gender: </b></label>
+                <input type="radio" name="gender" value="male" required><b>Male</b>
+                <input type="radio" name="gender" value="Female" required><b>Female</b>
+            </div><br>
+            <div class="profilePic-div">
+                
+                <label for="profilePic"><b>Choose Profile Photo:</b></label><br>
+                <input type="file" name="profilePic" id="profilePic" class="profilePic "><br><br>
+                <label for="coverPic"><b>Choose Cover Photo:</b></label><br>
+                <input type="file" name="coverPic" id="coverPic" class="profilePic "><br><br>
+            </div>
+            <div class="Password-div">
+                <i class="fa-solid fa-lock registration-passIcon1"></i>
+                <input type="password" name="UserPassword" id="UserPasswordOfRegistration"  class="registrationInput" placeholder=" Password" required><br><br>
+                <i class="fa-solid fa-eye registration-showPass1" id="registration-showPass1"></i>
+            </div>
+            <div class="ConfirmPassword-div">
+                <i class="fa-solid fa-lock registration-passIcon2"></i>
+                <input type="password" name="ConfirmPassword" id="ConfirmPassword"  class="registrationInput" placeholder=" Confirm Password" required><br><br>
+                <i class="fa-solid fa-eye registration-showPass2" id="registration-showPass2"></i>
+            </div>
+            <!-- <label for="Remember" class="RememberMe"><input type="checkbox"> Remember me </label> -->
+            <!-- <a class="forgetPass" href="#">Forget Password</a> <br> -->
+            
+            <button type="submit" id="RegistrationButton" class="buttonStyle">Registration</button><br>
+            <label class="login" for="login">Already have an account? <a id="loginLink" href="#" style="font-weight: bold;">Login</a></label><br>
+            <!-- <label class="login" for="login">Admin Login? <a id="admin" href="adminLogin.html">Admin</a></label> -->
+            
+        </div>
+    </form>
+    <!-- <script src="LoginScript.js"></script> -->
+    <script type="module" src="../registration.js"></script>
+    <!-- <script src="../node.js"></script> -->
+</body>
+</html>

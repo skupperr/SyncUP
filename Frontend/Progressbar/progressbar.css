@@ -1,0 +1,107 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    display: flex;
+    /* height: 100vh; */
+    /* align-items: center; */
+    justify-content: center;
+    font-family: "Plus Jakarta Sans", "Noto Sans", sans-serif;
+    background-color: #f3f4f6;
+
+}
+
+.showForAll{
+    display: flex;
+    margin-left: 200px;
+}
+.showText{
+    padding: 5px;
+    /* font-size: 20px; */
+}
+.btnShow{
+    margin-left: 20px;
+    background-color: black;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.mainProgress-div{
+    background-color: white;
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+    margin-top: 100px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    
+}
+.profile-div{
+    display: flex;
+    align-items: center;
+}
+.profilePic{
+    display: inline-block;
+    cursor: pointer;
+}
+.profile-div img{
+    width: 50px;
+    height: 50px;
+    border: 2px solid black;
+    border-radius: 50%;
+    
+}
+.profile-div .profileName{
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    
+}
+.progressBar-div{
+    margin-top: 10px;
+}
+.nameOfProgress{
+    font-size: 20px;
+    font-weight: 600;
+}
+.progressBar{
+    background-color: rgb(216, 216, 216);
+    border-radius: 7px;
+    margin-top: 5px;
+}
+.progressStatus{
+    background-color: rgb(0, 0, 0);
+    max-width: 100%;
+    /* width: 50%; */
+    border-radius: 7px;
+    text-align: center;
+    animation: progress 0.5s ease-in-out forwards;
+    opacity: 0;
+}
+
+@keyframes progress{
+    0%{
+        width: 0;
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.progressPercentage{
+    font-weight: bold;
+    color: white;
+}
+.addMoreProgress{
+    text-align: center;
+    margin-top: 20px;
+}
+.addMoreProgress i{
+    font-size: 30px;
+    cursor: pointer;
+}
+

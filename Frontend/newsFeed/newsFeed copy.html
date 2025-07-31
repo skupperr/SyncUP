@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feed</title>
+      <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/fontawesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link rel="stylesheet" href="../Profile_page/header.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="menuestyle copy.css">
+</head>
+
+<body id="body">
+    <section class="menuSection">
+        <div class="logo-div">
+            <div>
+                <a href="">MyZone</a>
+            </div>
+
+            <div class="menuIcon">
+                <button onclick="showMenu()" id="showMenuButton">=</button>
+            </div>
+
+        </div>
+        <nav class="nav-div" id="nav-div">
+            <div class="inner-navDiv">
+                <div class="profileArea">
+                    <img id="user-profile-pic" src="" alt="">
+                    <label id="user-profile-name" class="profileName" for="ProfileName"></label>
+                    <label id="user-profile-username" class="userName" for="userName"></label>
+                    <div class="buttonArea">
+                        <button type="submit" id="goToProfilefromNewsFeed" class="c"><a
+                                href="../Profile_page/user_Profile.html">Profile</a></button>
+                        <button type="submit" id="logout" class="Logout">Logout</button>
+                    </div>
+                </div>
+                <div class="mainManue-div menueStyle">
+                    <label for=""><b>Main Menu</b></label>
+                    <!-- <a href="../messenger/messenger.html">Massage</a> -->
+                    <a href="../chat">Message</a>
+                    <a href="../timer/notification.html">Set Notification</a>
+                    <a href="location.html">Location</a>
+                    <a href="../Progressbar/progressbar.html">Activity Tracker</a>
+                </div>
+                <div class="Explore-div menueStyle">
+                    <label for=""><b>Explore</b></label>
+                    <!-- <a href="../Marketplace1/marketplace_browse.html">Market Place1</a> -->
+                    <a href="../Marketplace">Marketplace</a>
+                    <!-- <a href="../Job/job_browse.html">Jobs</a> -->
+                </div>
+
+                <a style="text-decoration: none; color: black;" href="../Report_problem/report_problem.html">
+                    <label for=""><b>Report a problem</b></label>
+                </a>
+            </div>
+        </nav>
+    </section>
+
+
+
+
+    <div class="feedSectionBar">
+        <!-- <div class="extraForFilter"> -->
+        <header class="headerDiv fixedHeader">
+
+            <div class="feedsLabel sameForHeader">Feeds</div>
+            <div class="searchDiv sameForHeader">
+                <i class="fa-solid fa-magnifying-glass searchIcon"></i>
+                <input type="search" id="search-profile" placeholder="Search" oninput="searching()">
+
+            </div>
+            <div class="catagories">
+                <div class="recent sameForCatagories"><a href="">Recent</a></div>
+                <div class="friends sameForCatagories"> <a href="javascript:void(0)" onclick="filterFriendsPosts()"></a></div>
+                <div class="popular sameForCatagories"><a href=""></a></div>
+
+                <div class="FilterIcon-div">
+                    <i onclick="showFilter()" class="fa-solid fa-filter filterIcon" id="filterIcon"></i>
+                </div>
+            </div>
+        </header>
+        <div class="search-dropdown-1" id="search-dropdown-id" style="display: none;"></div>
+
+        <!-- <ul id="ulList" class="ulList">
+            <li><input type="checkbox" name="study" id="study"><label for="study">Education and Informative</label></li>
+            <li><input type="checkbox" name="study" id="study"><label for="study">Technology</label></li>
+            <li><input type="checkbox" name="study" id="study"><label for="study">Sports</label></li>
+            <li><input type="checkbox" name="study" id="study"><label for="study">Politics</label></li>
+            <li><input type="checkbox" name="study" id="study"><label for="study">Music</label></li>
+            <li><input type="checkbox" name="study" id="study"><label for="study">Movies or TV shows</label></li>
+            <li><input type="checkbox" name="study" id="study"><label for="study">Food</label></li>
+            <li><input type="checkbox" name="study" id="study"><label for="study">Business</label></li>
+            <li><input type="checkbox" name="study" id="study"><label for="study">memes and humor</label></li>
+            <li><button>Filter</button></li>
+
+        </ul> -->
+        <ul id="ulList" class="ulList">
+            <li><input type="checkbox" name="category" value="Education and Informative" id="education"><label for="education">Education and Informative</label></li>
+            <li><input type="checkbox" name="category" value="Technology" id="technology"><label for="technology">Technology</label></li>
+            <li><input type="checkbox" name="category" value="Sports" id="sports"><label for="sports">Sports</label></li>
+            <li><input type="checkbox" name="category" value="Politics" id="politics"><label for="politics">Politics</label></li>
+            <li><input type="checkbox" name="category" value="Music" id="music"><label for="music">Music</label></li>
+            <li><input type="checkbox" name="category" value="Movies or TV shows" id="movies"><label for="movies">Movies or TV shows</label></li>
+            <li><input type="checkbox" name="category" value="Food" id="food"><label for="food">Food</label></li>
+            <li><input type="checkbox" name="category" value="Business" id="business"><label for="business">Business</label></li>
+            <li><input type="checkbox" name="category" value="memes and humor" id="memes"><label for="memes">Memes and humor</label></li>
+            <li><button onclick="applyFilters()">Filter</button></li>
+        </ul>
+        
+
+        
+
+        <!-- </div> -->
+        <div class="myPostSection">
+            <div class="myPostTop">
+                <div class="myPic">
+                    <img src="" alt="" id="myPostPic">
+                </div>
+                <div class="postText">
+                    <!-- <input type="text" id="myPostText" placeholder="what's new"> -->
+                    <textarea name="myPostText" id="myPostText" placeholder="What's New?"></textarea>
+
+                </div>
+            </div>
+            <div class="myPostBottom">
+                <div class="myFile">
+                    <label for="file">File</label>
+                    <input type="file" multiple>
+
+                    <select name="whoCanSee" id="privacy-option">
+                        <option value="public">Public</option>
+                        <option value="friends">Friends</option>
+                        <option value="private">Privet</option>
+                    </select>
+                    <select name="catagory-name" id="category-option" required>
+                        <option value="">--Select a category--</option>
+                        <option value="Education and Informative">Education and Informative</option>
+                        <option value="Technology">Technology</option>
+                        <option value="Games">Games</option>
+                        <option value="Sports">Sports</option>
+                        <option value="Music">Music</option>
+                        <option value="Politics">Politics</option>
+                        <option value="Movies or TV shows">Movies or TV shows</option>
+                        <option value="Lifestyle">Lifestyle</option>
+                        <option value="Food">Food</option>
+                        <option value="Business">Business</option>
+                        <option value="memes and humor">memes and humor</option>
+                    </select>
+
+
+                </div>
+                <div class="postButton">
+                    <button type="submit" onclick="submitPost()" id="postSubmitButton">Post</button>
+                </div>
+
+            </div>
+        </div>
+        <div class="fullFeedsArea" id="fullFeedsArea">
+            <div class="feedSectionMain">
+                <!-- <div class="feedSection">
+                
+                    <div class="feedsHeader">
+                        <div class="feedsProfile">
+                            <img src="ProfilePic.jpg" alt="" id="ownerPic">
+                            <div class="nameAndTime">
+                                <div class="feedOwnerName">Md.Rifat Hossain</div>
+                                <div class="feedsTime">Time and Date</div>
+                            </div>
+                            
+                        </div>
+
+                        <div style="position: relative;" class="feedsMenu">
+                            <div class="report-class">
+                                Report Post
+                            </div>
+                            <button >:</button>
+                        </div>
+                        
+                    </div>
+                    <div class="feedsMediaReaction">
+                        <div class="feedsArea">
+                            <details>
+                                <summary id="feedsTitle">New Story!!</summary>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure voluptas unde atque hic ut quaerat adipisci dignissimos voluptates quas, error dolorem officia nam facere consequuntur neque accusamus. Sapiente, consequuntur corporis?</p>
+                            </details>
+                        </div>
+                        
+                        <section class="container">
+                            <div class="slider-wrapper">
+                                <div class="slider">
+                                    <img id="slide-1" src="https://images.unsplash.com/photo-1656464868371-602be27fd4c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80" alt="3D rendering of an imaginary orange planet in space" />
+                                    <img id="slide-2" src="https://images.unsplash.com/photo-1657586640569-4a3d4577328c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80" alt="3D rendering of an imaginary green planet in space" />
+                                    <img id="slide-3" src="https://images.unsplash.com/photo-1656077217715-bdaeb06bd01f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80" alt="3D rendering of an imaginary blue planet in space" />
+                                    <video id="slide-4" controls muted loop>
+                                        <source src="../Facebook_6.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                                <div class="slider-nav">
+                                    <a href="#slide-1"></a>
+                                    <a href="#slide-2"></a>
+                                    <a href="#slide-3"></a>
+                                    <a href="#slide-4"></a>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <div class="feedsMediaArea"></div>
+                        <div class="feedReactionCount">
+                            <div class="likeComment">
+                                
+                                <div class="feedsLike reactionArea">
+                                    <div style="text-align: center;margin-left: 10px;">0</div>
+                                
+                                </div>
+                                <div class="feedsLike reactionArea">
+                                    <div style="text-align: center;margin-left: 20px;">0</div>
+                                
+                                </div>
+                                <div class="feedsComment reactionArea">
+                                    <div style="text-align: center;margin-left: 20px;">0</div>
+                                    
+                                </div>
+                            </div>
+                            <div class="shareSave">
+                                <div class="share reactionArea">
+                            
+                                </div>
+                                <div class="save reactionArea">
+                                
+                                </div>
+                            </div>
+                        </div>
+                        <div class="feedReactionArea">
+                            <div class="likeComment">
+                                
+                                <div class="feedsLike reactionArea">
+                                    
+                                    <i class="fa-regular fa-thumbs-up likeIcon"></i>
+                                </div>
+                                <div class="feedsLike reactionArea">
+                                    
+                                    <i class="fa-regular fa-thumbs-down dislikeIcon"></i>
+                                </div>
+                                <div class="feedsComment reactionArea">
+                                    
+                                    <i class="fa-regular fa-comment commentIcon"></i>
+                                </div>
+                            </div>
+                            <div class="shareSave">
+                                <div class="share reactionArea">
+                                    <i class="fa-solid fa-share shareIcon"></i>
+                                </div>
+                                <div class="save reactionArea">
+                                    <i class="fa-regular fa-bookmark saveIcon"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>     -->
+            </div>
+
+
+        </div>
+
+    </div>
+
+    
+    <div class="eventsAndSuggetion">
+        <div class="stories-div">
+            <div class="storiesLabel">Stories</div>
+            <div class="allStories">
+                <!-- <div class="story1 storyStyle"></div>
+                <div class="story2 storyStyle"></div>
+                <div class="story3 storyStyle"></div> -->
+            </div>
+        </div>
+        <div id="notificaations" class="upComingEvent">
+            <div class="eventLabel">Notifications</div>
+            <!-- <div class="notification-class">
+                <div style="font-size: 15px;">12:30</div>
+                <div>Ahmed sent you a friend request</div>
+            </div> -->
+        </div>
+        <div class="suggetions">
+            <div class="suggetionLabel">Suggestion</div>
+        </div>
+    </div>
+    <script src="../newsFeed.js"></script>
+    <script src="../searching_profile.js"></script>
+
+    <!-- <script src="../fileUpload.js"></script> -->
+</body>
+
+</html>

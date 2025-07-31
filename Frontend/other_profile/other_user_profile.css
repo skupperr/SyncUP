@@ -1,0 +1,33 @@
+.friendsAndFollowing{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.friendsAndFollowingbtn{
+    background-color: black;
+    color: white;
+    width: 120px;
+    font-size: 18px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin: 15px;
+    border-style: solid;
+    border-width: 0px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.friendsAndFollowingbtn:hover{
+    background-color: rgb(25, 25, 25);
+}
+
+.report-class{
+    position: absolute;
+    background-color: rgb(207 207 207);
+    right: 35px;
+    width: 100px;
+    top: 7px;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}

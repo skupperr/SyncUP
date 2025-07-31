@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin panel</title>
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+    
+</head>
+<body>
+    <div class="main-div">
+        <div class="main-menueDiv">
+            <div class="LogoDiv">
+                MyZone
+            </div>
+            <div class="dashboardbtnDiv changeBtnColor" id="dashboardBtnDiv">Dashboard</div>
+            <div class="userBtnDiv" id="userBtnDiv">User</div>
+            <div class="postBtnDiv" id="postBtnDiv">Post</div>
+            <div class="postBtnDiv" id="prblmReporBtntDiv">User Problem Report</div>
+            <div class="postBtnDiv" id="postReporBtntDiv">Post Report</div>
+            <!-- <div class="postBtnDiv" id="postReportDiv">Post Report</div> -->
+        </div>
+        <div class="forSpecificSection">
+            <div class="forDashboard" id="forDashboard" style="display: block;">
+                <div id="chart"></div> 
+            </div>
+            <div class="forUser" id="forUser" style="display: none;">
+                <div class="searchDivWithIcon">
+                    <i class="fa-solid fa-magnifying-glass searchIcon"></i>
+                    <input type="text" name="adminSearchUser" id="adminSearchUser" placeholder="search by userID">
+                </div>
+                
+                <div id="displayTotalUser"><h1>Total: 0</h1></div>
+                <div class="userListMainDiv" id="userListMainDiv">
+                    <!-- <div class="userListForAdmin">
+                        <div class="users_List">hello</div>
+                        <div class="users_List">hello</div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="forPost" id="forPost" style="display: none;">
+                <div class="searchDivWithIcon">
+                    <i class="fa-solid fa-magnifying-glass searchIcon"></i>
+                    <input type="text" name="adminSearchPost" id="adminSearchPost" placeholder="search by postID">
+                </div>
+                
+                <div id="displayTotalPost"><h1>Total: 0</h1></div>
+                <div class="postListMainDiv" id="postListMainDiv">
+                    <div class="postListForAdmin">
+                        <!-- <div class="post_List">hello</div>
+                        <div class="post_List">hello</div> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="forPost" id="forPrblmReport" style="display: none;">
+                <div class="searchDivWithIcon">
+                    <i class="fa-solid fa-magnifying-glass searchIcon"></i>
+                    <input type="text" name="adminSearchProblem" id="adminSearchProblem" placeholder="search by reportID">
+                </div>
+                
+                <div id="displayTotalProblem"><h1>Total: 0</h1></div>
+                <div class="problemListMainDiv" id="problemListMainDiv">
+                    <div class="problemListForAdmin">
+                        <!-- <div class="problem_List">hello</div> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="forPost" id="forPostReport" style="display: none;">
+                <div class="searchDivWithIcon">
+                    <i class="fa-solid fa-magnifying-glass searchIcon"></i>
+                    <input type="text" name="adminSearchPostReport" id="adminSearchPostReport" placeholder="search by postID">
+                </div>
+                
+                <div id="displayTotalPostReport"><h1>Total: 0</h1></div>
+                <div class="postReportListMainDiv" id="postReportListMainDiv">
+                    <div class="postReportListForAdmin">
+                        <!-- <div class="post_List">hello</div>
+                        <div class="post_List">hello</div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="admin.js"></script>
+    <!-- <script src="userListforAdmin.js"></script> -->
+    <!-- <script src="chart.js"></script> -->
+</body>
+</html>

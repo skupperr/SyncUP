@@ -1,0 +1,424 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link
+      as="style"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+      onload="this.rel='stylesheet'"
+      rel="stylesheet"
+    />
+    <title>SyncUp</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+      :root {
+        --primary-color: #0c7ff2;
+        --primary-hover-color: #0069d9;
+        --primary-text-color: #ffffff;
+        --secondary-text-color: #4b5563;
+        --background-color: #f9fafb;
+        --card-background-color: #ffffff;
+        --border-color: #e5e7eb;
+        --heading-color: #111827;
+      }
+      .btn-primary {
+        @apply bg-[var(--primary-color)] text-[var(--primary-text-color)] hover:bg-[var(--primary-hover-color)] transition-colors duration-300;
+      }
+      .text-primary {
+        @apply text-[var(--primary-color)];
+      }
+      .border-primary {
+        @apply border-[var(--primary-color)];
+      }
+    </style>
+  </head>
+  <body
+    class="bg-[var(--background-color)]"
+    style="font-family: Inter, 'Noto Sans', sans-serif"
+  >
+    <div
+      class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden"
+    >
+      <div class="layout-container flex h-full grow flex-col">
+        <header
+          class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[var(--border-color)] px-6 sm:px-10 py-4 bg-[var(--card-background-color)] shadow-sm"
+        >
+          <div class="flex items-center gap-8">
+            <!-- <a
+              class="flex items-center gap-3 text-[var(--heading-color)]"
+              href="#"
+            >
+              <div class="size-6 text-[var(--primary-color)]">
+                <svg
+                  fill="none"
+                  viewBox="0 0 48 48"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+              </div>
+              <h2 class="text-xl font-bold leading-tight tracking-tight">
+                CareerConnect
+              </h2>
+            </a> -->
+            <a href="../newsFeed/newsFeed.html">
+              <div class="flex items-center gap-4 text-[#1b0e0e]">
+                  <div class="size-4">
+                      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z" fill="currentColor"></path>
+                      </svg>
+                  </div>
+                  <h2 class="text-[#1b0e0e] text-lg font-bold leading-tight tracking-[-0.015em]">SyncUP</h2>
+              </div>
+          </a>
+            <nav class="hidden md:flex items-center gap-6">
+              <a
+                id="jobHomePage"
+                class="text-[var(--primary-color)] text-sm font-semibold leading-normal"
+                href="#"
+                >Home</a
+              >
+              <a
+                id="jobSearchSection"
+                class="text-[var(--secondary-text-color)] hover:text-[var(--primary-color)] text-sm font-medium leading-normal transition-colors"
+                href="#"
+                >Jobs</a
+              >
+              <a
+                id="jobStatusLink"
+                class="text-[var(--secondary-text-color)] hover:text-[var(--primary-color)] text-sm font-medium leading-normal transition-colors"
+                href="#"
+                >Job Status</a
+              >
+              <a
+                id="jobManagePost"
+                class="text-[var(--secondary-text-color)] hover:text-[var(--primary-color)] text-sm font-medium leading-normal transition-colors"
+                href="#"
+                >Manage Posted Job</a
+              >
+              <a
+                class="text-[var(--secondary-text-color)] hover:text-[var(--primary-color)] text-sm font-medium leading-normal transition-colors"
+                href="#"
+                >Career Advice</a
+              >
+            </nav>
+          </div>
+          <div class="flex items-center gap-4">
+            <button
+              id="postJobBtn"
+              class="hidden sm:flex min-w-[100px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 btn-primary text-sm font-semibold leading-normal tracking-wide"
+            >
+              <span class="truncate">Post a Job</span>
+            </button>
+            <div
+              id="profileImage"
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-[var(--primary-color)] shadow-sm"
+              style="
+                background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB5Fm1X8jE_BRrI3UtlD_sAEfpGicyR5mIfwGoSpYJdswpCu37H5MFZLy420BVJMU9mHI9QlMN6GMUlEE8-7iRNn33UHttJn6C1fb84AKg1CeyTQn83xyfjk2gs1DQFl6W2-bqLlCu3f5WmjhNkRj4u-IQ_xONbzdARkb9bmKmuQoNivSMcM8rnSiCPvYhBbodu8LNVJ_ZGdI93hCPjTa0_b_aa_PjGTBWZnVxfn88pJ3sNaeugvOefVEj0BhQG2YkLwHy2V_TwwA');
+              "
+            ></div>
+            <button class="md:hidden text-[var(--secondary-text-color)]">
+              <svg
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <line x1="3" x2="21" y1="12" y2="12"></line>
+                <line x1="3" x2="21" y1="6" y2="6"></line>
+                <line x1="3" x2="21" y1="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+        </header>
+        <main class="flex flex-1 justify-center py-8 px-4 sm:px-6 lg:px-8">
+          <div class="layout-content-container flex flex-col max-w-6xl flex-1">
+            <div class="@container">
+              <div class="@[480px]:p-0">
+                <div
+                  class="flex min-h-[400px] md:min-h-[500px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 rounded-xl items-center justify-center p-6 text-center shadow-lg"
+                  style="
+                    background-image: linear-gradient(
+                        rgba(0, 0, 0, 0.4) 0%,
+                        rgba(0, 0, 0, 0.6) 100%
+                      ),
+                      url('https://lh3.googleusercontent.com/aida-public/AB6AXuCgJol9pMjzQcWiNU9wd1IwC4QZG5DWUeEHsXmrM7xnuz1oMbn-tw3AQpy5it4jwwYZXdLweqzeljaSEvseO-_5Lh2GXbthyZ3ggzXydIr27FK4w7lqZB25aYPLBULVl0M9VY7NLsGa8MlQzYAgC9EaVCnP4MojV-hp-QS4j7kHQ8bXZhBlLnrZol2US7uTA8GvEeJ3p4dLRCv0HDuKvOU1Z67fePMZRogMYVW0drH3j9BKEWga8kUPt364Grj0QScgv-tcXfh69g');
+                  "
+                >
+                  <div class="flex flex-col gap-3">
+                    <h1
+                      class="text-white text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight tracking-tight"
+                    >
+                      Find The Job That Fits Your Life
+                    </h1>
+                    <p
+                      class="text-gray-200 text-sm sm:text-base md:text-lg font-normal leading-relaxed max-w-2xl mx-auto"
+                    >
+                      Millions of people are searching for jobs, salary
+                      information, company reviews, and interview questions. See
+                      what others are saying about the best places to work.
+                    </p>
+                  </div>
+                  <form
+                    class="flex flex-col sm:flex-row items-center gap-3 w-full max-w-xl mt-4"
+                    onsubmit="redirectToJobSearch(event)"
+                  >
+                    <div class="relative flex-grow w-full sm:w-auto">
+                      <div
+                        class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400"
+                      >
+                        <svg
+                          fill="currentColor"
+                          height="20px"
+                          viewBox="0 0 256 256"
+                          width="20px"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
+                          ></path>
+                        </svg>
+                      </div>
+                      <input
+                        id="searchInput"
+                        class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[var(--heading-color)] focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] border border-[var(--border-color)] bg-[var(--card-background-color)] h-12 sm:h-14 placeholder:text-[var(--secondary-text-color)] px-4 pl-10 text-sm sm:text-base font-normal leading-normal"
+                        placeholder="Job title, keywords, or company"
+                        type="search"
+                      />
+                    </div>
+                    <button
+                      class="flex w-full sm:w-auto min-w-[100px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 sm:h-14 px-6 btn-primary text-sm sm:text-base font-semibold leading-normal tracking-wide"
+                      type="submit"
+                    >
+                      <span class="truncate">Search</span>
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <section class="py-8 sm:py-12">
+              <h2
+                class="text-[var(--heading-color)] text-2xl sm:text-3xl font-bold leading-tight tracking-tight px-4 mb-6"
+              >
+                Featured Jobs
+              </h2>
+              <div
+                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4"
+              >
+                <div
+                  class="flex flex-col gap-4 rounded-lg bg-[var(--card-background-color)] shadow-md overflow-hidden transition-all hover:shadow-xl"
+                >
+                  <div
+                    class="w-full bg-center bg-no-repeat aspect-video bg-cover"
+                    style="
+                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDQ81Q0iRovihmSeIDpeBJmW1k1ZpdXItjEl8ud0GOf7OAGSMc6jN7s1shR2OZNY_7-FrMsOcgmgdz8CaxSSIyEWk0U1O1_hZxHpqHGJkTKxFa5huCDpW0pgvRX8sYv3xCukTHwemEiZtLRSP3iBkTQsSBomciPiqZAMifmc3EmFH7MRP0X_vw-TkjGlDG5jV5j9U9c6DKUxH-pWefDY3-BEOhdV0Q7mqrJ4Niu57hs2gOuUTObci9Km2wgtILiI35Cx9niqJxVrQ');
+                    "
+                  ></div>
+                  <div class="p-4">
+                    <h3
+                      class="text-[var(--heading-color)] text-lg font-semibold leading-normal"
+                    >
+                      Software Engineer
+                    </h3>
+                    <p
+                      class="text-[var(--secondary-text-color)] text-sm font-normal leading-normal"
+                    >
+                      Tech Innovations Inc. - San Francisco, CA
+                    </p>
+                    <a
+                      class="inline-block mt-3 text-[var(--primary-color)] hover:underline text-sm font-medium"
+                      href="#"
+                      >View Details →</a
+                    >
+                  </div>
+                </div>
+                <div
+                  class="flex flex-col gap-4 rounded-lg bg-[var(--card-background-color)] shadow-md overflow-hidden transition-all hover:shadow-xl"
+                >
+                  <div
+                    class="w-full bg-center bg-no-repeat aspect-video bg-cover"
+                    style="
+                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDv4XzblMyFhEn8NheJF0LQzzS5-LNvyWry1DUfMN4jFYp-HkpH7UavMUOjB98XTQL21RlouwGuzzn6w5eG4geMpF-ckdKszD4Y_UCI9fLZXbSzhs-TkSfwf5iyxwqbH0ELVYhAIU3qsc5JuJAB_UcGCbsn4bQI8b4UhX13V1SmgYHagQBY2XpFLIi5FhJcgjaFVyJ2JHNEnT92HEUkxYHm_l5i4_MQvCdpF7vclnOpQBuIAuT27pQXCgSx__l-x3z_Fje-rDzynA');
+                    "
+                  ></div>
+                  <div class="p-4">
+                    <h3
+                      class="text-[var(--heading-color)] text-lg font-semibold leading-normal"
+                    >
+                      Marketing Manager
+                    </h3>
+                    <p
+                      class="text-[var(--secondary-text-color)] text-sm font-normal leading-normal"
+                    >
+                      Global Marketing Solutions - New York, NY
+                    </p>
+                    <a
+                      class="inline-block mt-3 text-[var(--primary-color)] hover:underline text-sm font-medium"
+                      href="#"
+                      >View Details →</a
+                    >
+                  </div>
+                </div>
+                <div
+                  class="flex flex-col gap-4 rounded-lg bg-[var(--card-background-color)] shadow-md overflow-hidden transition-all hover:shadow-xl"
+                >
+                  <div
+                    class="w-full bg-center bg-no-repeat aspect-video bg-cover"
+                    style="
+                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAqV-NLBKKZHRAoii6kS9rubdFQGUkd8Okz2QsfKVfWrdDTjBks6-8R4uK-BHmwA5iWUeWrtNGNMA4rhfodUD95QfEIWw327SK_fJieawrIKIvYwda41M4pTauPLRkKPipJpgHJtpJV6AllUawVZlUbJ7-MXJGRFmSlmjVo3Y6O3eXG_cG-n_p-d1Z3YyOxHIiKb7Mw7MyYNGPqrUzWq7XShuBTyfXPYI0f90nQIw2mLn1akG4Qv-ODcxvl_G1pZJvI48E2RQ71vA');
+                    "
+                  ></div>
+                  <div class="p-4">
+                    <h3
+                      class="text-[var(--heading-color)] text-lg font-semibold leading-normal"
+                    >
+                      Product Designer
+                    </h3>
+                    <p
+                      class="text-[var(--secondary-text-color)] text-sm font-normal leading-normal"
+                    >
+                      Creative Minds Agency - Los Angeles, CA
+                    </p>
+                    <a
+                      class="inline-block mt-3 text-[var(--primary-color)] hover:underline text-sm font-medium"
+                      href="#"
+                      >View Details →</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section class="py-8 sm:py-12">
+              <h2
+                class="text-[var(--heading-color)] text-2xl sm:text-3xl font-bold leading-tight tracking-tight px-4 mb-6"
+              >
+                Browse Job Categories
+              </h2>
+              <div
+                class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 p-4"
+              >
+                <a
+                  class="group flex flex-col items-center gap-3 pb-3 text-center rounded-lg hover:bg-gray-100 p-3 transition-all"
+                  href="#"
+                >
+                  <div
+                    class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg shadow-sm group-hover:shadow-md transition-shadow"
+                    style="
+                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBy6dnTuLYhUVOfx4lN-7FcQJFFWc7FF0yn6yAec4EB09J5QVDl2UrCF7wXUGuZ85JcVpWXiHZ4ukLoGWBlW25vI0M7WaZBo3mGPPpxzCCTAB7v6GqOTSPkKPWx0y0425rp8uK1mlTK1iEUxavFbR11-z2NmTuRhvloZG6KnfcxxW5KTxlAypBdfoH5CSe6e08cWo4Ax7GHpAnbQmbEKCCjCkgqvf5vw6ly_N0vRfGlkXBHLfC_kTTcaHHFXY1YPYoXjwkhtOzmtQ');
+                    "
+                  ></div>
+                  <p
+                    class="text-[var(--heading-color)] text-base font-medium leading-normal group-hover:text-[var(--primary-color)] transition-colors"
+                  >
+                    Technology
+                  </p>
+                </a>
+                <a
+                  class="group flex flex-col items-center gap-3 pb-3 text-center rounded-lg hover:bg-gray-100 p-3 transition-all"
+                  href="#"
+                >
+                  <div
+                    class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg shadow-sm group-hover:shadow-md transition-shadow"
+                    style="
+                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDh95OlmnrDceTVO7huhRuLn6QvB2k9mZGgW8qEYdN8ALfgjDEZEGf7Yp6L28SavnGliUcFs3qNrCXsQEmys-ZFzG8HwcBWKaRg4Qsc-VuizpP2BUzH1ag4gv9ojc5TQ2K7AcRm3ku9cG04x-U7ucI8vvrNaljXg_Kj1fjXSeWR_1GljW-aXZnVnx-863masC2dTP0FFuU60C2WqF1tYs_HEz39pPrJ_c1_aPCQHasMmod-8NegonJkWy2Eb30EEjwCjEQpURj_5Q');
+                    "
+                  ></div>
+                  <p
+                    class="text-[var(--heading-color)] text-base font-medium leading-normal group-hover:text-[var(--primary-color)] transition-colors"
+                  >
+                    Healthcare
+                  </p>
+                </a>
+                <a
+                  class="group flex flex-col items-center gap-3 pb-3 text-center rounded-lg hover:bg-gray-100 p-3 transition-all"
+                  href="#"
+                >
+                  <div
+                    class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg shadow-sm group-hover:shadow-md transition-shadow"
+                    style="
+                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAneVKrDw8YoQkJibsx4RSctgvrxG3yGJGKEW_PSZkn9HcnFyrYe3HRvBsboeYarmVkgFl6vEIhrfT1gZ_y0UsQFeLwzef5DE9XoXbkcoRZRji_OvsIat2PmZqdWc1fwa-SP2ZOF9TVRLG_Dx8I9gkNW_Y41meX2nUjYGsUc8YdgEIHL6nq_du7gpmIHUTmIrhwrEXCC640Lt1D9HkbpoZlUZpNZB9zurFbj2rYwUFzFjEay3_Pw2NjfAuWQgIMk9s49RAuqecHGw');
+                    "
+                  ></div>
+                  <p
+                    class="text-[var(--heading-color)] text-base font-medium leading-normal group-hover:text-[var(--primary-color)] transition-colors"
+                  >
+                    Finance
+                  </p>
+                </a>
+                <a
+                  class="group flex flex-col items-center gap-3 pb-3 text-center rounded-lg hover:bg-gray-100 p-3 transition-all"
+                  href="#"
+                >
+                  <div
+                    class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg shadow-sm group-hover:shadow-md transition-shadow"
+                    style="
+                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBLSHcbEUtp5HhfzmjabGf8NZupRFmSyyPj2Ao7jzphiV0g5cly7mYcumfprPcjXGis0LfkQGGy4_Hbf27vcab8BEGlMbGmOQK8fPhebz6LhWXBaTyZPCymoCith5k-2H-gcw-u4in5RbADkP3HtTBWcl_e61S0Vrj0UqJmJ43IA8kPVtLTCmbfT9y3-m0KoU7yBclwSaXPilf-rp86m5lRuDfRbmEj8SGsGz6JF7hN79at0QJv_cPguP4S_RvgNOcPDnBMHVMBOw');
+                    "
+                  ></div>
+                  <p
+                    class="text-[var(--heading-color)] text-base font-medium leading-normal group-hover:text-[var(--primary-color)] transition-colors"
+                  >
+                    Education
+                  </p>
+                </a>
+                <a
+                  class="group flex flex-col items-center gap-3 pb-3 text-center rounded-lg hover:bg-gray-100 p-3 transition-all"
+                  href="#"
+                >
+                  <div
+                    class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg shadow-sm group-hover:shadow-md transition-shadow"
+                    style="
+                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC6WJXHWRuWCdxJCwzh_CAd-5rkyfZctgSmLhafEnLg2UqEc2XTEyNUP7ASxTXA_OgvSH0NsQgtZw8xxciLfcXcHSrsBmuc4V1dj6pBF46yJNrXdEsongLpSBqEkRe0PysQLdmbA1o2ZHoeu_fj6sk4bUBCIh35xvt06GWrFZKEhtfdMeSDn7zqvKCvSG6d2mN0SptsNdyEb9BTCfaEiOuojl-IlH0KBfUuTKJN1AbA3JZIraodJd0H8CfqzJGgXz2p-vhwA4mBYQ');
+                    "
+                  ></div>
+                  <p
+                    class="text-[var(--heading-color)] text-base font-medium leading-normal group-hover:text-[var(--primary-color)] transition-colors"
+                  >
+                    Retail
+                  </p>
+                </a>
+                <a
+                  class="group flex flex-col items-center gap-3 pb-3 text-center rounded-lg hover:bg-gray-100 p-3 transition-all"
+                  href="#"
+                >
+                  <div
+                    class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg shadow-sm group-hover:shadow-md transition-shadow"
+                    style="
+                      background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBMdNfHE6RzieFFg-T6hWXWDO0WNX_7TsrJlQr6DpHgmdY2ELOCBVBJYuilxXkKJZna-ysm37lcipBoNn33yrJge3a3bQDHPQfw8WonTz0n03bqiak0fiWHc9i0awNkFX7e-nqpXCEASHcV9il5C5Y8ixQp4hUKVoxLP9dtjANXDygRVm5AJJRt1VKmR3DlU9bwSvjdFBuVzn1sbloZDJjPf73Xkp6xv7kRZ1H-q_jqMAXGt2zNKS8Xcg0N1I7LeQMzKX_tCBanxg');
+                    "
+                  ></div>
+                  <p
+                    class="text-[var(--heading-color)] text-base font-medium leading-normal group-hover:text-[var(--primary-color)] transition-colors"
+                  >
+                    Hospitality
+                  </p>
+                </a>
+              </div>
+            </section>
+          </div>
+        </main>
+        <footer
+          class="bg-[var(--card-background-color)] border-t border-[var(--border-color)] py-8 text-center"
+        >
+          <p class="text-[var(--secondary-text-color)] text-sm">
+            © 2024 CareerConnect. All rights reserved.
+          </p>
+        </footer>
+      </div>
+    </div>
+
+
+    <script src="../jobJS/JobScript.js"></script>
+    <script src="../jobJS/commonForAll.js"></script>
+  </body>
+</html>

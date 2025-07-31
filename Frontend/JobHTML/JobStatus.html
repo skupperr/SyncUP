@@ -1,0 +1,360 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link
+      as="style"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B600%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+      onload="this.rel='stylesheet'"
+      rel="stylesheet"
+    />
+    <title>SyncUp</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+      :root {
+        --primary-color: #0c7ff2;
+        --secondary-color: #6b7280;
+        --background-color: #f9fafb;
+        --border-color: #e5e7eb;
+        --card-background-color: #ffffff;
+        --text-primary-color: #111827;
+        --text-secondary-color: #4b5563;
+        --status-submitted-bg: #e0f2fe;
+        --status-submitted-text: #0ea5e9;
+        --status-review-bg: #fef9c3;
+        --status-review-text: #eab308;
+        --status-rejected-bg: #fee2e2;
+        --status-rejected-text: #ef4444;
+        --status-accepted-bg: #dcfce7;
+        --status-accepted-text: #22c55e;
+        --status-processing-bg: #fff7cc;
+        --status-processing-text: #b19700;
+      }
+      body {
+        font-family: "Inter", "Noto Sans", sans-serif;
+      }
+      .status-badge {
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        text-align: center;
+        white-space: nowrap;
+      }
+    </style>
+  </head>
+  <body class="bg-[var(--background-color)]">
+    <div
+      class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden"
+    >
+      <div class="layout-container flex h-full grow flex-col">
+        <header
+          class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[var(--border-color)] bg-[var(--card-background-color)] px-6 lg:px-10 py-4 shadow-sm"
+        >
+          <div class="flex items-center gap-6 lg:gap-8">
+            <div class="flex items-center gap-3 text-[var(--primary-color)]">
+              <a href="../newsFeed/newsFeed.html">
+                <div class="flex items-center gap-4 text-[#1b0e0e]">
+                    <div class="size-4">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z" fill="currentColor"></path>
+                        </svg>
+                    </div>
+                    <h2 class="text-[#1b0e0e] text-lg font-bold leading-tight tracking-[-0.015em]">SyncUP</h2>
+                </div>
+            </a>
+            </div>
+            <nav class="hidden md:flex items-center gap-6">
+              <a
+                id="jobHomePage"
+                class="text-[var(--secondary-text-color)] hover:text-[var(--primary-color)] text-sm font-medium leading-normal transition-colors"
+                href="#"
+                >Home</a
+              >
+              <a
+                id="jobSearchSection"
+                class="text-[var(--secondary-text-color)] hover:text-[var(--primary-color)] text-sm font-medium leading-normal transition-colors"
+                href="#"
+                >Jobs</a
+              >
+              <a
+                id="jobStatusLink"
+                class="text-[var(--primary-color)] text-sm font-semibold leading-normal"
+                href="#"
+                >Job Status</a
+              >
+              <a
+                id="jobManagePost"
+                class="text-[var(--secondary-text-color)] hover:text-[var(--primary-color)] text-sm font-medium leading-normal transition-colors"
+                href="#"
+                >Manage Posted Job</a
+              >
+              <a
+                class="text-[var(--secondary-text-color)] hover:text-[var(--primary-color)] text-sm font-medium leading-normal transition-colors"
+                href="#"
+                >Career Advice</a
+              >
+            </nav>
+          </div>
+          <div class="flex items-center gap-4">
+            <label
+              class="relative flex items-center min-w-32 lg:min-w-40 !h-10 max-w-xs"
+            >
+              <div
+                class="absolute left-3 text-[var(--text-secondary-color)]"
+                data-icon="MagnifyingGlass"
+                data-size="20px"
+                data-weight="regular"
+              >
+                <svg
+                  fill="currentColor"
+                  height="20px"
+                  viewBox="0 0 256 256"
+                  width="20px"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
+                  ></path>
+                </svg>
+              </div>
+              <input
+                class="form-input w-full rounded-full border border-[var(--border-color)] bg-[var(--background-color)] h-full placeholder:text-[var(--text-secondary-color)] pl-10 pr-4 text-sm font-normal leading-normal text-[var(--text-primary-color)] focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent"
+                placeholder="Search"
+                value=""
+              />
+            </label>
+            <button
+              aria-label="Notifications"
+              class="flex items-center justify-center rounded-full h-10 w-10 bg-transparent text-[var(--text-secondary-color)] hover:bg-[var(--primary-color)]/10 hover:text-[var(--primary-color)] transition-colors"
+            >
+              <div data-icon="Bell" data-size="22px" data-weight="regular">
+                <svg
+                  fill="currentColor"
+                  height="22px"
+                  viewBox="0 0 256 256"
+                  width="22px"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"
+                  ></path>
+                </svg>
+              </div>
+            </button>
+            <div
+              id="profileImage"
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-[var(--primary-color)]/50"
+              style="
+                background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDWlJo6FUyTPpOSx_BEuy85q3Xrhrqe9_hAWhSkhHU4VAByS6gASB9zgiXJw50FgKsqMOlcBDzNsbdZUIrAPGo-AeODhmnfrNIeY_9n3fE-6RBmckcAIVMWmz53sgploSpC7C_QTyzVzB7f3WaaCJd_9MneYEaybXK0oSGzePRPEQKgJEa2uX4EMRyJ_JcTY3GcgoWmisxdr26w1mw0fDQaYevC103G3901y9I_b_0OJRPzJuSMDmF9iv38TR8E4pOAU9cNLAiZKQ');
+              "
+            ></div>
+          </div>
+        </header>
+        <main
+          class="px-4 sm:px-6 lg:px-8 xl:px-10 flex flex-1 justify-center py-6 lg:py-10"
+        >
+          <div class="layout-content-container flex flex-col w-full max-w-6xl">
+            <div class="mb-6 lg:mb-8">
+              <h1
+                class="text-[var(--text-primary-color)] text-2xl sm:text-3xl font-bold leading-tight"
+              >
+                My Applications
+              </h1>
+              <p
+                class="text-[var(--text-secondary-color)] text-sm sm:text-base font-normal leading-normal mt-1"
+              >
+                Track the status of your job applications.
+              </p>
+            </div>
+            <div
+              class="bg-[var(--card-background-color)] shadow-lg rounded-xl overflow-hidden @container"
+            >
+              <div class="overflow-x-auto">
+                <table class="w-full min-w-[800px]">
+                  <thead class="bg-slate-100">
+                    <tr>
+                      <th
+                        class="px-5 py-4 text-left text-[var(--text-secondary-color)] text-xs font-semibold uppercase tracking-wider w-[25%]"
+                      >
+                        Company
+                      </th>
+                      <th
+                        class="px-5 py-4 text-left text-[var(--text-secondary-color)] text-xs font-semibold uppercase tracking-wider w-[25%]"
+                      >
+                        Position
+                      </th>
+                      <th
+                        class="px-5 py-4 text-left text-[var(--text-secondary-color)] text-xs font-semibold uppercase tracking-wider w-[15%]"
+                      >
+                        Status
+                      </th>
+                      <th
+                        class="px-5 py-4 text-left text-[var(--text-secondary-color)] text-xs font-semibold uppercase tracking-wider w-[17.5%]"
+                      >
+                        Date Applied
+                      </th>
+                      <th
+                        class="px-5 py-4 text-left text-[var(--text-secondary-color)] text-xs font-semibold uppercase tracking-wider w-[17.5%]"
+                      >
+                        Last Updated
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-[var(--border-color)]">
+                    <tr class="hover:bg-slate-50 transition-colors">
+                      <td
+                        class="px-5 py-4 text-[var(--text-primary-color)] text-sm font-medium"
+                      >
+                        Tech Innovators Inc.
+                      </td>
+                      <td
+                        class="px-5 py-4 text-[var(--text-secondary-color)] text-sm"
+                      >
+                        Software Engineer
+                      </td>
+                      <td class="px-5 py-4 text-sm">
+                        <span
+                          class="status-badge bg-[var(--status-submitted-bg)] text-[var(--status-submitted-text)]"
+                          >Submitted</span
+                        >
+                      </td>
+                      <td
+                        class="px-5 py-4 text-[var(--text-secondary-color)] text-sm"
+                      >
+                        2024-03-15
+                      </td>
+                      <td
+                        class="px-5 py-4 text-[var(--text-secondary-color)] text-sm"
+                      >
+                        2024-03-15
+                      </td>
+                    </tr>
+                    <tr class="hover:bg-slate-50 transition-colors">
+                      <td
+                        class="px-5 py-4 text-[var(--text-primary-color)] text-sm font-medium"
+                      >
+                        Global Solutions Ltd.
+                      </td>
+                      <td
+                        class="px-5 py-4 text-[var(--text-secondary-color)] text-sm"
+                      >
+                        Product Manager
+                      </td>
+                      <td class="px-5 py-4 text-sm">
+                        <span
+                          class="status-badge bg-[var(--status-review-bg)] text-[var(--status-review-text)]"
+                          >Under Review</span
+                        >
+                      </td>
+                      <td
+                        class="px-5 py-4 text-[var(--text-secondary-color)] text-sm"
+                      >
+                        2024-03-10
+                      </td>
+                      <td
+                        class="px-5 py-4 text-[var(--text-secondary-color)] text-sm"
+                      >
+                        2024-03-20
+                      </td>
+                    </tr>
+                    <tr class="hover:bg-slate-50 transition-colors">
+                      <td
+                        class="px-5 py-4 text-[var(--text-primary-color)] text-sm font-medium"
+                      >
+                        Creative Minds Co.
+                      </td>
+                      <td
+                        class="px-5 py-4 text-[var(--text-secondary-color)] text-sm"
+                      >
+                        UX Designer
+                      </td>
+                      <td class="px-5 py-4 text-sm">
+                        <span
+                          class="status-badge bg-[var(--status-rejected-bg)] text-[var(--status-rejected-text)]"
+                          >Rejected</span
+                        >
+                      </td>
+                      <td
+                        class="px-5 py-4 text-[var(--text-secondary-color)] text-sm"
+                      >
+                        2024-03-05
+                      </td>
+                      <td
+                        class="px-5 py-4 text-[var(--text-secondary-color)] text-sm"
+                      >
+                        2024-03-12
+                      </td>
+                    </tr>
+                    <tr class="hover:bg-slate-50 transition-colors">
+                      <td
+                        class="px-5 py-4 text-[var(--text-primary-color)] text-sm font-medium"
+                      >
+                        Data Dynamics Corp.
+                      </td>
+                      <td
+                        class="px-5 py-4 text-[var(--text-secondary-color)] text-sm"
+                      >
+                        Data Analyst
+                      </td>
+                      <td class="px-5 py-4 text-sm">
+                        <span
+                          class="status-badge bg-[var(--status-accepted-bg)] text-[var(--status-accepted-text)]"
+                          >Accepted</span
+                        >
+                      </td>
+                      <td
+                        class="px-5 py-4 text-[var(--text-secondary-color)] text-sm"
+                      >
+                        2024-02-28
+                      </td>
+                      <td
+                        class="px-5 py-4 text-[var(--text-secondary-color)] text-sm"
+                      >
+                        2024-03-08
+                      </td>
+                    </tr>
+                    <tr class="hover:bg-slate-50 transition-colors">
+                      <td
+                        class="px-5 py-4 text-[var(--text-primary-color)] text-sm font-medium"
+                      >
+                        Future Tech Group
+                      </td>
+                      <td
+                        class="px-5 py-4 text-[var(--text-secondary-color)] text-sm"
+                      >
+                        AI Specialist
+                      </td>
+                      <td class="px-5 py-4 text-sm">
+                        <span
+                          class="status-badge bg-[var(--status-submitted-bg)] text-[var(--status-submitted-text)]"
+                          >Submitted</span
+                        >
+                      </td>
+                      <td
+                        class="px-5 py-4 text-[var(--text-secondary-color)] text-sm"
+                      >
+                        2024-02-20
+                      </td>
+                      <td
+                        class="px-5 py-4 text-[var(--text-secondary-color)] text-sm"
+                      >
+                        2024-02-20
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="../jobJS/JobScript.js"></script>
+    <script src="../jobJS/jobStatus.js"></script>
+    <!-- <script src="../jobJS/jobStatus.js"></script> -->
+  </body>
+</html>

@@ -1,0 +1,361 @@
+<html>
+  <head>
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link
+      as="style"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B600%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B600%3B700%3B900"
+      onload="this.rel='stylesheet'"
+      rel="stylesheet"
+    />
+    <meta charset="utf-8" />
+    <title>Stitch Design</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+      :root {
+        --primary-color: #0c7ff2;
+        --checkbox-tick-svg: url("data:image/svg+xml,%3csvg viewBox=%270 0 16 16%27 fill=%27rgb(248,250,252)%27 xmlns=%27http://www.w3.org/2000/svg%27%3e%3cpath d=%27M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z%27/%3e%3c/svg%3e");
+      }
+    </style>
+  </head>
+  <body style="font-family: Inter, 'Noto Sans', sans-serif">
+    <div
+      class="relative flex size-full min-h-screen flex-col bg-slate-50 group/design-root overflow-x-hidden"
+    >
+      <div class="layout-container flex h-full grow flex-col">
+        <header
+          class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 px-10 py-4 shadow-sm"
+        >
+          <div class="flex items-center gap-10">
+            <div class="flex items-center gap-3 text-slate-900">
+              <div class="size-7 text-[var(--primary-color)]">
+                <svg
+                  fill="none"
+                  viewBox="0 0 48 48"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+              </div>
+              <h2
+                class="text-slate-900 text-xl font-semibold leading-tight tracking-[-0.015em]"
+              >
+                CareerConnect
+              </h2>
+            </div>
+            <nav class="flex items-center gap-7">
+              <a
+                class="text-slate-700 hover:text-[var(--primary-color)] text-sm font-medium leading-normal transition-colors"
+                href="#"
+                >Home</a
+              >
+              <a
+                class="text-[var(--primary-color)] text-sm font-semibold leading-normal"
+                href="#"
+                >Jobs</a
+              >
+              <a
+                class="text-slate-700 hover:text-[var(--primary-color)] text-sm font-medium leading-normal transition-colors"
+                href="#"
+                >Companies</a
+              >
+              <a
+                class="text-slate-700 hover:text-[var(--primary-color)] text-sm font-medium leading-normal transition-colors"
+                href="#"
+                >Career Advice</a
+              >
+            </nav>
+          </div>
+          <div class="flex flex-1 justify-end gap-4 items-center">
+            <label class="flex flex-col min-w-40 !h-10 max-w-sm">
+              <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+                <div
+                  class="text-slate-500 flex border border-slate-300 bg-white items-center justify-center pl-3 rounded-l-lg border-r-0"
+                  data-icon="MagnifyingGlass"
+                  data-size="20px"
+                  data-weight="regular"
+                >
+                  <svg
+                    fill="currentColor"
+                    height="20px"
+                    viewBox="0 0 256 256"
+                    width="20px"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
+                    ></path>
+                  </svg>
+                </div>
+                <input
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-900 focus:outline-0 focus:ring-2 focus:ring-[var(--primary-color)] border border-slate-300 bg-white focus:border-[var(--primary-color)] h-full placeholder:text-slate-500 px-3 rounded-l-none border-l-0 pl-2 text-sm font-normal leading-normal"
+                  placeholder="Search jobs, companies..."
+                  value=""
+                />
+              </div>
+            </label>
+            <button
+              class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 w-10 border border-slate-300 bg-white text-slate-700 hover:bg-slate-100 hover:text-[var(--primary-color)] transition-colors"
+            >
+              <div
+                class="text-slate-700"
+                data-icon="Bell"
+                data-size="20px"
+                data-weight="regular"
+              >
+                <svg
+                  fill="currentColor"
+                  height="20px"
+                  viewBox="0 0 256 256"
+                  width="20px"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z"
+                  ></path>
+                </svg>
+              </div>
+            </button>
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border border-slate-300"
+              style="
+                background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC1jXcGZrJLMq_iRmDkFHnS8YAV_iF1W5fGdclqNpRNeFHgg7tH75turREvdYv84SGhURo8IZq0q4GKemXY1FO_BqcWqra73BnKKF6g3ajEKnv3OfXXBTY8_1Fu0s0QwQtEjusvwv9d-oc9dMlg_puPT0JuR2Iy_LwyiMYZs946ftGUC_KkE1-7Dv1ZY0Q3mMsbE64ykMBZvLYHLgiAKI9uH7qfJOWlY88291FjKi09eMsaudHZ8GkoHnV55Li3ivjimeCp9WyLDQ');
+              "
+            ></div>
+          </div>
+        </header>
+        <main
+          class="px-10 md:px-20 lg:px-40 flex flex-1 justify-center py-8 bg-slate-100"
+        >
+          <div
+            class="layout-content-container flex flex-col w-full max-w-4xl bg-white shadow-lg rounded-xl p-6 md:p-8"
+          >
+            <div class="flex flex-wrap gap-2 items-center mb-6">
+              <a
+                class="text-slate-500 hover:text-[var(--primary-color)] text-sm font-medium leading-normal transition-colors"
+                href="#"
+                >Jobs</a
+              >
+              <svg
+                class="text-slate-400"
+                fill="currentColor"
+                height="16"
+                viewBox="0 0 256 256"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"
+                ></path>
+              </svg>
+              <span class="text-slate-800 text-sm font-medium leading-normal"
+                >Software Engineer</span
+              >
+            </div>
+            <div class="flex flex-wrap justify-between items-start gap-6 mb-6">
+              <div class="flex flex-col gap-2">
+                <h1
+                  class="text-slate-900 tracking-tight text-3xl md:text-4xl font-bold leading-tight"
+                >
+                  Software Engineer
+                </h1>
+                <div class="flex items-center gap-2 text-slate-600 text-sm">
+                  <svg
+                    fill="currentColor"
+                    height="16"
+                    viewBox="0 0 256 256"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M208,56H180.28L166.65,24.83a8,8,0,0,0-7.3-4.83H96.65a8,8,0,0,0-7.3,4.83L75.72,56H48A24,24,0,0,0,24,80V200a24,24,0,0,0,24,24H208a24,24,0,0,0,24-24V80A24,24,0,0,0,208,56Zm8,144a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V80a8,8,0,0,1,8-8H80a8,8,0,0,0,7.3-4.83L100.93,40h54.14l13.63,27.17A8,8,0,0,0,176,72h32a8,8,0,0,1,8,8ZM128,88a44,44,0,1,0,44,44A44.05,44.05,0,0,0,128,88Zm0,72a28,28,0,1,1,28-28A28,28,0,0,1,128,160Z"
+                    ></path>
+                  </svg>
+                  <span>Acme Co.</span>
+                  <!-- <span class="text-slate-400">·</span> -->
+                  <svg
+                  fill="currentColor"
+                  height="16"
+                  width="16"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"
+                  />
+                </svg>
+                  <span>Remote</span>
+                </div>
+              </div>
+              <div class="flex gap-3">
+
+
+              </div>
+            </div>
+            <div class="space-y-6">
+              <div>
+                <h2
+                  class="text-slate-900 text-xl font-semibold leading-tight tracking-tight mb-3"
+                >
+                  About the job
+                </h2>
+                <p class="text-slate-700 text-sm font-normal leading-relaxed">
+                  hello valo aco
+                </p>
+              </div>
+              <div>
+                <h2
+                  class="text-slate-900 text-xl font-semibold leading-tight tracking-tight mb-3"
+                >
+                  Responsibilities
+                </h2>
+                <ul class="space-y-2.5 pl-1">
+                  <li class="flex items-start gap-x-3">
+                    <svg
+                      class="text-[var(--primary-color)] mt-0.5 shrink-0"
+                      fill="currentColor"
+                      height="20"
+                      viewBox="0 0 256 256"
+                      width="20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"
+                      ></path>
+                    </svg>
+                    <p
+                      class="text-slate-700 text-sm font-normal leading-relaxed"
+                    >
+                      Design and develop software solutions based on project
+                      requirements.
+                    </p>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h2
+                  class="text-slate-900 text-xl font-semibold leading-tight tracking-tight mb-3"
+                >
+                  Qualifications
+                </h2>
+                <ul class="space-y-2.5 pl-1">
+                  <li class="flex items-start gap-x-3">
+                    <svg
+                      class="text-[var(--primary-color)] mt-0.5 shrink-0"
+                      fill="currentColor"
+                      height="20"
+                      viewBox="0 0 256 256"
+                      width="20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"
+                      ></path>
+                    </svg>
+                    <p
+                      class="text-slate-700 text-sm font-normal leading-relaxed"
+                    >
+                      Bachelor's degree in Computer Science or a related field.
+                    </p>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h2
+                  class="text-slate-900 text-xl font-semibold leading-tight tracking-tight mb-3"
+                >
+                  Benefits
+                </h2>
+                <ul class="space-y-2.5 pl-1">
+                  <li class="flex items-start gap-x-3">
+                    <svg
+                      class="text-[var(--primary-color)] mt-0.5 shrink-0"
+                      fill="currentColor"
+                      height="20"
+                      viewBox="0 0 256 256"
+                      width="20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"
+                      ></path>
+                    </svg>
+                    <p
+                      class="text-slate-700 text-sm font-normal leading-relaxed"
+                    >
+                      Competitive salary and benefits package.
+                    </p>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h2
+                  class="text-slate-900 text-xl font-semibold leading-tight tracking-tight mb-3"
+                >
+                  Salary Range
+                </h2>
+                <p class="text-slate-700 text-sm font-normal leading-relaxed">
+                  $100,000 - $140,000 per year
+                </p>
+              </div>
+              <div>
+                <h2
+                  class="text-slate-900 text-xl font-semibold leading-tight tracking-tight mb-3"
+                >
+                  About Company
+                </h2>
+                <p class="text-slate-700 text-sm font-normal leading-relaxed">
+                  Acme Co. is a leading technology company focused on delivering
+                  innovative solutions to our clients. We foster a collaborative
+                  and inclusive work environment where employees are empowered
+                  to grow and make a difference. Our mission is to create
+                  cutting-edge technology that improves lives and drives
+                  progress.
+                </p>
+              </div>
+              <div>
+                <h2
+                  class="text-slate-900 text-xl font-semibold leading-tight tracking-tight mb-3"
+                >
+                  Apply Process
+                </h2>
+                <p class="text-slate-700 text-sm font-normal leading-relaxed">
+                  Acme Co. is a leading technology company focused on delivering
+                  innovative solutions to our clients. We foster a collaborative
+                  and inclusive work environment where employees are empowered
+                  to grow and make a difference. Our mission is to create
+                  cutting-edge technology that improves lives and drives
+                  progress.
+                </p>
+              </div>
+            </div>
+            <div class="flex justify-end mt-8 pt-6 border-t border-slate-200">
+              <button
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-11 px-6 bg-[var(--primary-color)] text-white text-base font-semibold leading-normal tracking-wide hover:bg-blue-600 transition-colors"
+              >
+                <svg
+                  class="mr-2.5"
+                  fill="currentColor"
+                  height="20"
+                  viewBox="0 0 256 256"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"
+                  ></path>
+                </svg>
+                <span class="truncate">Apply Now</span>
+              </button>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+    
+    <script src="../jobJS/jobDetails.js"></script>
+  </body>
+</html>

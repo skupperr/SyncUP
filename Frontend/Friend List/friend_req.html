@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <link rel="stylesheet" href="friend_req.css">
+    <link rel="stylesheet" href="../Profile_page/header.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+</head>
+<body id="body">
+
+    <div class="header">
+        <div class="left">
+            <a href="../newsFeed/newsFeed.html">
+                <img class="logo" src="../file.png">
+            </a>
+        </div>
+        <div class="middle">
+            <input class="input" id="search-profile" type="text" placeholder="Search" oninput="searching()">
+            <button class="search-btn">
+                <i class="fa-solid fa-magnifying-glass search-img"></i>
+            </button>
+        </div>
+        <div class="right">
+            <a style="text-decoration: none; color: black;" href="../messenger/messenger.html"><i class="fa-regular fa-envelope message-icon"></i></a>
+            
+            <a href="user_Profile.html"><img id="header-profile-pic" class="channel-picture" src=""></a>
+        </div>
+    </div>
+    <div class="search-dropdown" id="search-dropdown-id" style="display: none;"></div>
+
+
+
+
+    <div class="container">
+
+        <div class="title">Friend Requests (<span id="friend-req-count"></span>)</div>
+        
+        <div id="profile-container-id" class="sub-container">
+            <!-- <div class="profile">
+
+                <div class="profile-pic-class">
+                    <img class="profile-picture" src="cat.jpg">
+                </div>
+    
+                <div class="name-class">
+                    <p class="name">
+                        Oliver
+                    </p>
+                </div>
+    
+                <div class="mutual-friends-row">
+                    <img class="mutual-friend-picture" src="dog2.jpg">
+                    <p class="mutual-friends">
+                        2 mutual friends
+                    </p>
+                </div>
+    
+                <button class="accept-button">
+                    Accept
+                </button>
+            </div> -->
+    
+
+        </div>
+
+    </div>
+
+    <script src="../header.js"></script>
+    <script src="../searching_profile.js"></script>
+    <script src="../friend_req.js"></script>
+</body>
+</html>

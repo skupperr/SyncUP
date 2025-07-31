@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report a Problem</title>
+    <link rel="stylesheet" href="report_problem.css">
+</head>
+<body>
+
+    <div class="report-form-container">
+        <h2>Report a Problem</h2>
+        <form action="/submit-report" method="POST">
+            <label for="problem-type">Type of Problem:</label>
+            <select id="problem-type" name="problem-type" required>
+                <option value="">--Select Problem--</option>
+                <option value="Bug/Glitch">Bug/Glitch</option>
+                <option value="Abuse/Harassment">Abuse/Harassment</option>
+                <option value="News Feed">News Feed</option>
+                <option value="Message">Message</option>
+                <option value="Marketplace">Marketplace</option>
+                <option value="Job">Job</option>
+                <option value="Location">Location</option>
+                <option value="Personalized Notification">Personalized Notification</option>
+                <option value="Profile">Profile</option>
+                <option value="Post">Post</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label for="problem-description">Describe the problem:</label>
+            <textarea id="problem-description" name="problem-description" rows="5" required></textarea>
+
+            <button id="report-submit" type="submit">Submit Report</button>
+        </form>
+    </div>
+
+    <script src="../report_problem.js"></script>
+
+</body>
+</html>

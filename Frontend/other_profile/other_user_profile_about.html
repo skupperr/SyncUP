@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/fontawesome.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../Profile_page/profile_about.css">
+    <link rel="stylesheet" href="../Profile_page/profile.css">
+    <link rel="stylesheet" href="../Profile_page/menuestyle.css">
+    <link rel="stylesheet" href="../Profile_page/header.css">
+    <link rel="stylesheet" href="other_user_profile.css">
+
+    <style>
+        body {
+            margin-top: 70px;
+        }
+    </style>
+</head>
+
+<body id="body">
+
+    <div class="header">
+        <div class="left">
+            <a href="../newsFeed/newsFeed.html">
+                <img class="logo" src="../file.png">
+            </a>
+        </div>
+        <div class="middle">
+            <input class="input" id="search-profile" type="text" placeholder="Search" oninput="searching()">
+            <button class="search-btn">
+                <i class="fa-solid fa-magnifying-glass search-img"></i>
+            </button>
+        </div>
+        <div class="right">
+            <a style="text-decoration: none; color: black;" href="../chat"><i class="fa-regular fa-envelope message-icon"></i></a>
+            
+            <a href="user_Profile.html"><img id="header-profile-pic" class="channel-picture" src=""></a>
+        </div>
+    </div>
+    <div class="search-dropdown" id="search-dropdown-id" style="display: none;">
+    </div>
+
+    <div class="container">
+
+        <div class="navigation-class">
+
+            <nav class="navigation">
+                <a href="other_user_Profile.html" id="nav-button-1" class="nav-button">Posts</a>
+                <a href="profile_about.html" id="nav-button-2" class="nav-button active">About</a>
+                <a href="profile_photos.html" id="nav-button-3" class="nav-button">Photos</a>
+                <a href="profile_videos.html" id="nav-button-4" class="nav-button">Videos</a>
+            </nav>
+        </div>
+
+
+        <div class="profile-sub-container">
+
+            <div class="about-info">
+
+
+
+                <label for="Name">Name:</label>
+                <input id="name-field" class="edu-input-class" type="text" disabled><br><br>
+
+                <div class="bio-container">
+                    <label for="bio">Bio: </label>
+                    <textarea id="bio-field" name="bio" rows="5" placeholder="Write something about yourself..." disabled></textarea>
+                </div>
+                
+
+                <div id="work-info-container">
+                    <label for="work-info" style="font-size: 20px; font-weight: bold;">Work Info</label>
+
+                    <!-- Container to hold all work forms -->
+                    <div id="work-form-container" style="display: none;">
+                        <form>
+                            <label for="company">Company Name:</label>
+                            <input id="company-name" class="work-input-class" type="text" name="company"
+                                placeholder="Enter company name"><br><br>
+
+                            <label for="position">Position:</label>
+                            <input id="work-position" class="work-input-class" type="text" name="position"
+                                placeholder="Enter your position"><br><br>
+
+                            <label for="start-date">Start Date</label>
+                            <input id="start-work-date" class="work-input-class" type="date" name="start_date"><br><br>
+
+                            <label for="end-date">End Date</label>
+                            <input id="end-work-date" class="work-input-class" type="date" name="end_date"><br><br>
+
+                            <button id="work-submit-button">Save</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div id="education-info-container">
+                    <label for="education-info" style="font-size: 20px; font-weight: bold;">Education Info</label>
+
+                    <!-- Container to hold all work forms -->
+                    <div id="education-form-container" style="display: none;">
+                        <form>
+                            <label for="field">Field:</label>
+                            <input id="edu-field" class="edu-input-class" type="text" name="Field"
+                                placeholder="Enter your field of study"><br><br>
+
+                            <label for="School">School/University:</label>
+                            <input id="edu-college" class="edu-input-class" type="text" name="school"
+                                placeholder="Enter your School or University name"><br><br>
+
+                            <label for="start-date">Start Date</label>
+                            <input id="start-edu-date" class="edu-input-class" type="date" name="start_date"><br><br>
+
+                            <label for="end-date">End Date</label>
+                            <input id="end-edu-date" class="edu-input-class" type="date" name="end_date"><br><br>
+
+                            <button id="edu-submit-button">Save</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div id="address-info-container">
+                    <label for="Address-info" style="font-size: 20px; font-weight: bold;">Address Info</label>
+
+                    <!-- Container to hold all work forms -->
+                    <div id="address-form-container" style="display: none;">
+                        <form>
+                            <label>Present Address</label>
+                            <input id="present-address" class="address-input-class" type="text" name="Field"
+                                placeholder="Present Address"><br><br>
+
+                            <label>Start Date</label>
+                            <input id="start-address-date" class="address-input-class" type="date"
+                                name="start_date"><br><br>
+
+                            <label>End Date</label>
+                            <input id="end-address-date" class="address-input-class" type="date"
+                                name="end_date"><br><br>
+
+                            <button id="address-submit-button">Save</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div id="link-info-container">
+                    <label for="link-info" style="font-size: 20px; font-weight: bold;">Links</label>
+
+                    <!-- Container to hold all work forms -->
+                    <div id="link-form-container" style="display: none;">
+                        <form>
+                            <label>Link</label>
+                            <input id="link" class="link-input-class" type="link" name="Field"
+                                placeholder="Link"><br><br>
+
+                            <label>Site name</label>
+                            <input id="site-name" class="link-input-class" type="text" name="Field"
+                                placeholder="Site name"><br><br>
+
+                            <button id="link-submit-button">Save</button>
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+    </div>
+
+
+    </div>
+
+    <script src="../other_user_profile_about.js"></script>
+    <script src="../searching_profile.js"></script>
+    <script src="../header.js"></script>
+
+</body>
+
+</html>

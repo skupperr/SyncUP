@@ -1,0 +1,498 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link
+      as="style"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B600%3B700&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+      onload="this.rel='stylesheet'"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <title>SyncUp</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+      :root {
+        --primary-color: #0c7ff2;
+        --secondary-color: #4a5568;
+        --accent-color: #3182ce;
+        --background-color: #f7fafc;
+        --card-background-color: #ffffff;
+        --text-primary: #1a202c;
+        --text-secondary: #718096;
+        --border-color: #e2e8f0;
+      }
+      body {
+        font-family: "Inter", "Noto Sans", sans-serif;
+      }
+      .status-badge {
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: capitalize;
+      }
+      .status-processing {
+        background-color: #ebf8ff;
+        color: #3182ce;
+      }
+      .status-accept {
+        background-color: #f0fff4;
+        color: #38a169;
+      }
+      .status-reject {
+        background-color: #fff5f5;
+        color: #e53e3e;
+      }
+      .custom-select {
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='currentColor'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd' /%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 0.5rem center;
+        background-size: 1.5em 1.5em;
+        padding-right: 2.5rem;
+      }
+      .applicant-list {
+        max-height: 800px;
+        overflow-y: auto;
+        transition: max-height 0.3s ease-out;
+      }
+      .applicant-list.open {
+        max-height: 800px;
+      }
+    </style>
+  </head>
+  <body class="bg-[var(--background-color)]">
+    <div
+      class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden"
+    >
+      <div class="layout-container flex h-full grow flex-col">
+        <header
+          class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[var(--border-color)] px-6 sm:px-10 py-4 bg-[var(--card-background-color)] shadow-sm"
+        >
+          <div class="flex items-center gap-8">
+            <a href="../newsFeed/newsFeed.html">
+              <div class="flex items-center gap-4 text-[#1b0e0e]">
+                  <div class="size-4">
+                      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z" fill="currentColor"></path>
+                      </svg>
+                  </div>
+                  <h2 class="text-[#1b0e0e] text-lg font-bold leading-tight tracking-[-0.015em]">SyncUP</h2>
+              </div>
+          </a>
+            <nav class="hidden md:flex items-center gap-6">
+                <a
+                  id="jobHomePage"
+                  class="text-[var(--secondary-text-color)] hover:text-[var(--primary-color)] text-sm font-medium leading-normal transition-colors"
+                  href="#"
+                  >Home</a
+                >
+                <a
+                  id="jobSearchSection"
+                  class="text-[var(--secondary-text-color)] hover:text-[var(--primary-color)] text-sm font-medium leading-normal transition-colors"
+                  href="#"
+                  >Jobs</a
+                >
+                <a
+                  id="jobStatusLink"
+                  class="text-[var(--secondary-text-color)] hover:text-[var(--primary-color)] text-sm font-medium leading-normal transition-colors"
+                  href="#"
+                  >Job Status</a
+                >
+                <a
+                  id="jobManagePost"
+                  class="text-[var(--primary-color)] text-sm font-semibold leading-normal"
+                  href="#"
+                  >Manage Posted Job</a
+                >
+                <a
+                  class="text-[var(--secondary-text-color)] hover:text-[var(--primary-color)] text-sm font-medium leading-normal transition-colors"
+                  href="#"
+                  >Career Advice</a
+                >
+              </nav>
+          </div>
+          <div class="flex items-center gap-4">
+            <button
+              id="postJobBtn"
+              class="hidden sm:flex min-w-[100px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 btn-primary text-sm font-semibold leading-normal tracking-wide"
+            >
+              <!-- <span class="truncate">Post a Job</span> -->
+            </button>
+            <div
+              id="profileImage"
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-[var(--primary-color)] shadow-sm"
+              style="
+                background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB5Fm1X8jE_BRrI3UtlD_sAEfpGicyR5mIfwGoSpYJdswpCu37H5MFZLy420BVJMU9mHI9QlMN6GMUlEE8-7iRNn33UHttJn6C1fb84AKg1CeyTQn83xyfjk2gs1DQFl6W2-bqLlCu3f5WmjhNkRj4u-IQ_xONbzdARkb9bmKmuQoNivSMcM8rnSiCPvYhBbodu8LNVJ_ZGdI93hCPjTa0_b_aa_PjGTBWZnVxfn88pJ3sNaeugvOefVEj0BhQG2YkLwHy2V_TwwA');
+              "
+            ></div>
+            <button class="md:hidden text-[var(--secondary-text-color)]">
+              <svg
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <line x1="3" x2="21" y1="12" y2="12"></line>
+                <line x1="3" x2="21" y1="6" y2="6"></line>
+                <line x1="3" x2="21" y1="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+        </header>
+        <main class="flex-1 px-4 py-8 sm:px-6 lg:px-8">
+          <div class="max-w-5xl mx-auto">
+            <div
+              class="mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4"
+            >
+              <h1
+                class="text-3xl font-bold tracking-tight text-[var(--text-primary)]"
+              >
+                Manage Job Postings
+              </h1>
+              <button
+                class="flex items-center gap-2 px-4 py-2 bg-[var(--accent-color)] text-white rounded-lg shadow-sm hover:bg-blue-600 transition-colors text-sm font-medium"
+              >
+                <span class="material-icons text-lg">add_circle_outline</span>
+                Post New Job
+              </button>
+            </div>
+            <div id="jobList" class="space-y-8">
+              <div
+                class="bg-[var(--card-background-color)] shadow-lg rounded-xl overflow-hidden border border-[var(--border-color)]"
+              >
+                <div class="px-6 py-4 border-b border-[var(--border-color)]">
+                  <div
+                    class="flex flex-col sm:flex-row justify-between items-start sm:items-center"
+                  >
+                    <div>
+                      <h3
+                        class="text-xl font-semibold text-[var(--text-primary)]"
+                      >
+                        Software Engineer
+                      </h3>
+                      <p class="text-sm text-[var(--text-secondary)]">
+                        Posted 2 days ago - 25 Applicants
+                      </p>
+                    </div>
+                    <div class="flex items-center gap-2 mt-2 sm:mt-0">
+                      <span class="status-badge status-processing"
+                        >Processing</span
+                      >
+                      <button
+                        class="p-1 text-[var(--text-secondary)] hover:text-[var(--accent-color)]"
+                        onclick="this.nextElementSibling.classList.toggle('open'); this.querySelector('span').textContent = this.nextElementSibling.classList.contains('open') ? 'expand_less' : 'expand_more'"
+                      >
+                        <span class="material-icons text-xl">expand_more</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="applicant-list p-6 pt-0">
+                  <h4
+                    class="text-md font-semibold text-[var(--text-primary)] mb-3 pt-6"
+                  >
+                    Applicants:
+                  </h4>
+                  <ul class="space-y-4">
+                    <li
+                      class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 border border-[var(--border-color)] rounded-lg hover:shadow-md transition-shadow"
+                    >
+                      <div class="flex items-center gap-3">
+                        <img
+                          alt="Applicant Avatar"
+                          class="h-10 w-10 rounded-full object-cover"
+                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGyC7G0-SJRvdeMdgqbjNjjA7TEICkEySp7kXqbDEoZtgcabKLoonRFiQxOXTEbe2QQLn-y55DcOmyLLE36D7hVjMh0c24luUk4cBm98LkbLRQAU_w_AHdUJ7YgtJ9am3Xzxw7NOE1hex1w00XZu9wJuNKxetgSpPm5do_4CKqIfJBVbzYWzEMZDEQ34BFS_fwKdwioxiLATGGZLwoqi6nItzoun6t4ckd4JVh0K7aE0mdZxWyTz61-NPRtVNwoq64w1Q2c4vCOQ"
+                        />
+                        <div>
+                          <p
+                            class="text-sm font-medium text-[var(--text-primary)]"
+                          >
+                            John Doe
+                          </p>
+                          <a
+                            class="text-xs text-[var(--accent-color)] hover:underline flex items-center gap-1"
+                            href="#"
+                          >
+                            <span class="material-icons text-sm"
+                              >attachment</span
+                            >
+                            View CV
+                          </a>
+                        </div>
+                      </div>
+                      <div class="relative w-full sm:w-48 mt-3 sm:mt-0">
+                        <select
+                          class="custom-select block w-full pl-3 pr-10 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[var(--accent-color)] focus:border-[var(--accent-color)] bg-white text-[var(--text-secondary)]"
+                        >
+                          <option value="processing">Processing</option>
+                          <option value="accept">Accept</option>
+                          <option value="reject">Reject</option>
+                        </select>
+                      </div>
+                    </li>
+                    <li
+                      class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 border border-[var(--border-color)] rounded-lg hover:shadow-md transition-shadow"
+                    >
+                      <div class="flex items-center gap-3">
+                        <img
+                          alt="Applicant Avatar"
+                          class="h-10 w-10 rounded-full object-cover"
+                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAg_A0i0QqTsNydBJl88aKwdRyfz2ry7W8opT3qTfoG7zpKPPk3ac971HeXiYD3PrAn9EnFpEVFH07vNMoDAl5Dfx1XvQcGcVWq04pWTT5dEWt2CXfWtNO6ZQssOhPhQqHb7qFWewCBegUCXxrb9iGrJER2fGpmXRS4A6XcTEzgBI8J75qUeoN0HmmkkgCYYR9djuvFaRCavQ08nzF6TIOX4Pbl6womuFU7FB3qD8ykEijbscqnOowwi71b1l4o3UbsNVam6Gnm6g"
+                        />
+                        <div>
+                          <p
+                            class="text-sm font-medium text-[var(--text-primary)]"
+                          >
+                            Jane Smith
+                          </p>
+                          <a
+                            class="text-xs text-[var(--accent-color)] hover:underline flex items-center gap-1"
+                            href="#"
+                          >
+                            <span class="material-icons text-sm"
+                              >attachment</span
+                            >
+                            View CV
+                          </a>
+                        </div>
+                      </div>
+                      <div class="relative w-full sm:w-48 mt-3 sm:mt-0">
+                        <select
+                          class="custom-select block w-full pl-3 pr-10 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[var(--accent-color)] focus:border-[var(--accent-color)] bg-white text-[var(--text-secondary)]"
+                        >
+                          <option value="processing">Processing</option>
+                          <option value="accept">Accept</option>
+                          <option value="reject">Reject</option>
+                        </select>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="bg-[var(--card-background-color)] shadow-lg rounded-xl overflow-hidden border border-[var(--border-color)]"
+              >
+                <div class="px-6 py-4 border-b border-[var(--border-color)]">
+                  <div
+                    class="flex flex-col sm:flex-row justify-between items-start sm:items-center"
+                  >
+                    <div>
+                      <h3
+                        class="text-xl font-semibold text-[var(--text-primary)]"
+                      >
+                        Product Manager
+                      </h3>
+                      <p class="text-sm text-[var(--text-secondary)]">
+                        Posted 5 days ago - 18 Applicants
+                      </p>
+                    </div>
+                    <div class="flex items-center gap-2 mt-2 sm:mt-0">
+                      <span class="status-badge status-accept">Accepted</span>
+                      <button
+                        class="p-1 text-[var(--text-secondary)] hover:text-[var(--accent-color)]"
+                        onclick="this.nextElementSibling.classList.toggle('open'); this.querySelector('span').textContent = this.nextElementSibling.classList.contains('open') ? 'expand_less' : 'expand_more'"
+                      >
+                        <span class="material-icons text-xl">expand_more</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="applicant-list p-6 pt-0">
+                  <h4
+                    class="text-md font-semibold text-[var(--text-primary)] mb-3 pt-6"
+                  >
+                    Applicants:
+                  </h4>
+                  <ul class="space-y-4">
+                    <li
+                      class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 border border-[var(--border-color)] rounded-lg hover:shadow-md transition-shadow"
+                    >
+                      <div class="flex items-center gap-3">
+                        <img
+                          alt="Applicant Avatar"
+                          class="h-10 w-10 rounded-full object-cover"
+                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-QhqVWN7wQLoxcRBWHLUXjtIh_p9eWXEYZyhT8NsdFw2_GDSBeC9KBG7XyFR_li-oMjrKaf9V8jkRTSx_KFjJnyAGfbezgLCLL_e3W1crv93J2ullUEGFXidnpXQ6imJFmLG-bM5YjcNIhRouVNDWznne59C4JBuHmzWk0WQVFODlAupgCi1NPgVPbN9HeDpKKPaeezPrCHpUpFkrzywgRe8xK-7sNLtY8uV999pyFr56pkHw1n2r9x7SRttrH27iFcPC4bGhtQ"
+                        />
+                        <div>
+                          <p
+                            class="text-sm font-medium text-[var(--text-primary)]"
+                          >
+                            Alex Johnson
+                          </p>
+                          <a
+                            class="text-xs text-[var(--accent-color)] hover:underline flex items-center gap-1"
+                            href="#"
+                          >
+                            <span class="material-icons text-sm"
+                              >attachment</span
+                            >
+                            View CV
+                          </a>
+                        </div>
+                      </div>
+                      <div class="relative w-full sm:w-48 mt-3 sm:mt-0">
+                        <select
+                          class="custom-select block w-full pl-3 pr-10 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[var(--accent-color)] focus:border-[var(--accent-color)] bg-white text-[var(--text-secondary)]"
+                        >
+                          <option value="processing">Processing</option>
+                          <option selected="" value="accept">Accept</option>
+                          <option value="reject">Reject</option>
+                        </select>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="bg-[var(--card-background-color)] shadow-lg rounded-xl overflow-hidden border border-[var(--border-color)]"
+              >
+                <div class="px-6 py-4 border-b border-[var(--border-color)]">
+                  <div
+                    class="flex flex-col sm:flex-row justify-between items-start sm:items-center"
+                  >
+                    <div>
+                      <h3
+                        class="text-xl font-semibold text-[var(--text-primary)]"
+                      >
+                        Data Analyst
+                      </h3>
+                      <p class="text-sm text-[var(--text-secondary)]">
+                        Posted 1 week ago - 32 Applicants
+                      </p>
+                    </div>
+                    <div class="flex items-center gap-2 mt-2 sm:mt-0">
+                      <span class="status-badge status-reject">Rejected</span>
+                      <button
+                        class="p-1 text-[var(--text-secondary)] hover:text-[var(--accent-color)]"
+                        onclick="this.nextElementSibling.classList.toggle('open'); this.querySelector('span').textContent = this.nextElementSibling.classList.contains('open') ? 'expand_less' : 'expand_more'"
+                      >
+                        <span class="material-icons text-xl">expand_more</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="applicant-list p-6 pt-0">
+                  <h4
+                    class="text-md font-semibold text-[var(--text-primary)] mb-3 pt-6"
+                  >
+                    Applicants:
+                  </h4>
+                  <ul class="space-y-4">
+                    <li
+                      class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 border border-[var(--border-color)] rounded-lg hover:shadow-md transition-shadow"
+                    >
+                      <div class="flex items-center gap-3">
+                        <img
+                          alt="Applicant Avatar"
+                          class="h-10 w-10 rounded-full object-cover"
+                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhUsbIlVzXmwsclT8n7hwm7iI1qfF4bgk2kRHJRTqHz_m56AaXXj2fnzNozvlfHfS_nQljL-7ZLO94taTXHNHdwcziJvIvLr2wcAAy-cZQbxCcU2JkiRJef1utxkBvm00LdxIOc4lDLImU61OIkqChC5P3ug6-k6uQOMTmuINiiNfPdGrC9vq-xXaqdEcJn5ZIwtwI-O32G9E9NVL4fTd7wNqBrMEwUG3RLEMtwVFqjujiOxoKoDqlPARTKVjMUEWfsJi_uueKtQ"
+                        />
+                        <div>
+                          <p
+                            class="text-sm font-medium text-[var(--text-primary)]"
+                          >
+                            Emily Davis
+                          </p>
+                          <a
+                            class="text-xs text-[var(--accent-color)] hover:underline flex items-center gap-1"
+                            href="#"
+                          >
+                            <span class="material-icons text-sm"
+                              >attachment</span
+                            >
+                            View CV
+                          </a>
+                        </div>
+                      </div>
+                      <div class="relative w-full sm:w-48 mt-3 sm:mt-0">
+                        <select
+                          class="custom-select block w-full pl-3 pr-10 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[var(--accent-color)] focus:border-[var(--accent-color)] bg-white text-[var(--text-secondary)]"
+                        >
+                          <option value="processing">Processing</option>
+                          <option value="accept">Accept</option>
+                          <option selected="" value="reject">Reject</option>
+                        </select>
+                      </div>
+                    </li>
+                    <li
+                      class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 border border-[var(--border-color)] rounded-lg hover:shadow-md transition-shadow"
+                    >
+                      <div class="flex items-center gap-3">
+                        <img
+                          alt="Applicant Avatar"
+                          class="h-10 w-10 rounded-full object-cover"
+                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvNg_MBGdAvJO3We6TVIiyUnGLMZVGeTlUBX2-yXMRAk5VQqPJdQXAe4OI3bx_SD7RSyMFgMfEJRxmEtYJ6O93Fgzyymf6-lZ_wjGShgZkHCwrKxk8sMhXp8avA8Etso2CZLaIXKQpi1YeRflM9lf0365saDmDQj7be5VOGiRdV7T879i--P-gjHIHenWpaepFemLajEszpjxwBowHaEflgKLE-z1suDgufGG8-dOtU2bdkqrGZ0eXWaYFWJ3hva0yDNsbQLVU6A"
+                        />
+                        <div>
+                          <p
+                            class="text-sm font-medium text-[var(--text-primary)]"
+                          >
+                            Michael Brown
+                          </p>
+                          <a
+                            class="text-xs text-[var(--accent-color)] hover:underline flex items-center gap-1"
+                            href="#"
+                          >
+                            <span class="material-icons text-sm"
+                              >attachment</span
+                            >
+                            View CV
+                          </a>
+                        </div>
+                      </div>
+                      <div class="relative w-full sm:w-48 mt-3 sm:mt-0">
+                        <select
+                          class="custom-select block w-full pl-3 pr-10 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-[var(--accent-color)] focus:border-[var(--accent-color)] bg-white text-[var(--text-secondary)]"
+                        >
+                          <option value="processing">Processing</option>
+                          <option value="accept">Accept</option>
+                          <option selected="" value="reject">Reject</option>
+                        </select>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="px-6 py-4 border-t border-[var(--border-color)] flex justify-between items-center text-sm text-[var(--text-secondary)] bg-[var(--card-background-color)] rounded-b-xl"
+              >
+                <span>Showing 1 to 3 of 5 Job Postings</span>
+                <div class="flex gap-1">
+                  <button
+                    class="px-3 py-1 border border-gray-300 rounded-md hover:bg-gray-100"
+                  >
+                    Previous
+                  </button>
+                  <button
+                    class="px-3 py-1 border border-gray-300 rounded-md hover:bg-gray-100"
+                  >
+                    Next
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+        <footer
+          class="py-6 text-center text-sm text-[var(--text-secondary)] border-t border-[var(--border-color)] bg-[var(--card-background-color)]"
+        >
+          © 2024 CareerConnect. All rights reserved.
+        </footer>
+      </div>
+    </div>
+    <script src="../jobJS/jobDetailsApply.js"></script>
+    <script src="../jobJS/commonForAll.js"></script>
+  </body>
+</html>

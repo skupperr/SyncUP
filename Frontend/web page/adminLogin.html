@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AmarLibrary</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playwrite+HR:wght@100..400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="LoginPageStyle.css">
+</head>
+<body class="main-body">
+    
+    <form action="" id="loginForm">
+        <div class="login-div">
+            <p class="form-title">Login as Admin to <br>AmarLibrary</p><br><br>
+            <div class="Name-div">
+                <i class="fa-solid fa-user userIcon"></i>
+                <input type="text" name="UserName" id="UserName" class="loginInput" placeholder=" UserName or Email" required><br><br>
+            </div>
+            <div class="Password-div">
+                <i class="fa-solid fa-lock passIcon"></i>
+                <input type="password" name="UserPassword" id="UserPassword" class="loginInput" placeholder=" Password" required><br><br>
+            </div>
+            <!-- <label for="Remember" class="RememberMe"><input type="checkbox"> Remember me </label>
+            <a class="forgetPass" href="#">Forget Password</a> <br> -->
+            <br>
+            
+            <button type="submit" id="LoginButton" class="buttonStyle">Login</button><br>
+            <label class="registration" for="Registration">Member Login? <a id="memberLink" href="LoginRegistrationPage.html">Login</a></label>
+            
+        </div>
+    </form>
+    
+    <!-- <script src="LoginScript.js"></script> -->
+    <script type="module" src="../adminLogin.js"></script>
+    <!-- <script src="../node.js"></script> -->
+</body>
+</html>

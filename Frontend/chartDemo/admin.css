@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.main-div{
+    display: flex;
+    height: 100vh;
+    /* height: 100vh; */
+}
+
+.LogoDiv{
+    font-size: 35px;
+    font-weight: bold;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+.dashboardbtnDiv, .userBtnDiv, .postBtnDiv{
+    font-size: 20px;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+/* .userBtnDiv{
+    font-size: 20px;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+.postBtnDiv{
+    font-size: 20px;
+    padding: 20px;
+    margin-bottom: 10px;
+} */
+
+.changeBtnColor{
+    font-size: 20px;
+    padding: 20px;
+    margin-bottom: 10px;
+    background-color: black;
+    color: white;
+}
+
+.main-menueDiv{
+    flex: 1;
+    background-color: rgb(123, 150, 141);
+}
+.forSpecificSection{
+    flex: 5;
+    background-color: rgb(255, 255, 255);
+
+}
+
+.forUser, .forPost{
+    margin-top: 20px;
+    text-align: center;
+
+}
+
+.searchDivWithIcon{
+    position: relative;
+}
+.searchIcon{
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 15px;
+    font-size: 20px;
+    color: #a09d9d;
+}
+#adminSearchUser, #adminSearchPost ,#adminSearchProblem, #adminSearchPostReport{
+    height: 50px;
+    width: 300px;
+    padding-left: 50px;
+    border-radius: 5px ;
+    border: 2px solid rgb(126, 126, 126);
+    
+}
+
+
+
+
+.users_List, .post_List{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.userListForAdmin, .postListForAdmin, .problemListForAdmin, .postReportListForAdmin{
+    background-color: #f0f0f0;
+    color: black;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadeIn 0.5s ease-in-out;
+    font-size: 14px;
+}
+
+#displayTotalUser, #displayTotalPost, #displayTotalPostReport, #displayTotalProblem{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

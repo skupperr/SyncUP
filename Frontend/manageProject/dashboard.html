@@ -1,0 +1,547 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link
+      as="style"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B600%3B700&amp;family=Noto+Sans%3Awght%40400%3B500%3B600%3B700"
+      onload="this.rel='stylesheet'"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <title>SyncUp</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+      :root {
+        --primary-color: #3b82f6;
+        --primary-hover-color: #2563eb;
+        --primary-text-color: #ffffff;
+        --secondary-color: #f3f4f6;
+        --secondary-hover-color: #e5e7eb;
+        --text-primary: #1f2937;
+        --text-secondary: #6b7280;
+        --border-color: #e5e7eb;
+        --accent-color: #10b981;
+      }
+      body {
+        font-family: "Inter", "Noto Sans", sans-serif;
+      }
+      .nav-link-active {
+        color: var(--primary-color) !important;
+        font-weight: 600;
+      }
+      .tab-link-active {
+        border-bottom-color: var(--primary-color) !important;
+        color: var(--primary-color) !important;
+        font-weight: 600;
+      }
+      .progress-bar-fill {
+        background-color: var(--primary-color);
+      }
+      .btn-primary {
+        background-color: var(--primary-color);
+        color: var(--primary-text-color);
+      }
+      .btn-primary:hover {
+        background-color: var(--primary-hover-color);
+      }
+      .btn-secondary {
+        background-color: var(--secondary-color);
+        color: var(--text-primary);
+      }
+      .btn-secondary:hover {
+        background-color: var(--secondary-hover-color);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-[var(--text-primary)]">
+    <div
+      class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden"
+    >
+      <div class="layout-container flex h-full grow flex-col">
+        <header
+          class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[var(--border-color)] px-8 py-4 shadow-sm"
+        >
+          <div class="flex items-center gap-10">
+            <a href="../newsFeed/newsFeed.html">
+              <div class="flex items-center gap-4 text-[#1b0e0e]">
+                  <div class="size-4">
+                      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z" fill="currentColor"></path>
+                      </svg>
+                  </div>
+                  <h2 class="text-[#1b0e0e] text-lg font-bold leading-tight tracking-[-0.015em]">SyncUP</h2>
+              </div>
+          </a>
+            <nav class="flex items-center gap-6">
+              <a
+                class="text-[var(--text-secondary)] hover:text-[var(--primary-color)] text-sm font-medium leading-normal transition-colors"
+                href="#"
+                >Dashboard</a
+              >
+              <a
+                class="nav-link-active text-sm font-medium leading-normal transition-colors"
+                href="#"
+                >Projects</a
+              >
+              <a
+                class="text-[var(--text-secondary)] hover:text-[var(--primary-color)] text-sm font-medium leading-normal transition-colors"
+                href="#"
+                >Tasks</a
+              >
+              <a
+                class="text-[var(--text-secondary)] hover:text-[var(--primary-color)] text-sm font-medium leading-normal transition-colors"
+                href="#"
+                >Reports</a
+              >
+            </nav>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="relative flex items-center">
+              <span
+                class="material-icons absolute left-3 text-[var(--text-secondary)]"
+                style="font-size: 20px"
+                >search</span
+              >
+              <input
+                class="form-input w-full rounded-lg border border-[var(--border-color)] bg-white py-2 pl-10 pr-4 text-sm focus:border-[var(--primary-color)] focus:ring-1 focus:ring-[var(--primary-color)] placeholder:text-[var(--text-secondary)]"
+                placeholder="Search projects..."
+                type="search"
+              />
+            </div>
+            <button
+              aria-label="Notifications"
+              class="relative flex items-center justify-center rounded-full p-2 text-[var(--text-secondary)] hover:bg-gray-100 hover:text-[var(--primary-color)] transition-colors"
+            >
+              <span class="material-icons" style="font-size: 24px"
+                >notifications</span
+              >
+              <span
+                class="absolute top-1.5 right-1.5 h-2 w-2 rounded-full bg-[var(--accent-color)]"
+              ></span>
+            </button>
+            <img
+              alt="User Avatar"
+              class="size-10 rounded-full object-cover border-2 border-transparent hover:border-[var(--primary-color)] transition-all"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdgCTrVYTn4USft77-gNjJJpd0Hoegc1uKzCaY6W4O-7T4tZbUsKZ-7m050LUgTQEhCGE7oGQ5n0shEogHbdjLB73k_l-wQkdIcSClk75mLa9NrKfDG-dhfsmoY7hvojjCkS9L2AQefDheJZ8DS00K_WqFFAHXYE5YBYBTyAKGraNk5S_L0cxrOBmKXNmgTGSQ_4wWbICwYauWRJLusfk9Ru_wN7krBF-wTNlRuyGpseXO0-3oFgu5NCYkPWGoKRztIXc_2FtItQ"
+            />
+          </div>
+        </header>
+        <main class="px-8 md:px-16 lg:px-24 flex flex-1 justify-center py-8">
+          <div
+            class="layout-content-container flex flex-col w-full max-w-6xl flex-1"
+          >
+            <div class="mb-6 flex flex-wrap items-center justify-between gap-4">
+              <h2
+                class="text-3xl font-semibold tracking-tight text-[var(--text-primary)]"
+              >
+                Active Projects
+              </h2>
+              <button
+                id="newProjectBtn"
+                class="btn-primary flex items-center gap-2 rounded-lg py-2 px-4 text-sm font-medium leading-normal shadow-sm transition-all hover:shadow-md"
+              >
+                <span class="material-icons" style="font-size: 20px"
+                  >add_circle_outline</span
+                >
+                <span>New Project</span>
+              </button>
+            </div>
+            <div class="mb-6 border-b border-[var(--border-color)]">
+              <nav class="-mb-px flex space-x-6">
+                <a
+                  class="tab-link-active flex items-center justify-center border-b-2 py-3 px-1 text-sm font-medium"
+                  href="#"
+                >
+                  <span class="material-icons mr-2" style="font-size: 18px"
+                    >list</span
+                  >
+                  List View
+                </a>
+                <a
+                  class="flex items-center justify-center border-b-2 border-transparent py-3 px-1 text-sm font-medium text-[var(--text-secondary)] hover:border-gray-300 hover:text-[var(--text-primary)] transition-colors"
+                  href="#"
+                >
+                  <span class="material-icons mr-2" style="font-size: 18px"
+                    >grid_view</span
+                  >
+                  Card View
+                </a>
+              </nav>
+            </div>
+            <div
+              class="overflow-x-auto rounded-lg border border-[var(--border-color)] bg-white shadow-sm @container"
+            >
+              <table class="min-w-full divide-y divide-[var(--border-color)]">
+                <thead class="bg-gray-50">
+                  <tr>
+                    <th
+                      class="table-column-project-name px-6 py-3.5 text-left text-xs font-semibold uppercase tracking-wider text-[var(--text-secondary)] w-[40%]"
+                      scope="col"
+                    >
+                      Project Name
+                    </th>
+                    <th
+                      class="table-column-progress px-6 py-3.5 text-left text-xs font-semibold uppercase tracking-wider text-[var(--text-secondary)] w-[35%]"
+                      scope="col"
+                    >
+                      Progress
+                    </th>
+                    <th
+                      class="table-column-team px-6 py-3.5 text-left text-xs font-semibold uppercase tracking-wider text-[var(--text-secondary)] w-[15%]"
+                      scope="col"
+                    >
+                      Team Members
+                    </th>
+                    <th
+                      class="table-column-actions px-6 py-3.5 text-left text-xs font-semibold uppercase tracking-wider text-[var(--text-secondary)] w-[10%]"
+                      scope="col"
+                    >
+                      Actions
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-[var(--border-color)] bg-white">
+                  <tr>
+                    <td
+                      class="table-column-project-name whitespace-nowrap px-6 py-4 text-sm font-medium text-[var(--text-primary)]"
+                    >
+                      Website Redesign
+                    </td>
+                    <td
+                      class="table-column-progress whitespace-nowrap px-6 py-4 text-sm"
+                    >
+                      <div class="flex items-center gap-2">
+                        <div
+                          class="w-full overflow-hidden rounded-full bg-gray-200 h-2.5"
+                        >
+                          <div
+                            class="progress-bar-fill h-2.5 rounded-full"
+                            style="width: 75%"
+                          ></div>
+                        </div>
+                        <span
+                          class="text-xs font-medium text-[var(--text-secondary)]"
+                          >75%</span
+                        >
+                      </div>
+                    </td>
+                    <td
+                      class="table-column-team whitespace-nowrap px-6 py-4 text-sm text-[var(--text-secondary)]"
+                    >
+                      <div class="flex -space-x-1 overflow-hidden">
+                        <img
+                          alt="Member 1"
+                          class="inline-block h-6 w-6 rounded-full ring-2 ring-white"
+                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGxdW3ZTp0rRGzu6YIdQC-Xg2wBvPNt4oUcDe--YYQOFaePCWBnrOx_ZOWl3vuBcE14ydqsCARI-ztt9r38TQhPFznTEJC_UdkbtpfJKcR4D59njRRZunHC493-jqkAYXVetHsJsdJpxPgZkNz3nm60MTL89jc5BZ-vZ43-HLkTJScF0FFe634UCgDbt8t7Iq12iv3NBegWn_7V2tW5sfDjf3GN8GW7tuAkXqY7p_T4v89f3e1fY16q5gS0ExvLsRzT8jkTFO8MA"
+                        />
+                        <img
+                          alt="Member 2"
+                          class="inline-block h-6 w-6 rounded-full ring-2 ring-white"
+                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIuHtwRWivlhpjQVs9r9nElyNdskLKB-RTGUvz0e03ghmfc0aaMWyNTc1MuZY_wQp93jdghV2U9RNKYtVSZUrFPb-bGCQxNpJv9pqd-393ZEO2Hivcz08EUHJbMN1peTP9PeCIPWwlAwKPjee-Md5bRgSJ5gpBtAlDwtt9uK9XKEJx2d4g3iBrgAe6Ez-0yFM3ygpMtlCM76Iv2YIqQrnpieVMdlbbl88Dk9PWw3TIuCgsbul1YnXCKQsfMVVZs39-pqFIWL0sTg"
+                        />
+                        <img
+                          alt="Member 3"
+                          class="inline-block h-6 w-6 rounded-full ring-2 ring-white"
+                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfFPeBi8BakUuHb-zRrC7MGLWa9skp0N2gFYy9oGvFxGPESFNc64Td2iA0ABd_OTsqSPSVaV_ywo8TxTiEjh_U2qu6YrWrFvHlmJw8GFydFrEL9cUP3ENXpgwssnyEVYSfUt_SnjPEx75jsp5YpcDL0guCePXrWV_Q56a2kjuHEc-6QTP-TXkaKDJRf73CqfoJOHFNYJaO2TULNiXtWHchor989rfV1JdGXcoosFkLj0Bz3NYBROoR6n15YuAMm3nZZH384k46kQ"
+                        />
+                        <span
+                          class="flex h-6 w-6 items-center justify-center rounded-full bg-gray-200 text-xs font-medium text-gray-600 ring-2 ring-white"
+                          >+2</span
+                        >
+                      </div>
+                    </td>
+                    <td
+                      class="table-column-actions whitespace-nowrap px-6 py-4 text-sm text-[var(--text-secondary)]"
+                    >
+                      <button
+                        class="p-1 hover:text-[var(--primary-color)] transition-colors"
+                      >
+                        <span class="material-icons" style="font-size: 20px"
+                          >more_horiz</span
+                        >
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      class="table-column-project-name whitespace-nowrap px-6 py-4 text-sm font-medium text-[var(--text-primary)]"
+                    >
+                      Mobile App Development
+                    </td>
+                    <td
+                      class="table-column-progress whitespace-nowrap px-6 py-4 text-sm"
+                    >
+                      <div class="flex items-center gap-2">
+                        <div
+                          class="w-full overflow-hidden rounded-full bg-gray-200 h-2.5"
+                        >
+                          <div
+                            class="progress-bar-fill h-2.5 rounded-full"
+                            style="width: 40%"
+                          ></div>
+                        </div>
+                        <span
+                          class="text-xs font-medium text-[var(--text-secondary)]"
+                          >40%</span
+                        >
+                      </div>
+                    </td>
+                    <td
+                      class="table-column-team whitespace-nowrap px-6 py-4 text-sm text-[var(--text-secondary)]"
+                    >
+                      <div class="flex -space-x-1 overflow-hidden">
+                        <img
+                          alt="Member 1"
+                          class="inline-block h-6 w-6 rounded-full ring-2 ring-white"
+                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1-Hb8dkTWxqVy12FaRodsFu2H-tyYtEEu7l_TeiizfEw1s7ZJk7vgtdA_pl7HnT6hNZN8ZeI51UAa373qZMF3Dc3rk9E845WsaBEPLnQXw7HkNVTa4xid6Ims3ZaQrY1tRdrfR1BIafOPvdu4AWo5RTdYyx3QBP6r0jbOO_Xm-T5Ow6PVrFiyAPQLv_4v8-NFqgdavRKyRbg29UVkyPabZa_xCS916qzBM3c2_X0utUwOVqXYlcdNkTbdyfV9XtYwiKNez6cwXA"
+                        />
+                        <img
+                          alt="Member 2"
+                          class="inline-block h-6 w-6 rounded-full ring-2 ring-white"
+                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCH4g0tLtZaRVzswTSINEqX1B9clkuyhWKut2Qus--8BnAfT0isFId2S0OGVVeli4jWlF0oGQ3vya0SoxxBProbrFc_eXPmNxTvAUfzyTfJ0EyZp6nh4zPUVnYlcmUldP7SB4JS1rFPvCZ7OjfbUCxbcNax8_iYh7vRusHnFcmBpB5l71SoRHpnAper2b-3lmhqpALg3pbis8gosmpW_6DP3qUo009QYYujHfbiZZM21qZ_iNNuXcDDLsgNFFWx_i_IOxI-EjiMNA"
+                        />
+                        <img
+                          alt="Member 3"
+                          class="inline-block h-6 w-6 rounded-full ring-2 ring-white"
+                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMjvq5zjyFF5cqySsln5MOGIJ4MyViTChXrbpdtIHL4sMP6-XI_CavaBCI7p2E37xKo00mH_iyoNVbtZDO6ShFUeq0Y-uyO845b0Ynf92V4_BmuKRPmfXqjXsM49fGzN3pNWbvs5bEMkh49k03qMIvQbZ96IRIQZSPmhQLX96ln0IQVsvF2OV94tWkPiDBij1RfXMT2e1euwSunjQbgeuqzXRYXS-X7f11iADgtvN29fbfjDkCcqiFESmSxIADf6U8BfQDYqZFvw"
+                        />
+                        <img
+                          alt="Member 4"
+                          class="inline-block h-6 w-6 rounded-full ring-2 ring-white"
+                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDf6VTuAFbO-h0QD8y8p2EUQJy1L9ep8DKPCs0rAWR7qdJXiaE9dID1T2uCvHsyWsz3k7mYD0AmOnzRW0FjXIduFl_FHTKzp2aP_3De0FYa_vpa7ZuvFt7obSsO1161NtYVcstNYY3z9D5cIa_Kx4WCpk1asf5xxKHw7A49y0rVJi-Do90Ri7nrcr52bLWcw7SWQGU-oqQKhbHbJO2OfhBA7UHoPk5DDvg37D7YiUom3hJODc8ccNgdKhctuJTtFJywpWrRGAb8RQ"
+                        />
+                        <span
+                          class="flex h-6 w-6 items-center justify-center rounded-full bg-gray-200 text-xs font-medium text-gray-600 ring-2 ring-white"
+                          >+4</span
+                        >
+                      </div>
+                    </td>
+                    <td
+                      class="table-column-actions whitespace-nowrap px-6 py-4 text-sm text-[var(--text-secondary)]"
+                    >
+                      <button
+                        class="p-1 hover:text-[var(--primary-color)] transition-colors"
+                      >
+                        <span class="material-icons" style="font-size: 20px"
+                          >more_horiz</span
+                        >
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      class="table-column-project-name whitespace-nowrap px-6 py-4 text-sm font-medium text-[var(--text-primary)]"
+                    >
+                      Marketing Campaign
+                    </td>
+                    <td
+                      class="table-column-progress whitespace-nowrap px-6 py-4 text-sm"
+                    >
+                      <div class="flex items-center gap-2">
+                        <div
+                          class="w-full overflow-hidden rounded-full bg-gray-200 h-2.5"
+                        >
+                          <div
+                            class="progress-bar-fill h-2.5 rounded-full"
+                            style="width: 90%"
+                          ></div>
+                        </div>
+                        <span
+                          class="text-xs font-medium text-[var(--text-secondary)]"
+                          >90%</span
+                        >
+                      </div>
+                    </td>
+                    <td
+                      class="table-column-team whitespace-nowrap px-6 py-4 text-sm text-[var(--text-secondary)]"
+                    >
+                      <div class="flex -space-x-1 overflow-hidden">
+                        <img
+                          alt="Member 1"
+                          class="inline-block h-6 w-6 rounded-full ring-2 ring-white"
+                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiXlIFb9Vkg9IglNtJiOYKJitTtTyEny3EAFHr-nLUIgu86p_gISpR8S3mL31JOGAcSJmVj8m7ZkxTR-v-7MbDLMH3cz8Xe9ujj8cKaLYbSxvcnPWEiis-1H7vD9Uz1BNG4XQfjmuThW6CsL7zRg4IyCAZrxtIhmKRlsgzwGi0k2gTz4Eci4KkdnKczUzLDXv0Z55C5Oxy-6fCKPrZIPhQIt057JbpRBbiz1fwvhZPf6tSJaUwn846S1cgk7vIBdHbRdQiYFn-NQ"
+                        />
+                        <img
+                          alt="Member 2"
+                          class="inline-block h-6 w-6 rounded-full ring-2 ring-white"
+                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuk1xuQUJBeU7uNv_CFOzV1zlZmzG17aO197aIoe8C0AJf5GUbzRcumRUIgIIHYX7cp9M265u-t-dx0QA0L869_fjLDFljRuLbCzaekEdvPVnYg7jeb_RBBiwbA0_OXHc6s2u0BmHtXPWOmCNorpPgVIQAA5uo4171joTQOYD4KY2I1ricnufweY9t2Que5Y7MSXU2jb7XiAd9Qt9A8hxuXG-VCPx2sA6Tl6VQ2TfSUmYf4Q0b9z-cBEpP5KLU34vCr5kGCRb3Sg"
+                        />
+                        <span
+                          class="flex h-6 w-6 items-center justify-center rounded-full bg-gray-200 text-xs font-medium text-gray-600 ring-2 ring-white"
+                          >+1</span
+                        >
+                      </div>
+                    </td>
+                    <td
+                      class="table-column-actions whitespace-nowrap px-6 py-4 text-sm text-[var(--text-secondary)]"
+                    >
+                      <button
+                        class="p-1 hover:text-[var(--primary-color)] transition-colors"
+                      >
+                        <span class="material-icons" style="font-size: 20px"
+                          >more_horiz</span
+                        >
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      class="table-column-project-name whitespace-nowrap px-6 py-4 text-sm font-medium text-[var(--text-primary)]"
+                    >
+                      Product Launch
+                    </td>
+                    <td
+                      class="table-column-progress whitespace-nowrap px-6 py-4 text-sm"
+                    >
+                      <div class="flex items-center gap-2">
+                        <div
+                          class="w-full overflow-hidden rounded-full bg-gray-200 h-2.5"
+                        >
+                          <div
+                            class="progress-bar-fill h-2.5 rounded-full"
+                            style="width: 20%"
+                          ></div>
+                        </div>
+                        <span
+                          class="text-xs font-medium text-[var(--text-secondary)]"
+                          >20%</span
+                        >
+                      </div>
+                    </td>
+                    <td
+                      class="table-column-team whitespace-nowrap px-6 py-4 text-sm text-[var(--text-secondary)]"
+                    >
+                      <div class="flex -space-x-1 overflow-hidden">
+                        <img
+                          alt="Member 1"
+                          class="inline-block h-6 w-6 rounded-full ring-2 ring-white"
+                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMj8Lu8V8FNAqw0nyluQhFVUqP_OLUtP_jrV0o2U3GbkFx88sv5b-AZlfTD5zvdFUT9k-y38RiRHXcBtLrAC1fZnydx_0_LMX9ZvGjXshPE6f3pUMGUIEw2dFGe7gPyrg0qM4uhi-RW0RI8upA_6NOjz4vh5kD1hzSChvcjbg6PKunpsZML8RKXLDcmKlh6JeZ7bYUowsaKdIPaUzy7LifzFNSlxL_JOGwIHIjAOp3DXByGE_qHp5yGktZDYGLpnwN16eTZNjI3Q"
+                        />
+                        <img
+                          alt="Member 2"
+                          class="inline-block h-6 w-6 rounded-full ring-2 ring-white"
+                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRlr5LsyhM8b4lKxYxiwitCzlukqhnuKgwhvXFB7Kad5ptOLdbQr6Az8APgmsegBJlKJ-j7mfNY__34OpckM-FvdYmrrZyZ2gx4yZuSggueZVvarRNzMoupOzpA0LItqItEpQnZTrXN7YHIn6nF6AtDeqYpmHHl4AmM3AgKpRZAjXqX7nzwRE78-c-IJhJH2xmo6gFLbvUbs-vT_T1XBuY2OU2daiviZrb6RK-mhsa6uDnd8Lwh42h6UAoHXdEZmuUXZO4eKyirg"
+                        />
+                        <img
+                          alt="Member 3"
+                          class="inline-block h-6 w-6 rounded-full ring-2 ring-white"
+                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUBUPuru1HTo0ZyERYudwXoI6T-9FzcCoj0JoIAJyI068vp8whlJmK0-vH9S5jY-sLTIOmLKAPJnNqqbQ9wqcpgTuSEQraOAIzbJMzzB2UN9eau9jtj1Jv6IelzVwAeDEh0nyQozp0F34vqUT2CsNUuiL1-JYDOezF63XkNgr7HK5evnMLRQSk68kpJ5bKuaqIhL40NLSbNUnFrBwzZi1-pT4omp08p0ks0N9TaaylsbUrzeKtX4uWLicm4qEIoUz-U0-Uz7zbiw"
+                        />
+                        <span
+                          class="flex h-6 w-6 items-center justify-center rounded-full bg-gray-200 text-xs font-medium text-gray-600 ring-2 ring-white"
+                          >+3</span
+                        >
+                      </div>
+                    </td>
+                    <td
+                      class="table-column-actions whitespace-nowrap px-6 py-4 text-sm text-[var(--text-secondary)]"
+                    >
+                      <button
+                        class="p-1 hover:text-[var(--primary-color)] transition-colors"
+                      >
+                        <span class="material-icons" style="font-size: 20px"
+                          >more_horiz</span
+                        >
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      class="table-column-project-name whitespace-nowrap px-6 py-4 text-sm font-medium text-[var(--text-primary)]"
+                    >
+                      Customer Support System
+                    </td>
+                    <td
+                      class="table-column-progress whitespace-nowrap px-6 py-4 text-sm"
+                    >
+                      <div class="flex items-center gap-2">
+                        <div
+                          class="w-full overflow-hidden rounded-full bg-gray-200 h-2.5"
+                        >
+                          <div
+                            class="progress-bar-fill h-2.5 rounded-full"
+                            style="width: 60%"
+                          ></div>
+                        </div>
+                        <span
+                          class="text-xs font-medium text-[var(--text-secondary)]"
+                          >60%</span
+                        >
+                      </div>
+                    </td>
+                    <td
+                      class="table-column-team whitespace-nowrap px-6 py-4 text-sm text-[var(--text-secondary)]"
+                    >
+                      <div class="flex -space-x-1 overflow-hidden">
+                        <img
+                          alt="Member 1"
+                          class="inline-block h-6 w-6 rounded-full ring-2 ring-white"
+                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKHSjIxSHVT_vYZlH1eKUdmvzbmw7AUTt4Dhh5e-vomO_FagmspQE7NPZ1v7yX_98JeO9Kse1RSPgopnrn74NMHtRBSulOQPuXPPNCWLU9apePGBQBoKi9y6uYOxM9QJBsj7z1eLK8_sopdQ0vnRT3PqeH0Z6JjVv0VSGbfclRoW7mCkGPGev0xt43VWy9rO0_J5JLeTmxV0qt_BkHDGNqxzVsuQMMmDzpo7RkAu3gO-aUhr6ChhlJ4-28Rx9xBOUIsH7Pl9bXZQ"
+                        />
+                        <img
+                          alt="Member 2"
+                          class="inline-block h-6 w-6 rounded-full ring-2 ring-white"
+                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDWOiVtS_Lt0c3vlEjeeKwN-LpTemUECUFgDMujYGfICQPlsq43KLv3gy33gUgqcm58t5mH_8brI6UCWWyVj80VgNmM1lDFsuIBMLoxUP251sb3FtfKvfwrqZ9rdcNE71w3UoiGivI88SG0pUqn-0Y3oPkI8SFXeALGCUe2axIdmWG8iQDdQDzvMKARCtTcHMwuewEKDrwhQl2AsIz_dMoZ9CtmW5CUU7cw715WS1tVNhfdIJsYQkH8AP__sk79hoZFB9DZKEyLQ"
+                        />
+                        <img
+                          alt="Member 3"
+                          class="inline-block h-6 w-6 rounded-full ring-2 ring-white"
+                          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGVcoU3k3XwHw7oosvc7ZI8za2K2imWKixSbgzMzSFFigqwYYIIvUepkn0nkHA92nxenws8KF3uuPgJMxVWcnFip4kQuqCGPJkXIuQ8n-GEA7E4QJsqiLbOc4nHJvdbHsTHjCU2fiJTldtodyNxh3QkRagQWOo531Ex8mY79WX-MuWxbIoVjUHpRuGR0HLi4fDrCXrKI0XPxFYVOUOO1moIyl_nv_C4C14sMucNFX9iOgy4s4FpqR_gVYdkDBicKo7AhbQqS9vuQ"
+                        />
+                        <span
+                          class="flex h-6 w-6 items-center justify-center rounded-full bg-gray-200 text-xs font-medium text-gray-600 ring-2 ring-white"
+                          >+1</span
+                        >
+                      </div>
+                    </td>
+                    <td
+                      class="table-column-actions whitespace-nowrap px-6 py-4 text-sm text-[var(--text-secondary)]"
+                    >
+                      <button
+                        class="p-1 hover:text-[var(--primary-color)] transition-colors"
+                      >
+                        <span class="material-icons" style="font-size: 20px"
+                          >more_horiz</span
+                        >
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <style>
+                @container (max-width: 768px) {
+                  .table-column-progress,
+                  .table-column-team {
+                    display: none;
+                  }
+                  .table-column-project-name {
+                    width: 80%;
+                  }
+                  .table-column-actions {
+                    width: 20%;
+                  }
+                }
+                @container (max-width: 480px) {
+                  .table-column-actions {
+                    display: none;
+                  }
+                  .table-column-project-name {
+                    width: 100%;
+                  }
+                }
+              </style>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script src="../manageProjectJS/newPoject.js"></script>
+    <script src="../manageProjectJS/dashboard.js"></script>
+  </body>
+</html>

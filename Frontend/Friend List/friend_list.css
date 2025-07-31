@@ -1,0 +1,67 @@
+.profile-container{
+    width: 50%;
+    margin: auto;
+    min-width: 300px;
+    margin-bottom: 20px;
+}
+.sub-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.30);
+    max-width: 600px;
+    margin-bottom: 20px;
+}
+.pic-class{
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.profile-pic{
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+
+}
+.profile-details{
+    padding-left: 10px;
+    flex: 1;
+}
+.status-button{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.pic-class{
+    margin-left: 10px;
+}
+.profile-name{
+    font-family: Roboto;
+    font-weight: 600;
+    padding-bottom: 0px;
+}
+.user-name{
+    font-family: Roboto;
+    font-weight: 400;
+    padding-top: 0px;
+    font-size: 14px;
+    color: rgb(70, 70, 70);
+}
+.friends-button{
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border: none;
+    font-size: 13px;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.friends-button:active{
+    opacity: 0.4;
+}
+

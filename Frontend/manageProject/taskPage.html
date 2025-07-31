@@ -1,0 +1,820 @@
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+  <link as="style"
+    href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B600%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B600%3B700%3B900"
+    onload="this.rel='stylesheet'" rel="stylesheet" />
+  <title>SyncUp</title>
+  <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <style type="text/tailwindcss">
+    :root {
+        --primary-color: #dce8f3;
+        --primary-color-text: #1e40af;
+        --primary-color-hover: #b0c7e0;
+        --secondary-color: #f3f4f6;
+        --accent-color: #2563eb;
+        --text-color-primary: #1f2937;
+        --text-color-secondary: #4b5563;
+        --border-color: #e5e7eb;
+        --success-color: #10b981;
+        --warning-color: #f59e0b;
+        --info-color: #3b82f6;
+        --danger-color: #ef4444;
+        --danger-color-hover: #dc2626;
+      }
+      .status-badge-completed {
+        background-color: var(--success-color);
+        color: white;
+      }
+      .status-badge-in-progress {
+        background-color: var(--warning-color);
+        color: white;
+      }
+      .status-badge-to-do {
+        background-color: var(--info-color);
+        color: white;
+      }
+      .nav-link-active {
+        color: var(--accent-color);
+        font-weight: 600;
+        border-bottom: 2px solid var(--accent-color);
+      }
+      .nav-link {
+        transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+        padding-bottom: 2px;
+      }
+      .nav-link:hover {
+        color: var(--accent-color);
+      }
+    </style>
+</head>
+
+<body class="bg-[var(--secondary-color)]" style="font-family: Inter, 'Noto Sans', sans-serif">
+  <div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden">
+    <div class="layout-container flex h-full grow flex-col">
+      <header
+        class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[var(--border-color)] bg-white px-8 py-4 shadow-sm">
+
+        <div class="flex items-center gap-10">
+          <a href="../newsFeed/newsFeed.html">
+                <div class="flex items-center gap-4 text-[#1b0e0e]">
+                    <div class="size-4">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z" fill="currentColor"></path>
+                        </svg>
+                    </div>
+                    <h2 class="text-[#1b0e0e] text-lg font-bold leading-tight tracking-[-0.015em]">SyncUP</h2>
+                </div>
+            </a>
+
+          <nav class="flex items-center gap-6">
+            <a class="nav-link text-[var(--text-color-secondary)] hover:text-[var(--accent-color)] text-sm font-medium leading-normal"
+              href="#">Dashboard</a>
+            <a class="nav-link nav-link-active text-sm font-medium leading-normal" href="#">Projects</a>
+            <a class="nav-link text-[var(--text-color-secondary)] hover:text-[var(--accent-color)] text-sm font-medium leading-normal"
+              href="#">Team</a>
+          </nav>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="relative w-64">
+            <div
+              class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-[var(--text-color-secondary)]">
+              <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z">
+                </path>
+              </svg>
+            </div>
+            <input
+              class="form-input w-full rounded-lg border border-[var(--border-color)] bg-white py-2 pl-10 pr-4 text-sm text-[var(--text-color-primary)] placeholder-[var(--text-color-secondary)] focus:border-[var(--accent-color)] focus:ring-1 focus:ring-[var(--accent-color)]"
+              placeholder="Search projects, tasks..." value="" />
+          </div>
+          <button aria-label="Notifications"
+            class="flex items-center justify-center rounded-full p-2 text-[var(--text-color-secondary)] hover:bg-gray-100 hover:text-[var(--accent-color)] focus:outline-none focus:ring-2 focus:ring-[var(--accent-color)] focus:ring-offset-2">
+            <svg fill="currentColor" height="22px" viewBox="0 0 256 256" width="22px"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z">
+              </path>
+            </svg>
+          </button>
+          <div
+            class="aspect-square size-10 rounded-full border-2 border-white bg-cover bg-center shadow-sm ring-1 ring-gray-300"
+            style="
+                background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBTLHfqBGbqQM3oquWsdTBKURzD6GrMiWCHHBbpY4c7XRZYmqh45ODQ_MFyHhCqySv4gyvqBEpUNY70ToeidyB0GUNBfNzAXtGbxDL61lLMTZVwsFUf9wuTjOTWJy12hIGLkcganQTUOTSlI9z7QNUjCfbL6JEDzQc3CxkK2lVVlndRbjtQBWWiY5oUQbK5UK4J0xxHuNQH5NSd9572WT6CF8PUDF-BCQOAbBELN-7xFujnyKyh2HO_0nXO3Gtn9idhktKylM5JEA');
+              "></div>
+        </div>
+      </header>
+      <main class="flex flex-1">
+        <div class="flex-1 overflow-y-auto bg-[var(--secondary-color)] p-8">
+          <div class="mb-8">
+            <h1 id="project-title" class="text-3xl font-bold text-[var(--text-color-primary)]">
+              <!-- Website Redesign -->
+            </h1>
+            <p id="created-date" class="mt-1 text-sm text-[var(--text-color-secondary)]">
+              <!-- Revamp the company website to improve user experience and
+                engagement. -->
+            </p>
+          </div>
+          <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
+            <div class="lg:col-span-2">
+              <div class="mb-8 rounded-lg bg-white p-6 shadow">
+                <h2 class="mb-1 text-lg font-semibold text-[var(--text-color-primary)]">
+                  Project Description
+                </h2>
+                <p id="project-description" class="text-sm text-[var(--text-color-secondary)]">
+                  <!-- This project aims to redesign the company's website to
+                    enhance user experience, improve navigation, and update the
+                    visual design to align with the latest branding guidelines.
+                    The project includes a complete overhaul of the site's
+                    architecture, content, and design, with a focus on mobile
+                    responsiveness and accessibility. -->
+                </p>
+              </div>
+              <div class="mb-8 rounded-lg bg-white p-6 shadow">
+                <div class="flex items-center justify-between">
+                  <h2 class="text-lg font-semibold text-[var(--text-color-primary)]">
+                    To Do
+                  </h2>
+                  <span id="todo-percent" class="text-sm font-semibold text-[var(--accent-color)]">0%</span>
+                </div>
+                <div class="mt-3 h-3 w-full rounded-full bg-gray-200">
+                  <div id="todo-bar" class="h-3 rounded-full bg-[var(--accent-color)]" style="width: 0%"></div>
+                </div>
+              </div>
+              <div class="mb-8 rounded-lg bg-white p-6 shadow">
+                <div class="flex items-center justify-between">
+                  <h2 class="text-lg font-semibold text-[var(--text-color-primary)]">
+                    In Progress
+                  </h2>
+                  <span id="progress-percent" class="text-sm font-semibold text-[var(--accent-color)]">0%</span>
+                </div>
+                <div class="mt-3 h-3 w-full rounded-full bg-gray-200">
+                  <div id="progress-bar" class="h-3 rounded-full bg-[var(--accent-color)]" style="width: 0%"></div>
+                </div>
+              </div>
+              <div class="mb-8 rounded-lg bg-white p-6 shadow">
+                <div class="flex items-center justify-between">
+                  <h2 class="text-lg font-semibold text-[var(--text-color-primary)]">
+                    Completed
+                  </h2>
+                  <span id="completed-percent" class="text-sm font-semibold text-[var(--accent-color)]">0%</span>
+                </div>
+                <div class="mt-3 h-3 w-full rounded-full bg-gray-200">
+                  <div id="completed-bar" class="h-3 rounded-full bg-[var(--accent-color)]" style="width: 0%"></div>
+                </div>
+              </div>
+              <div class="mb-8 rounded-lg bg-white p-6 shadow">
+                <h2 class="mb-4 text-xl font-semibold text-[var(--text-color-primary)]">
+                  Quick Add
+                </h2>
+                <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+                  <div>
+                    <h3 class="mb-2 text-lg font-medium text-[var(--text-color-primary)]">
+                      Add New Task
+                    </h3>
+                    <form class="space-y-4">
+                      <div>
+                        <label class="block text-sm font-medium text-[var(--text-color-secondary)]" for="task-name">Task
+                          Name</label>
+                        <input
+                          class="form-input mt-1 block w-full rounded-md border-[var(--border-color)] shadow-sm focus:border-[var(--accent-color)] focus:ring-[var(--accent-color)] sm:text-sm"
+                          id="task-name" placeholder="e.g., Design new logo" type="text" />
+                      </div>
+                      <div>
+                        <label class="block text-sm font-medium text-[var(--text-color-secondary)]"
+                          for="task-assignee">Assignee</label>
+                        <select
+                          class="form-select mt-1 block w-full rounded-md border-[var(--border-color)] shadow-sm focus:border-[var(--accent-color)] focus:ring-[var(--accent-color)] sm:text-sm"
+                          id="task-assignee">
+                          <option value="">Select Assignee</option>
+                          <!-- <option>Sarah Lee</option>
+                            <option>David Chen</option>
+                            <option>Emily Wong</option> -->
+                        </select>
+                      </div>
+                      <div>
+                        <label class="block text-sm font-medium text-[var(--text-color-secondary)]"
+                          for="task-due-date">Due Date</label>
+                        <input
+                          class="form-input mt-1 block w-full rounded-md border-[var(--border-color)] shadow-sm focus:border-[var(--accent-color)] focus:ring-[var(--accent-color)] sm:text-sm"
+                          id="task-due-date" type="date" />
+                      </div>
+                      <button
+                        class="flex w-full items-center justify-center gap-2 rounded-lg bg-[var(--accent-color)] px-4 py-2.5 text-sm font-medium text-white hover:bg-[var(--primary-color-hover)] hover:text-[var(--primary-color-text)] focus:outline-none focus:ring-2 focus:ring-[var(--accent-color)] focus:ring-offset-2"
+                        type="submit">
+                        <svg fill="currentColor" height="20" viewBox="0 0 256 256" width="20"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z">
+                          </path>
+                        </svg>
+                        Add Task
+                      </button>
+                    </form>
+                  </div>
+                  <div>
+                    <h3 class="mb-2 text-lg font-medium text-[var(--text-color-primary)]">
+                      Add New Team Member
+                    </h3>
+                    <form class="space-y-4">
+                      <div>
+                        <label class="block text-sm font-medium text-[var(--text-color-secondary)]"
+                          for="friend-search">Search Friends</label>
+                        <div class="relative mt-1">
+                          <input
+                            class="form-input block w-full rounded-md border-[var(--border-color)] shadow-sm focus:border-[var(--accent-color)] focus:ring-[var(--accent-color)] sm:text-sm pr-10"
+                            id="friend-search" placeholder="Search by name or email" type="text" />
+                          <div
+                            class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-[var(--text-color-secondary)]">
+                            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path clip-rule="evenodd"
+                                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                fill-rule="evenodd"></path>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="mt-2 max-h-48 overflow-y-auto rounded-md border border-[var(--border-color)] bg-white">
+                        <ul class="divide-y divide-[var(--border-color)]" id="friend-list">
+                          <!-- <li
+                              class="flex items-center justify-between p-3 hover:bg-gray-50"
+                            >
+                              <div class="flex items-center">
+                                <img
+                                  alt="Friend 1"
+                                  class="h-8 w-8 rounded-full"
+                                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBh5Kcn3aVpmmXi6ng1N2DqkVfgCn_X4CBQrW00l1lKZcZSr5sukiSH4KzCJVlvWCzN7ypQ1n8M8eU96wZOoW_OIrXEof3GyeqB85XCNQFRlYZ-CAw0xpXhE60e5zfJiW5JfDCvLzjs4-33M7uUjWI-3_R3OlSa9uKBa3MJ2S2ZTjK0MOGCpHA28hALuPXahToHZWpKbJcbth_cx4EDlWIwce0eawpFwuQuMkItyZCt8wwxujK-VgDF_70TGjM5r1PnNNlR5KMfsA"
+                                />
+                                <div class="ml-3">
+                                  <p
+                                    class="text-sm font-medium text-[var(--text-color-primary)]"
+                                  >
+                                    Alex Johnson
+                                  </p>
+                                  <p
+                                    class="text-xs text-[var(--text-color-secondary)]"
+                                  >
+                                    alex.johnson@example.com
+                                  </p>
+                                </div>
+                              </div>
+                              <button
+                                class="rounded-md bg-[var(--accent-color)] px-2.5 py-1 text-xs font-medium text-white hover:bg-[var(--primary-color-hover)] hover:text-[var(--primary-color-text)] focus:outline-none focus:ring-2 focus:ring-[var(--accent-color)] focus:ring-offset-1"
+                                type="button"
+                              >
+                                Add
+                              </button>
+                            </li>
+                            <li
+                              class="flex items-center justify-between p-3 hover:bg-gray-50"
+                            >
+                              <div class="flex items-center">
+                                <img
+                                  alt="Friend 2"
+                                  class="h-8 w-8 rounded-full"
+                                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoofi1G1DgyGj_l8kqQLaRXj65u7ZjFUmE_pXg9tbL7TqVUM7PVyGsPq53Aqkit5DzClb5iCMdEN34VDVCPg9O9SBtDBwg8-20RR4Qx6p7xykVW7e6RGtw0-_l_eCJ5zoLjoX2lgtQF-Y02hNSLrOcVegrOOm-qmClcYqMqylSknHdjMYDiY69_3aukrZGHNom6hUEPPrPN5X0NrdscJm_uN98rL83RoqxINTdpvRX2g4tTPyAAY8f28LQ6HJ0BlEuWnnS80YL3w"
+                                />
+                                <div class="ml-3">
+                                  <p
+                                    class="text-sm font-medium text-[var(--text-color-primary)]"
+                                  >
+                                    Maria Garcia
+                                  </p>
+                                  <p
+                                    class="text-xs text-[var(--text-color-secondary)]"
+                                  >
+                                    maria.garcia@example.com
+                                  </p>
+                                </div>
+                              </div>
+                              <button
+                                class="rounded-md bg-[var(--accent-color)] px-2.5 py-1 text-xs font-medium text-white hover:bg-[var(--primary-color-hover)] hover:text-[var(--primary-color-text)] focus:outline-none focus:ring-2 focus:ring-[var(--accent-color)] focus:ring-offset-1"
+                                type="button"
+                              >
+                                Add
+                              </button>
+                            </li>
+                            <li
+                              class="flex items-center justify-between p-3 hover:bg-gray-50"
+                            >
+                              <div class="flex items-center">
+                                <img
+                                  alt="Friend 3"
+                                  class="h-8 w-8 rounded-full"
+                                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJy9v61F3UO9i6GFW5zNZEgOQBRps6fbzuazx8tr8QavxGcFqequTV7dzPGVIVM8TJcv-zWyCc5ZAXaqZczQLB2OKJdM2JuSwXrCXJrblh8IboR4VCQhc9mf2fsFeLAcrC4Pal_seX_pS5rHGGWSeQWFAaMivIMSbIkc4-Y6qX2P3zF-Zcrcge_sZrHYLsuTwqfYMQAttH2X9hiM3oz1G61VnpqcCbjLBoS9SPaaWXVV_AEhTY6Uyu9krJ2WxY7mUJq2B3vFETpQ"
+                                />
+                                <div class="ml-3">
+                                  <p
+                                    class="text-sm font-medium text-[var(--text-color-primary)]"
+                                  >
+                                    Chris Miller
+                                  </p>
+                                  <p
+                                    class="text-xs text-[var(--text-color-secondary)]"
+                                  >
+                                    chris.miller@example.com
+                                  </p>
+                                </div>
+                              </div>
+                              <button
+                                class="rounded-md bg-gray-200 px-2.5 py-1 text-xs font-medium text-[var(--text-color-secondary)] cursor-not-allowed"
+                                disabled=""
+                                type="button"
+                              >
+                                Added
+                              </button>
+                            </li> -->
+                        </ul>
+                      </div>
+                      <!-- <div>
+                          <label
+                            class="block text-sm font-medium text-[var(--text-color-secondary)]"
+                            for="member-name-selected"
+                            >Name</label
+                          >
+                          <input
+                            class="form-input mt-1 block w-full rounded-md border-[var(--border-color)] shadow-sm focus:border-[var(--accent-color)] focus:ring-[var(--accent-color)] sm:text-sm bg-gray-50"
+                            disabled=""
+                            id="member-name-selected"
+                            placeholder="Selected from friends list"
+                            type="text"
+                          />
+                        </div>
+                        <div>
+                          <label
+                            class="block text-sm font-medium text-[var(--text-color-secondary)]"
+                            for="member-email-selected"
+                            >Email</label
+                          >
+                          <input
+                            class="form-input mt-1 block w-full rounded-md border-[var(--border-color)] shadow-sm focus:border-[var(--accent-color)] focus:ring-[var(--accent-color)] sm:text-sm bg-gray-50"
+                            disabled=""
+                            id="member-email-selected"
+                            placeholder="Selected from friends list"
+                            type="email"
+                          />
+                        </div>
+                        <div>
+                          <label
+                            class="block text-sm font-medium text-[var(--text-color-secondary)]"
+                            for="member-role-selected"
+                            >Role</label
+                          >
+                          <input
+                            class="form-input mt-1 block w-full rounded-md border-[var(--border-color)] shadow-sm focus:border-[var(--accent-color)] focus:ring-[var(--accent-color)] sm:text-sm"
+                            id="member-role-selected"
+                            placeholder="e.g., Developer"
+                            type="text"
+                          />
+                        </div>
+                        <button
+                          class="flex w-full items-center justify-center gap-2 rounded-lg bg-[var(--accent-color)] px-4 py-2.5 text-sm font-medium text-white hover:bg-[var(--primary-color-hover)] hover:text-[var(--primary-color-text)] focus:outline-none focus:ring-2 focus:ring-[var(--accent-color)] focus:ring-offset-2"
+                          type="submit"
+                        >
+                          <svg
+                            fill="currentColor"
+                            height="20"
+                            viewBox="0 0 256 256"
+                            width="20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M232,128A104,104,0,0,1,35.14,184.1a16,16,0,0,1,25.72-17.78,72,72,0,1,0,0-76.64,16,16,0,0,1-25.72-17.78A104,104,0,0,1,232,128ZM128,88a40,40,0,1,0,40,40A40,40,0,0,0,128,88Zm88,8H200a104.07,104.07,0,0,1-28.12,72.49,16,16,0,1,0,22.63,22.62A104.6,104.6,0,0,1,200,200a104,104,0,0,1-72-31.88V200a16,16,0,0,1-32,0V168.12A104,104,0,0,1,24,128a104.6,104.6,0,0,1,5.51-34.49A16,16,0,1,0,6.88,70.88,104.07,104.07,0,0,1,56,56h8v8a16,16,0,0,0,32,0V56h48v8a16,16,0,0,0,32,0V56h8a104.07,104.07,0,0,1,22.63,15.51,16,16,0,1,0,22.62-22.63A104.6,104.6,0,0,1,216,24h0a16,16,0,0,0,0,32H200a71.75,71.75,0,0,0-48,19.56,16,16,0,0,0,0,24.88A71.75,71.75,0,0,0,200,120h16A16,16,0,0,0,216,96Z"
+                            ></path>
+                          </svg>
+                          Add Member
+                        </button> -->
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-8">
+                <div class="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
+                  <h2 class="text-xl font-semibold text-[var(--text-color-primary)]">
+                    Tasks
+                  </h2>
+                </div>
+                <div
+                  class="mt-4 overflow-x-auto rounded-lg border border-[var(--border-color)] bg-white shadow @container">
+                  <table class="min-w-full divide-y divide-[var(--border-color)]">
+                    <thead class="bg-gray-50">
+                      <tr>
+                        <th
+                          class="w-12 px-4 py-3.5 text-left text-xs font-semibold uppercase tracking-wider text-[var(--text-color-secondary)]"
+                          scope="col">
+                          <input
+                            class="form-checkbox rounded text-[var(--accent-color)] focus:ring-[var(--accent-color)]"
+                            type="checkbox" />
+                        </th>
+                        <th
+                          class="table-task-name min-w-[200px] px-6 py-3.5 text-left text-xs font-semibold uppercase tracking-wider text-[var(--text-color-secondary)]"
+                          scope="col">
+                          Task
+                        </th>
+                        <th
+                          class="table-task-status min-w-[150px] px-6 py-3.5 text-left text-xs font-semibold uppercase tracking-wider text-[var(--text-color-secondary)]"
+                          scope="col">
+                          Status
+                        </th>
+                        <th
+                          class="table-task-assignee min-w-[180px] px-6 py-3.5 text-left text-xs font-semibold uppercase tracking-wider text-[var(--text-color-secondary)]"
+                          scope="col">
+                          Assignee
+                        </th>
+                        <th
+                          class="table-task-due-date min-w-[120px] px-6 py-3.5 text-left text-xs font-semibold uppercase tracking-wider text-[var(--text-color-secondary)]"
+                          scope="col">
+                          Due Date
+                        </th>
+                        <th
+                          class="min-w-[100px] px-6 py-3.5 text-left text-xs font-semibold uppercase tracking-wider text-[var(--text-color-secondary)]"
+                          scope="col">
+                          Actions
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-[var(--border-color)] bg-white">
+                      <tr>
+                        <td class="px-4 py-4">
+                          <input
+                            class="form-checkbox rounded text-[var(--accent-color)] focus:ring-[var(--accent-color)]"
+                            type="checkbox" />
+                        </td>
+                        <td
+                          class="table-task-name whitespace-nowrap px-6 py-4 text-sm font-medium text-[var(--text-color-primary)]">
+                          Design Homepage
+                        </td>
+                        <td class="table-task-status whitespace-nowrap px-6 py-4 text-sm">
+                          <select
+                            class="form-select w-full rounded-md border-[var(--border-color)] py-1.5 text-xs shadow-sm focus:border-[var(--accent-color)] focus:ring-[var(--accent-color)]">
+                            <option selected="" value="completed">
+                              Completed
+                            </option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="to-do">To Do</option>
+                          </select>
+                        </td>
+                        <td
+                          class="table-task-assignee whitespace-nowrap px-6 py-4 text-sm text-[var(--text-color-secondary)]">
+                          <select
+                            class="form-select w-full rounded-md border-[var(--border-color)] py-1.5 text-xs shadow-sm focus:border-[var(--accent-color)] focus:ring-[var(--accent-color)]">
+                            <option>Select Assignee</option>
+                            <option selected="">Sarah Lee</option>
+                            <option>David Chen</option>
+                            <option>Emily Wong</option>
+                            <option>Team</option>
+                            <option>Project Lead</option>
+                          </select>
+                        </td>
+                        <td
+                          class="table-task-due-date whitespace-nowrap px-6 py-4 text-sm text-[var(--text-color-secondary)]">
+                          2024-03-15
+                        </td>
+                        <td class="whitespace-nowrap px-6 py-4 text-sm font-medium">
+                          <div class="flex items-center gap-2">
+                            <button aria-label="Edit task"
+                              class="text-[var(--accent-color)] hover:text-[var(--primary-color-text)]">
+                              <svg class="lucide lucide-square-pen" fill="none" height="20" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                                width="20" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                <path d="M18.375 2.625a2.121 2.121 0 1 1 3 3L12 15l-4 1 1-4Z"></path>
+                              </svg>
+                            </button>
+                            <button aria-label="Delete task"
+                              class="text-[var(--danger-color)] hover:text-[var(--danger-color-hover)]">
+                              <svg fill="currentColor" height="20" viewBox="0 0 256 256" width="20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                  d="M216,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96Zm96,168H64V64H192ZM112,104v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm48,0v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Z">
+                                </path>
+                              </svg>
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="px-4 py-4">
+                          <input
+                            class="form-checkbox rounded text-[var(--accent-color)] focus:ring-[var(--accent-color)]"
+                            type="checkbox" />
+                        </td>
+                        <td
+                          class="table-task-name whitespace-nowrap px-6 py-4 text-sm font-medium text-[var(--text-color-primary)]">
+                          Develop Navigation
+                        </td>
+                        <td class="table-task-status whitespace-nowrap px-6 py-4 text-sm">
+                          <select
+                            class="form-select w-full rounded-md border-[var(--border-color)] py-1.5 text-xs shadow-sm focus:border-[var(--accent-color)] focus:ring-[var(--accent-color)]">
+                            <option value="completed">Completed</option>
+                            <option selected="" value="in-progress">
+                              In Progress
+                            </option>
+                            <option value="to-do">To Do</option>
+                          </select>
+                        </td>
+                        <td
+                          class="table-task-assignee whitespace-nowrap px-6 py-4 text-sm text-[var(--text-color-secondary)]">
+                          <select
+                            class="form-select w-full rounded-md border-[var(--border-color)] py-1.5 text-xs shadow-sm focus:border-[var(--accent-color)] focus:ring-[var(--accent-color)]">
+                            <option>Select Assignee</option>
+                            <option>Sarah Lee</option>
+                            <option selected="">David Chen</option>
+                            <option>Emily Wong</option>
+                            <option>Team</option>
+                            <option>Project Lead</option>
+                          </select>
+                        </td>
+                        <td
+                          class="table-task-due-date whitespace-nowrap px-6 py-4 text-sm text-[var(--text-color-secondary)]">
+                          2024-03-22
+                        </td>
+                        <td class="whitespace-nowrap px-6 py-4 text-sm font-medium">
+                          <div class="flex items-center gap-2">
+                            <button aria-label="Edit task"
+                              class="text-[var(--accent-color)] hover:text-[var(--primary-color-text)]">
+                              <svg class="lucide lucide-square-pen" fill="none" height="20" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                                width="20" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                <path d="M18.375 2.625a2.121 2.121 0 1 1 3 3L12 15l-4 1 1-4Z"></path>
+                              </svg>
+                            </button>
+                            <button aria-label="Delete task"
+                              class="text-[var(--danger-color)] hover:text-[var(--danger-color-hover)]">
+                              <svg fill="currentColor" height="20" viewBox="0 0 256 256" width="20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                  d="M216,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96Zm96,168H64V64H192ZM112,104v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm48,0v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Z">
+                                </path>
+                              </svg>
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="px-4 py-4">
+                          <input
+                            class="form-checkbox rounded text-[var(--accent-color)] focus:ring-[var(--accent-color)]"
+                            type="checkbox" />
+                        </td>
+                        <td
+                          class="table-task-name whitespace-nowrap px-6 py-4 text-sm font-medium text-[var(--text-color-primary)]">
+                          Content Creation
+                        </td>
+                        <td class="table-task-status whitespace-nowrap px-6 py-4 text-sm">
+                          <select
+                            class="form-select w-full rounded-md border-[var(--border-color)] py-1.5 text-xs shadow-sm focus:border-[var(--accent-color)] focus:ring-[var(--accent-color)]">
+                            <option value="completed">Completed</option>
+                            <option value="in-progress">In Progress</option>
+                            <option selected="" value="to-do">To Do</option>
+                          </select>
+                        </td>
+                        <td
+                          class="table-task-assignee whitespace-nowrap px-6 py-4 text-sm text-[var(--text-color-secondary)]">
+                          <select
+                            class="form-select w-full rounded-md border-[var(--border-color)] py-1.5 text-xs shadow-sm focus:border-[var(--accent-color)] focus:ring-[var(--accent-color)]">
+                            <option>Select Assignee</option>
+                            <option>Sarah Lee</option>
+                            <option>David Chen</option>
+                            <option selected="">Emily Wong</option>
+                            <option>Team</option>
+                            <option>Project Lead</option>
+                          </select>
+                        </td>
+                        <td
+                          class="table-task-due-date whitespace-nowrap px-6 py-4 text-sm text-[var(--text-color-secondary)]">
+                          2024-03-29
+                        </td>
+                        <td class="whitespace-nowrap px-6 py-4 text-sm font-medium">
+                          <div class="flex items-center gap-2">
+                            <button aria-label="Edit task"
+                              class="text-[var(--accent-color)] hover:text-[var(--primary-color-text)]">
+                              <svg class="lucide lucide-square-pen" fill="none" height="20" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                                width="20" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                <path d="M18.375 2.625a2.121 2.121 0 1 1 3 3L12 15l-4 1 1-4Z"></path>
+                              </svg>
+                            </button>
+                            <button aria-label="Delete task"
+                              class="text-[var(--danger-color)] hover:text-[var(--danger-color-hover)]">
+                              <svg fill="currentColor" height="20" viewBox="0 0 256 256" width="20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                  d="M216,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96Zm96,168H64V64H192ZM112,104v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm48,0v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Z">
+                                </path>
+                              </svg>
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="px-4 py-4">
+                          <input
+                            class="form-checkbox rounded text-[var(--accent-color)] focus:ring-[var(--accent-color)]"
+                            type="checkbox" />
+                        </td>
+                        <td
+                          class="table-task-name whitespace-nowrap px-6 py-4 text-sm font-medium text-[var(--text-color-primary)]">
+                          Testing and QA
+                        </td>
+                        <td class="table-task-status whitespace-nowrap px-6 py-4 text-sm">
+                          <select
+                            class="form-select w-full rounded-md border-[var(--border-color)] py-1.5 text-xs shadow-sm focus:border-[var(--accent-color)] focus:ring-[var(--accent-color)]">
+                            <option value="completed">Completed</option>
+                            <option value="in-progress">In Progress</option>
+                            <option selected="" value="to-do">To Do</option>
+                          </select>
+                        </td>
+                        <td
+                          class="table-task-assignee whitespace-nowrap px-6 py-4 text-sm text-[var(--text-color-secondary)]">
+                          <select
+                            class="form-select w-full rounded-md border-[var(--border-color)] py-1.5 text-xs shadow-sm focus:border-[var(--accent-color)] focus:ring-[var(--accent-color)]">
+                            <option>Select Assignee</option>
+                            <option>Sarah Lee</option>
+                            <option>David Chen</option>
+                            <option>Emily Wong</option>
+                            <option selected="">Team</option>
+                            <option>Project Lead</option>
+                          </select>
+                        </td>
+                        <td
+                          class="table-task-due-date whitespace-nowrap px-6 py-4 text-sm text-[var(--text-color-secondary)]">
+                          2024-04-05
+                        </td>
+                        <td class="whitespace-nowrap px-6 py-4 text-sm font-medium">
+                          <div class="flex items-center gap-2">
+                            <button aria-label="Edit task"
+                              class="text-[var(--accent-color)] hover:text-[var(--primary-color-text)]">
+                              <svg class="lucide lucide-square-pen" fill="none" height="20" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                                width="20" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                <path d="M18.375 2.625a2.121 2.121 0 1 1 3 3L12 15l-4 1 1-4Z"></path>
+                              </svg>
+                            </button>
+                            <button aria-label="Delete task"
+                              class="text-[var(--danger-color)] hover:text-[var(--danger-color-hover)]">
+                              <svg fill="currentColor" height="20" viewBox="0 0 256 256" width="20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                  d="M216,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96Zm96,168H64V64H192ZM112,104v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm48,0v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Z">
+                                </path>
+                              </svg>
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="px-4 py-4">
+                          <input
+                            class="form-checkbox rounded text-[var(--accent-color)] focus:ring-[var(--accent-color)]"
+                            type="checkbox" />
+                        </td>
+                        <td
+                          class="table-task-name whitespace-nowrap px-6 py-4 text-sm font-medium text-[var(--text-color-primary)]">
+                          Launch Website
+                        </td>
+                        <td class="table-task-status whitespace-nowrap px-6 py-4 text-sm">
+                          <select
+                            class="form-select w-full rounded-md border-[var(--border-color)] py-1.5 text-xs shadow-sm focus:border-[var(--accent-color)] focus:ring-[var(--accent-color)]">
+                            <option value="completed">Completed</option>
+                            <option value="in-progress">In Progress</option>
+                            <option selected="" value="to-do">To Do</option>
+                          </select>
+                        </td>
+                        <td
+                          class="table-task-assignee whitespace-nowrap px-6 py-4 text-sm text-[var(--text-color-secondary)]">
+                          <select
+                            class="form-select w-full rounded-md border-[var(--border-color)] py-1.5 text-xs shadow-sm focus:border-[var(--accent-color)] focus:ring-[var(--accent-color)]">
+                            <option>Select Assignee</option>
+                            <option>Sarah Lee</option>
+                            <option>David Chen</option>
+                            <option>Emily Wong</option>
+                            <option>Team</option>
+                            <option selected="">Project Lead</option>
+                          </select>
+                        </td>
+                        <td
+                          class="table-task-due-date whitespace-nowrap px-6 py-4 text-sm text-[var(--text-color-secondary)]">
+                          2024-04-12
+                        </td>
+                        <td class="whitespace-nowrap px-6 py-4 text-sm font-medium">
+                          <div class="flex items-center gap-2">
+                            <button aria-label="Edit task"
+                              class="text-[var(--accent-color)] hover:text-[var(--primary-color-text)]">
+                              <svg class="lucide lucide-square-pen" fill="none" height="20" stroke="currentColor"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                                width="20" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                <path d="M18.375 2.625a2.121 2.121 0 1 1 3 3L12 15l-4 1 1-4Z"></path>
+                              </svg>
+                            </button>
+                            <button aria-label="Delete task"
+                              class="text-[var(--danger-color)] hover:text-[var(--danger-color-hover)]">
+                              <svg fill="currentColor" height="20" viewBox="0 0 256 256" width="20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                  d="M216,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96Zm96,168H64V64H192ZM112,104v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm48,0v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Z">
+                                </path>
+                              </svg>
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <style>
+                    @container (max-width: 768px) {
+
+                      .table-task-assignee,
+                      .table-task-due-date {
+                        display: none;
+                      }
+                    }
+
+                    @container (max-width: 640px) {
+                      .table-task-status select {
+                        min-width: 120px;
+                      }
+
+                      .table-task-name {
+                        max-width: 150px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                      }
+
+                      .table-task-assignee select {
+                        min-width: 150px;
+                      }
+                    }
+                  </style>
+                </div>
+              </div>
+            </div>
+            <div class="lg:col-span-1">
+              <div class="rounded-lg bg-white p-6 shadow">
+                <div class="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
+                  <h2 class="text-xl font-semibold text-[var(--text-color-primary)]">
+                    Team Members
+                  </h2>
+                </div>
+                <div class="mt-4 space-y-4 team-members-container">
+                  <div class="flex items-center gap-3">
+                    <img alt="Team member 1" class="size-10 rounded-full ring-2 ring-white"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxV5g35TNVHi_KDvxaZmZUA6Jn0u4iNgpSmsy1uokTjbGhfPuH2_9zGMHZTkdoslTD0mO0NtCp8eVopTPBVxLwbK6YYOuQKw9lpMr-VoWWYDjVdXBqTic-DdbwcJo3EB1brCeuCHonyIcNph009BPWD5l5-L9Xc4_wA0MElVXrfGbbOrZ8tH5ntbpmVeTamnZrkaUyW_G8SS14b__R5Mc5LOrgPQ4Xs6SXL-G5HcHLnEBHicP5S_KnIkIJTQzNzT8lmFGRT2WJMA" />
+                    <div>
+                      <p class="text-sm font-medium text-[var(--text-color-primary)]">
+                        Sarah Lee
+                      </p>
+                      <p class="text-xs text-[var(--text-color-secondary)]">
+                        Lead Designer
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <img alt="Team member 2" class="size-10 rounded-full ring-2 ring-white"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuAi7LpMs01DIC9o7q8r3riKJDJ8j5vNj-U-VR2J10yXE91Fn2hA-yEeeb6zmRSiPpXLynTJTYGpF3AvNDPdrrdNtwiHnC4jGuJb0LuUVfAptvHgqM5PpCMEA3hwg21ZmqSL1qpL0T9u0NibBEUISZGeT8mXXzcYTRwEGbb7lgzbv3UG_Z4XNZZMafJ-DY0_WvKj3u2VX66P2deVfWjseiO-5FO8_lIYSQnuqVEOKdu_1J1WpmezAw4eeXT8HsWGpJqm36RU7R6Lhg" />
+                    <div>
+                      <p class="text-sm font-medium text-[var(--text-color-primary)]">
+                        David Chen
+                      </p>
+                      <p class="text-xs text-[var(--text-color-secondary)]">
+                        Frontend Developer
+                      </p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <img alt="Team member 3" class="size-10 rounded-full ring-2 ring-white"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvZKh0tf6e_8fFRAjWAli0IpyxA-bwFK4pApA9tmIBS1Hw89JSIbCz2JFqt8AAHcLhGAc3KRijyv98hpbYaq7XwaUsr0vinYnZPRqk-jE2Wzzy81EvDpaUXQoFRInufyqfJot_Dtj2MBKjU5PrqAwI8lIGtVgtc_cdIGEDuztksXjjwBnM-mWlNjS2U1s48XRB4rVzRPucH0wS31kHtTYD3aJwYY7pAfSgkXRGD6vlGHi0JZ7Clo956KFm8q3rq3qfUkhAW0xQLw" />
+                    <div>
+                      <p class="text-sm font-medium text-[var(--text-color-primary)]">
+                        Emily Wong
+                      </p>
+                      <p class="text-xs text-[var(--text-color-secondary)]">
+                        Content Strategist
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="../manageProjectJS/taskPage.js"></script>
+</body>
+
+</html>

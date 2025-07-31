@@ -1,0 +1,253 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.main-body{
+    display: flex;
+    justify-content: center;
+    background: url(image1.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-attachment: fixed;
+    
+}
+#admin{
+    color: red;
+    font-weight: bold;
+}
+#memberLink{
+    color: rgb(30, 122, 18);
+    font-weight: bold;
+}
+
+.login-div{
+    height: 450px;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 200px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0px 0px  20px rgb(112, 110, 110);
+    
+    background-color: rgba(236, 230, 230, 0.7);
+    position: relative;
+}
+.registration-div{
+    /* display: flex;
+    flex-direction: column; */
+    height: 780px;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0px 0px  20px rgb(112, 110, 110);
+    
+    background-color: rgba(236, 230, 230, 0.7);
+    position: relative;
+}
+#registrationForm{
+    display: none;
+}
+.profilePic-div{
+    display: inline-block;
+    text-align: left;
+}
+.gender-div{
+    /* display: inline; */
+
+    padding-top: 10px;
+    padding-left: 50px;
+    height: 20px;
+    width: 220px;
+    /* text-align: left; */
+}
+
+.form-title{
+    color: rgb(0, 0, 0);
+    font-family: "Playwrite HR", cursive;
+    font-optical-sizing: auto;
+    font-weight:bold;
+    font-style: normal;
+    
+    
+    padding-top: 25px;
+    padding-bottom: 25px;
+    
+    display: inline-block;
+    
+    font-size: 30px;
+}
+.Name-div{
+    position: relative;
+}
+
+.login-userIcon{
+    position: absolute;
+    top: 33px;
+    left: 75px;
+
+}
+
+
+.loginInput{
+    font-weight: bold;
+    border: none;
+    height: 40px;
+    width: 220px;
+    padding: 0px 10px 0px 50px;
+    border-radius: 10px;
+    margin-top: 20px;
+    outline: 0px;
+    box-shadow: inset 0px 0px  5px rgba(0, 0, 0, 0.8);
+
+}
+.registrationInput{
+    font-weight: bold;
+    border: none;
+    height: 40px;
+    width: 220px;
+    padding: 0px 10px 0px 50px;
+    border-radius: 10px;
+    margin-top: 5px;
+    outline: 0px;
+    box-shadow: inset 0px 0px  5px rgba(0, 0, 0, 0.8);
+
+}
+.Password-div{
+    position: relative;
+}
+
+.email-div{
+    position: relative;
+}
+.FullName-div{
+    position: relative;
+}
+.ConfirmPassword-div{
+    position: relative;
+}
+
+
+.login-passIcon{
+    position: absolute;
+    top: 33px;
+    left: 75px;
+
+}
+.login-showPass{
+    position: absolute;
+    top: 33px;
+    right: 75px;
+    cursor: pointer;
+}
+.registration-userIcon{
+    position: absolute;
+    top: 17px;
+    left: 75px;
+
+}
+.registration-userNameIcon{
+    position: absolute;
+    top: 17px;
+    left: 75px;
+
+}
+.registration-emailIcon{
+    position: absolute;
+    top: 17px;
+    left: 75px;
+
+}
+.registration-passIcon1{
+    position: absolute;
+    top: 17px;
+    left: 75px;
+
+}
+.registration-passIcon2{
+    position: absolute;
+    top: 17px;
+    left: 75px;
+
+}
+
+
+.registration-showPass1{
+    position: absolute;
+    top: 17px;
+    right: 75px;
+    cursor: pointer;
+}
+.registration-showPass2{
+    position: absolute;
+    top: 17px;
+    right: 75px;
+    cursor: pointer;
+}
+/* #UserPassword{
+    font-weight: bold;
+    border: none;
+    height: 40px;
+    width: 220px;
+    padding: 0px 0px 0px 50px;
+    border-radius: 10px;
+    margin-top: 20px;
+    outline: 0px;
+    box-shadow: inset 0px 0px  5px rgba(0, 0, 0, 0.8);
+
+} */
+.RememberMe{
+    color: rgb(0, 0, 0);    
+    
+    
+}
+.forgetPass{
+    margin-left: 40px;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+.buttonStyle{
+    display: inline-block;
+    border: none;
+    margin-top: 15px;
+    height: 20px;
+    width: 150px;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: rgb(109, 153, 153);
+    cursor: pointer;
+}
+/* #LoginButton:Hover{
+    
+    color: white;
+} */
+#LoginButton:active{
+    background-color: rgba(109, 153, 153,0.5);
+    color: white;
+}
+.registration{
+    display: inline-block;
+    margin-top: 30px;
+    color: rgb(0, 0, 0);
+}
+.login{
+    display: inline-block;
+    margin-top: 30px;
+    color: rgb(0, 0, 0);
+}
+.registration a{
+    margin-left: 5px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+.login a{
+    margin-left: 5px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}

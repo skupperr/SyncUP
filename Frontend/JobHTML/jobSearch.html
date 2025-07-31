@@ -1,0 +1,587 @@
+<html>
+  <head>
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link
+      as="style"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B600%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+      onload="this.rel='stylesheet'"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+    <meta charset="utf-8" />
+    <title>SyncUp</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+      :root {
+        --primary-color: #0c7ff2;
+        --secondary-color: #f0f7ff;
+        --text-primary: #111827;
+        --text-secondary: #6b7280;
+        --surface-primary: #ffffff;
+        --surface-secondary: #f9fafb;
+        --border-color: #e5e7eb;
+      }
+      body {
+        font-family: "Inter", "Noto Sans", sans-serif;
+      }
+      .btn-primary {
+        @apply bg-[var(--primary-color)] text-white hover:bg-opacity-90;
+      }
+      .btn-secondary {
+        @apply bg-[var(--surface-secondary)] text-[var(--text-primary)] hover:bg-gray-200;
+      }
+      .input-field {
+        @apply form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[var(--text-primary)] focus:outline-0 focus:ring-2 focus:ring-[var(--primary-color)] border border-[var(--border-color)] bg-[var(--surface-primary)] h-full placeholder:text-[var(--text-secondary)] px-4 text-sm font-normal leading-normal;
+      }
+      .filter-button {
+        @apply flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[var(--surface-secondary)] hover:bg-gray-200 border border-[var(--border-color)] pl-4 pr-3 text-sm font-medium text-[var(--text-primary)];
+      }
+      .job-card {
+        @apply bg-[var(--surface-primary)] border border-[var(--border-color)] rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-200;
+      }
+    </style>
+  </head>
+  <body class="bg-[var(--surface-secondary)]">
+    <div
+      class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden"
+    >
+      <div class="layout-container flex h-full grow flex-col">
+        <header
+          class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[var(--border-color)] px-6 md:px-10 py-4 bg-[var(--surface-primary)] shadow-sm"
+        >
+          <div class="flex items-center gap-8">
+            <a href="../newsFeed/newsFeed.html">
+              <div class="flex items-center gap-4 text-[#1b0e0e]">
+                  <div class="size-4">
+                      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z" fill="currentColor"></path>
+                      </svg>
+                  </div>
+                  <h2 class="text-[#1b0e0e] text-lg font-bold leading-tight tracking-[-0.015em]">SyncUP</h2>
+              </div>
+          </a>
+            <nav class="hidden md:flex items-center gap-6">
+              <a
+                id="jobHomePage"
+                class="text-[var(--secondary-text-color)] hover:text-[var(--primary-color)] text-sm font-medium leading-normal transition-colors"
+                href="#"
+                >Home</a
+              >
+              <a
+                id="jobSearchSection"
+                class="text-[var(--primary-color)] text-sm font-semibold leading-normal"
+                href="#"
+                >Jobs</a
+              >
+              <a
+                id="jobStatusLink"
+                class="text-[var(--secondary-text-color)] hover:text-[var(--primary-color)] text-sm font-medium leading-normal transition-colors"
+                href="#"
+                >Job Status</a
+              >
+              <a
+                id="jobManagePost"
+                class="text-[var(--secondary-text-color)] hover:text-[var(--primary-color)] text-sm font-medium leading-normal transition-colors"
+                href="#"
+                >Manage Posted Job</a
+              >
+              <a
+                class="text-[var(--secondary-text-color)] hover:text-[var(--primary-color)] text-sm font-medium leading-normal transition-colors"
+                href="#"
+                >Career Advice</a
+              >
+            </nav>
+          </div>
+          <div class="flex items-center gap-4">
+            <label
+              class="relative flex-col min-w-40 !h-10 max-w-xs hidden sm:flex"
+            >
+              <div
+                class="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--text-secondary)]"
+              >
+                <span class="material-icons-outlined !text-xl">search</span>
+              </div>
+              <input
+                class="input-field pl-10 pr-4"
+                placeholder="Search"
+                value=""
+              />
+            </label>
+            <button
+              aria-label="My Account"
+              class="text-[var(--text-primary)] hover:text-[var(--primary-color)] md:hidden"
+            >
+              <span class="material-icons-outlined !text-2xl"
+                >person_outline</span
+              >
+            </button>
+            <div
+              id="profileImage"
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border border-[var(--border-color)] hidden md:block"
+              style="
+                background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCphH3M0FgiY0qHAaU4IkeZMg3jVUHGX8F4KRCTGEEQWpMuAlowBbCAS0BoYZCUzA144kSnSPRnNPfemwDjStLgjDw_Abnr9cVPIk0GnFjjwOqc2tvYlQET2RQpIp-o8rCgMRo0bqTx3VNbhDs1d2UiMOibuFiMy5iNhg6yIIKF4nh1l4cEIsN8lhk8HgHnYZ9LUTO9XHTrQf-vQMw_oLgGFQrT864wv56DJeR1U6RtncwFY7zSN2QKqZHuuMIsdXPeZmv6z7hYIQ');
+              "
+            ></div>
+            <button
+              class="md:hidden text-[var(--text-primary)] hover:text-[var(--primary-color)]"
+            >
+              <span class="material-icons-outlined !text-2xl">menu</span>
+            </button>
+          </div>
+        </header>
+        <main
+          class="px-4 sm:px-8 md:px-16 lg:px-24 xl:px-40 flex flex-1 justify-center py-8"
+        >
+          <div
+            class="layout-content-container flex flex-col max-w-screen-xl w-full"
+          >
+            <div
+              class="flex flex-wrap justify-between items-center gap-4 p-4 mb-6"
+            >
+              <div class="flex flex-col gap-1">
+                <h2
+                  class="text-[var(--text-primary)] text-3xl md:text-4xl font-bold leading-tight"
+                >
+                  Find Your Next Opportunity
+                </h2>
+                <p
+                  class="text-[var(--text-secondary)] text-base font-normal leading-normal"
+                >
+                  Explore thousands of job openings tailored to your skills and
+                  preferences.
+                </p>
+              </div>
+            </div>
+            <div class="px-4 py-3 mb-6">
+              <label class="relative block w-full h-12">
+                <!-- Search Icon -->
+                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500">
+                  <span class="material-icons-outlined text-2xl">search</span>
+                </span>
+            
+                <!-- Input Field -->
+                <input
+                  id="searchBox"
+                  type="text"
+                  placeholder="Search by title, company, or keyword"
+                  class="w-full h-full pl-14 pr-4 text-base border border-gray-300 rounded-md focus:outline-none"
+                />
+              </label>
+            </div>
+            <div class="flex gap-3 p-3 flex-wrap pr-4 mb-6 overflow-x-auto">
+              <!-- <button class="filter-button">
+                <span>Industry</span>
+                <span
+                  class="material-icons-outlined !text-xl text-[var(--text-secondary)]"
+                  >expand_more</span
+                >
+              </button>
+              <button class="filter-button">
+                <span>Location</span>
+                <span
+                  class="material-icons-outlined !text-xl text-[var(--text-secondary)]"
+                  >expand_more</span
+                >
+              </button>
+              <button class="filter-button">
+                <span>Experience Level</span>
+                <span
+                  class="material-icons-outlined !text-xl text-[var(--text-secondary)]"
+                  >expand_more</span
+                >
+              </button>
+              <button class="filter-button">
+                <span>Salary Range</span>
+                <span
+                  class="material-icons-outlined !text-xl text-[var(--text-secondary)]"
+                  >expand_more</span
+                >
+              </button> -->
+              <button class="filter-button" data-filter="location">
+                <span>Location</span>
+                <span class="material-icons-outlined">expand_more</span>
+              </button>
+              <button class="filter-button" data-filter="experience">
+                <span>Experience Level</span>
+                <span class="material-icons-outlined">expand_more</span>
+              </button>
+              <button class="filter-button" data-filter="salary">
+                <span>Salary Range</span>
+                <span class="material-icons-outlined">expand_more</span>
+              </button>
+              <button class="filter-button">
+                <span>Date Posted</span>
+                <span
+                  class="material-icons-outlined !text-xl text-[var(--text-secondary)]"
+                  >expand_more</span
+                >
+              </button>
+              <button
+                class="filter-button bg-[var(--secondary-color)] text-[var(--primary-color)] border-[var(--primary-color)] hover:bg-blue-100"
+              >
+                <span class="material-icons-outlined !text-xl"
+                  >filter_list</span
+                >
+                <span>All Filters</span>
+              </button>
+            </div>
+            <h3
+              class="text-[var(--text-primary)] text-2xl font-semibold leading-tight px-4 pb-4 pt-2"
+            >
+              Recommended Jobs
+            </h3>
+            <div
+              class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4"
+            >
+              <div class="job-card flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center mb-2">
+                    <img
+                      alt="Company Logo"
+                      class="w-10 h-10 rounded-full mr-3 border border-[var(--border-color)]"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKJFv6m7vMqPxb8LWvAGSuQO17X4uF3-K4MoncURqwdxhnyeCddYnE61qDzsH_qcz_TT9m9ISST58Y5h5AanKvclbVct9HnMRYeu3XY8vWRi6_7fi-RAl0R9sZGm9NRVvLRgb-burBQXZ2vSgdZkgq4Vthpp6BGzXXTOuJfzZRu_poCJKNgOGoV8HZA9QQoVCNHFj9w9urFoDdTz8RVXcmu_jTvOdmOxz53HcN7rZXJnsQwuq593Gp997K6rTu6tR9gZq8Nh1tgQ"
+                    />
+                    <div>
+                      <h4
+                        class="text-[var(--text-primary)] text-lg font-semibold leading-tight"
+                      >
+                        Senior Software Engineer
+                      </h4>
+                      <p class="text-[var(--text-secondary)] text-sm">
+                        Tech Innovations Inc.
+                      </p>
+                    </div>
+                  </div>
+                  <p class="text-[var(--text-secondary)] text-sm mb-1">
+                    <span
+                      class="material-icons-outlined !text-sm align-middle mr-1"
+                      >schedule</span
+                    >Posted 2 days ago
+                  </p>
+                  <p class="text-[var(--text-secondary)] text-sm mb-3">
+                    <span
+                      class="material-icons-outlined !text-sm align-middle mr-1"
+                      >location_on</span
+                    >Remote
+                  </p>
+                  <p
+                    class="text-[var(--text-primary)] text-sm leading-relaxed line-clamp-3 mb-4"
+                  >
+                    Seeking a skilled Senior Software Engineer to develop
+                    high-quality software solutions. You will work on
+                    challenging projects and collaborate with a talented team.
+                  </p>
+                </div>
+                <button
+                  class="btn-primary w-full h-10 rounded-lg text-sm font-medium"
+                >
+                  Apply Now
+                </button>
+              </div>
+              <div class="job-card flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center mb-2">
+                    <img
+                      alt="Company Logo"
+                      class="w-10 h-10 rounded-full mr-3 border border-[var(--border-color)]"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuCn-263qahs1ZT5f-5mn-AsMbRLSITHNZ0j3N3-zASFiSHYWENIXyzUQ0RChERZBWz11iF_jH0aaHer--aXqHhKMfxMMcpxLF_x0XN9A8_cUwjIC3eqddcNKl8EwsxZwg1BRC1pi1ZX-DmZbidr-fJ-jyTJ33mp2Q2lNXid3Y6Rn_cfo_D0JSWbHjtyuaXzWKNin8cix51rtycshKdae6EUC8dwiC7_WQ1NM1wO-Ydt8rmF3tPdvG-YAP0H5X09Cy2CHc0mxAL3TA"
+                    />
+                    <div>
+                      <h4
+                        class="text-[var(--text-primary)] text-lg font-semibold leading-tight"
+                      >
+                        Marketing Manager
+                      </h4>
+                      <p class="text-[var(--text-secondary)] text-sm">
+                        Global Solutions Ltd.
+                      </p>
+                    </div>
+                  </div>
+                  <p class="text-[var(--text-secondary)] text-sm mb-1">
+                    <span
+                      class="material-icons-outlined !text-sm align-middle mr-1"
+                      >schedule</span
+                    >Posted 1 week ago
+                  </p>
+                  <p class="text-[var(--text-secondary)] text-sm mb-3">
+                    <span
+                      class="material-icons-outlined !text-sm align-middle mr-1"
+                      >location_on</span
+                    >New York, NY
+                  </p>
+                  <p
+                    class="text-[var(--text-primary)] text-sm leading-relaxed line-clamp-3 mb-4"
+                  >
+                    Lead marketing campaigns and strategies to drive growth.
+                    Experience in digital marketing and team management is
+                    essential.
+                  </p>
+                </div>
+                <button
+                  class="btn-primary w-full h-10 rounded-lg text-sm font-medium"
+                >
+                  Apply Now
+                </button>
+              </div>
+              <div class="job-card flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center mb-2">
+                    <img
+                      alt="Company Logo"
+                      class="w-10 h-10 rounded-full mr-3 border border-[var(--border-color)]"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4FHBof8y8EwSkvQr0Os_qWpskBtDNDidIUJ50EEpcxoZ9hTNRRnwTG5IOlK6p8GGS9D53LIqbwKf71rodK5nmunVGfqFdU2NTqicEvAwj505ttx7w3cZXWIILKNmURY79bAazEkAy8HAfeZ5FZESdqj6JlHSr3bJa6guA9tLhGeNMHiXdyhsJMZ182jTXbHPZ41Mtc_MU1jHcJTrkSUU5QV7uxvz2b8p7oPab8apiVdrQYQ-C1hzfQcvi6bwRXHO3_pwcqqM8NQ"
+                    />
+                    <div>
+                      <h4
+                        class="text-[var(--text-primary)] text-lg font-semibold leading-tight"
+                      >
+                        Graphic Designer
+                      </h4>
+                      <p class="text-[var(--text-secondary)] text-sm">
+                        Creative Minds Agency
+                      </p>
+                    </div>
+                  </div>
+                  <p class="text-[var(--text-secondary)] text-sm mb-1">
+                    <span
+                      class="material-icons-outlined !text-sm align-middle mr-1"
+                      >schedule</span
+                    >Posted 3 days ago
+                  </p>
+                  <p class="text-[var(--text-secondary)] text-sm mb-3">
+                    <span
+                      class="material-icons-outlined !text-sm align-middle mr-1"
+                      >location_on</span
+                    >Los Angeles, CA
+                  </p>
+                  <p
+                    class="text-[var(--text-primary)] text-sm leading-relaxed line-clamp-3 mb-4"
+                  >
+                    Create visually stunning designs for various media.
+                    Proficiency in Adobe Creative Suite and a strong portfolio
+                    are required.
+                  </p>
+                </div>
+                <button
+                  class="btn-primary w-full h-10 rounded-lg text-sm font-medium"
+                >
+                  Apply Now
+                </button>
+              </div>
+              <div class="job-card flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center mb-2">
+                    <img
+                      alt="Company Logo"
+                      class="w-10 h-10 rounded-full mr-3 border border-[var(--border-color)]"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuARg5mHKuUl1rvJD3qBcvFMqy6Lz3tHsjykSc6GztQ8VKQfZVadRnJLm82XkJtpA9rTEEiU_LDz493PInn8tLUqp3t4ToM1Fc0aemBtl1be_qEG5ux2Pc9flXNyChtf3iZ5lPXOj1jhBgqolS5PdC36rv1JrVzArgw2zZIpiysWfiywyeQVJA8Ak9yd4I_SqrJ6tR_yMn9UOJrpIU9OBpBiS-QkTZHf4Yq3dO52uGuFtbUMqVSBjoG-jsdaMWMorv7PqotprgNkag"
+                    />
+                    <div>
+                      <h4
+                        class="text-[var(--text-primary)] text-lg font-semibold leading-tight"
+                      >
+                        Data Analyst
+                      </h4>
+                      <p class="text-[var(--text-secondary)] text-sm">
+                        Data Insights Corp.
+                      </p>
+                    </div>
+                  </div>
+                  <p class="text-[var(--text-secondary)] text-sm mb-1">
+                    <span
+                      class="material-icons-outlined !text-sm align-middle mr-1"
+                      >schedule</span
+                    >Posted 5 days ago
+                  </p>
+                  <p class="text-[var(--text-secondary)] text-sm mb-3">
+                    <span
+                      class="material-icons-outlined !text-sm align-middle mr-1"
+                      >location_on</span
+                    >Chicago, IL
+                  </p>
+                  <p
+                    class="text-[var(--text-primary)] text-sm leading-relaxed line-clamp-3 mb-4"
+                  >
+                    Analyze large datasets to provide actionable insights.
+                    Strong analytical skills and experience with data
+                    visualization tools needed.
+                  </p>
+                </div>
+                <button
+                  class="btn-primary w-full h-10 rounded-lg text-sm font-medium"
+                >
+                  Apply Now
+                </button>
+              </div>
+              <div class="job-card flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center mb-2">
+                    <img
+                      alt="Company Logo"
+                      class="w-10 h-10 rounded-full mr-3 border border-[var(--border-color)]"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3-mraCgckRTiMYtJeJ3deGrFD9CEjXFwwTgrldKX3XILWxOdlbiPo0wdb7kzu7-Nya1HYJV7zsydbRZ2QtBsjKbTmtemMm_8qXExHlguBT5TKAHi7YKdmVAHc6FU0IkQj_bgTmh7rB9M-HuY1dl8agH6FrWAyj95COCbfNGC43fJKqSuS2TdyEaUzNlfOGZJ5QWRn6N8G-0hG8Ng_wN2KGouS_ehC6z1lHpau_wRsSaVLIXipCYvOC0QFgZDUnv1T7vXKOCVoVg"
+                    />
+                    <div>
+                      <h4
+                        class="text-[var(--text-primary)] text-lg font-semibold leading-tight"
+                      >
+                        Product Manager
+                      </h4>
+                      <p class="text-[var(--text-secondary)] text-sm">
+                        HealthTech Solutions
+                      </p>
+                    </div>
+                  </div>
+                  <p class="text-[var(--text-secondary)] text-sm mb-1">
+                    <span
+                      class="material-icons-outlined !text-sm align-middle mr-1"
+                      >schedule</span
+                    >Posted 1 week ago
+                  </p>
+                  <p class="text-[var(--text-secondary)] text-sm mb-3">
+                    <span
+                      class="material-icons-outlined !text-sm align-middle mr-1"
+                      >location_on</span
+                    >San Francisco, CA
+                  </p>
+                  <p
+                    class="text-[var(--text-primary)] text-sm leading-relaxed line-clamp-3 mb-4"
+                  >
+                    Define product vision, strategy, and roadmap. Work closely
+                    with engineering, design, and marketing teams.
+                  </p>
+                </div>
+                <button
+                  class="btn-primary w-full h-10 rounded-lg text-sm font-medium"
+                >
+                  Apply Now
+                </button>
+              </div>
+              <div class="job-card flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center mb-2">
+                    <img
+                      alt="Company Logo"
+                      class="w-10 h-10 rounded-full mr-3 border border-[var(--border-color)]"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBt8LbJ-myGvMoouVrR4f7hYz_iFwxfI_in6cpvuZmpeqvD82rgAEzpboau2i_zeKutlLR2pfMtDtSqH2BGhh2lBwRoynrRaxmx49FL3kSkY7-2wpt98xWSGF0k0uLFiA6U3TA5kiIctfTNjO3cTK83PJW0BQbMfxVRnrg_lUO8x7C7b2sa4TOkYdxHLkjjhiPpKw6qOvQpLxk3dk-gAFuMmZohvRs07dStaJQWNJBkTvJBrH66gKqYvz0pbU34Sf714yJGB0mSg"
+                    />
+                    <div>
+                      <h4
+                        class="text-[var(--text-primary)] text-lg font-semibold leading-tight"
+                      >
+                        Financial Analyst
+                      </h4>
+                      <p class="text-[var(--text-secondary)] text-sm">
+                        FinSecure Group
+                      </p>
+                    </div>
+                  </div>
+                  <p class="text-[var(--text-secondary)] text-sm mb-1">
+                    <span
+                      class="material-icons-outlined !text-sm align-middle mr-1"
+                      >schedule</span
+                    >Posted 4 days ago
+                  </p>
+                  <p class="text-[var(--text-secondary)] text-sm mb-3">
+                    <span
+                      class="material-icons-outlined !text-sm align-middle mr-1"
+                      >location_on</span
+                    >Boston, MA
+                  </p>
+                  <p
+                    class="text-[var(--text-primary)] text-sm leading-relaxed line-clamp-3 mb-4"
+                  >
+                    Conduct financial analysis and forecasting. Prepare reports
+                    and provide recommendations to senior management.
+                  </p>
+                </div>
+                <button
+                  class="btn-primary w-full h-10 rounded-lg text-sm font-medium"
+                >
+                  Apply Now
+                </button>
+              </div>
+            </div>
+            <div class="pagination flex items-center justify-center p-4 mt-8"></div>
+            <!-- <div class="flex items-center justify-center p-4 mt-8">
+              <a
+                class="flex size-10 items-center justify-center rounded-lg hover:bg-gray-100 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+                href="#"
+              >
+                <span class="material-icons-outlined !text-xl"
+                  >chevron_left</span
+                >
+              </a>
+              <a
+                class="text-sm font-semibold leading-normal flex size-10 items-center justify-center text-white rounded-lg bg-[var(--primary-color)] mx-1"
+                href="#"
+                >1</a
+              >
+              <a
+                class="text-sm font-medium leading-normal flex size-10 items-center justify-center text-[var(--text-primary)] rounded-lg hover:bg-gray-100 mx-1 transition-colors"
+                href="#"
+                >2</a
+              >
+              <a
+                class="text-sm font-medium leading-normal flex size-10 items-center justify-center text-[var(--text-primary)] rounded-lg hover:bg-gray-100 mx-1 transition-colors"
+                href="#"
+                >3</a
+              >
+              <span
+                class="text-sm font-medium leading-normal flex size-10 items-center justify-center text-[var(--text-secondary)] mx-1"
+                >...</span
+              >
+              <a
+                class="text-sm font-medium leading-normal flex size-10 items-center justify-center text-[var(--text-primary)] rounded-lg hover:bg-gray-100 mx-1 transition-colors"
+                href="#"
+                >10</a
+              >
+              <a
+                class="flex size-10 items-center justify-center rounded-lg hover:bg-gray-100 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+                href="#"
+              >
+                <span class="material-icons-outlined !text-xl"
+                  >chevron_right</span
+                >
+              </a>
+            </div> -->
+          </div>
+        </main>
+        <footer
+          class="bg-[var(--surface-primary)] border-t border-[var(--border-color)] py-8 px-6 md:px-10 text-center"
+        >
+          <p class="text-sm text-[var(--text-secondary)]">
+            © 2024 CareerConnect. All rights reserved.
+          </p>
+          <div class="mt-2 space-x-4">
+            <a
+              class="text-sm text-[var(--primary-color)] hover:underline"
+              href="#"
+              >Privacy Policy</a
+            >
+            <a
+              class="text-sm text-[var(--primary-color)] hover:underline"
+              href="#"
+              >Terms of Service</a
+            >
+            <a
+              class="text-sm text-[var(--primary-color)] hover:underline"
+              href="#"
+              >Contact Us</a
+            >
+          </div>
+        </footer>
+      </div>
+    </div>
+
+
+    <script src="../jobJS/JobScript.js"></script>
+    <script src="../jobJS/jobSearch.js"></script>
+    <script src="../jobJS/commonForAll.js"></script>
+  </body>
+</html>

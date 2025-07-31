@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>My Network</title>
+
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/fontawesome.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../Profile_page/profile.css">
+    <link rel="stylesheet" href="../Profile_page/menuestyle.css">
+    <link rel="stylesheet" href="../Profile_page/header.css">
+    <link rel="stylesheet" href="other_user_profile.css">
+    <link rel="stylesheet" href="../Profile_page/a.css">
+</head>
+
+<body id="body">
+
+    <div class="header">
+        <div class="left">
+            <a href="../newsFeed/newsFeed.html">
+                <img class="logo" src="../file.png">
+            </a>
+        </div>
+        <div class="middle">
+            <input class="input" id="search-profile" type="text" placeholder="Search" oninput="searching()">
+            <button class="search-btn">
+                <i class="fa-solid fa-magnifying-glass search-img"></i>
+            </button>
+        </div>
+        <div class="right">
+            <a style="text-decoration: none; color: black;" href="../chat"><i class="fa-regular fa-envelope message-icon"></i></a>
+            
+            <a href="../Profile_page/user_Profile.html"><img id="header-profile-pic" class="channel-picture" src=""></a>
+        </div>
+    </div>
+    <div class="search-dropdown" id="search-dropdown-id" style="display: none;"></div>
+
+    <div id="container" class="container">
+
+        <div class="profile-header">
+            <div class="cover-photo-class">
+                <img id="user-cover-pic" class="cover-photo" src="" alt="">
+                <img id="user-profile-pic" class="profile-pic" src="">
+            </div>
+
+            <div class="profile-identity">
+                <h1 id="user-profile-name" class="profile-name"></h1>
+                <h3 id="user-profile-username" class="username"></h3>
+            </div>
+
+            <div class="friendsAndFollowing">
+                <button id="friend-btn-id" class="friendsAndFollowingbtn">Add Friend</button>
+                <button id="follow-btn-id" class="friendsAndFollowingbtn">Follow</button>
+            </div>
+
+            <div class="profile-status">
+                <div class="status-text"><span id="friends-count">100</span> Friends</div>
+                <a style="text-decoration: none;" href="../Friend List/mutual_friends.html">
+                    <div class="status-text"><span id="mutual-friends-count">100</span> Mutual Friends</div>
+                </a>
+                <div class="status-text"><span id="followers-count">100</span> Followers</div>
+                <div class="status-text"><span id="followings-count">100</span> Followings</div>
+            </div>
+
+        </div>
+
+        <div class="navigation-class">
+
+            <nav class="navigation">
+                <a href="profile.html" id="nav-button-1" class="nav-button active">Posts</a>
+                <a href="other_user_profile_about.html" id="nav-button-2" class="nav-button">About</a>
+                <a href="profile_photos.html" id="nav-button-3" class="nav-button">Photos</a>
+                <a href="profile_videos.html" id="nav-button-4" class="nav-button">Videos</a>
+            </nav>
+        </div>
+
+        <div class="sub-container">
+            <div class="post-class">
+                <div class="feedSectionBar">
+
+                    <div class="fullFeedsArea" id="fullFeedsArea">
+                        
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="intro-class">
+                <div>
+                    <h3>Intro</h3>
+                    <div id="bio" class="bio"></div>
+
+                    <div class="info-class">
+                        <div id="info-class" class="info-class"></div>
+                        <!-- <div class="work-info"><i class="fa-solid fa-briefcase"
+                                style="width: 20px; margin-right: 20px;"></i>Works at Apple</div>
+
+                        <div class="work-info"><i class="fa-solid fa-briefcase"
+                                style="width: 20px; margin-right: 20px;"></i>CEO at NVIDIA</div>
+
+                        <div class="work-info"><i class="fa-solid fa-briefcase"
+                                style="width: 20px; margin-right: 20px;"></i>Former CEO at Microsoft</div>
+
+                        <div class="study-info"><i class="fa-solid fa-graduation-cap"
+                                style="color: #000000 ;margin-right: 20px;"></i>Studies at MIT</div>
+
+                        <div class="study-info"><i class="fa-solid fa-graduation-cap"
+                                style="color: #000000 ;margin-right: 20px;"></i>Studied at University of Oxford</div>
+
+                        <div class="home-info"><i class="fa-solid fa-location-dot"
+                                style="width: 20px; color: #000000; margin-right: 20px;"></i>From California, USA</div>
+
+                        <div class="joining-date"><i class="fa-solid fa-clock"
+                                style="color: #000000; margin-right: 20px;"></i>Joined July 2024</div> -->
+                        <!-- <div class="relationship"><i class="fa-solid fa-heart"
+                                style="color: #000000; margin-right: 20px;"></i>Single</div> -->
+
+                        <!-- <div style="justify-content: center; display: flex;">
+                            <button class="edit-details-button"><a href="profile_about.html">Edit Details</a></button>
+                        </div> -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <script src="../other_user_profile.js"></script>
+    <script src="../header.js"></script>
+    <script src="../menuJs.js"></script>
+    <script src="../searching_profile.js"></script>
+
+
+</body>
+
+</html>

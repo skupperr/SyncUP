@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>My Network</title>
+
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/fontawesome.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="marketplace.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="category.css">
+
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="left">
+            <a href="../newsFeed/newsFeed.html">
+                <img class="logo" src="../file.png">
+            </a>
+        </div>
+        <div class="middle">
+            <input class="input" id="search-profile" type="text" placeholder="Search" oninput="searching()">
+            <button class="search-btn">
+                <i class="fa-solid fa-magnifying-glass search-img"></i>
+            </button>
+        </div>
+        <div class="right">
+            <a style="text-decoration: none; color: black;" href="../messenger/messenger.html"><i class="fa-regular fa-envelope message-icon"></i></a>
+            
+            <a href="user_Profile.html"><img id="header-profile-pic" class="channel-picture" src=""></a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div style="padding-left: 10px;" class="market-menu">
+            <h1>Job</h1>
+            <div class="market-search"> <i class="fa-solid fa-magnifying-glass search-icon"></i> <input
+                    class="market-input" type="text" placeholder="Search Job"></div>
+
+            <div class="navigation-class">
+                <nav class="navigation">
+                    <i class="fa-solid fa-shop" style="color: #ffffff; position: absolute; top: 18px; left: 15px;"></i>
+                    <a href="/job_browse.html" id="nav-button-1" class="nav-button active">Browse all</a><br>
+                </nav>
+                <nav class="navigation">
+                    <i class="fa-solid fa-envelope-open"
+                        style="position: absolute; top: 18px; left: 15px; font-size: 20px;"></i>
+                    <a href="/marketplace_inbox.html" id="nav-button-3" class="nav-button">Inbox</a><br>
+                </nav>
+                <nav class="navigation">
+                    <i class="fa-solid fa-tag" style="position: absolute; top: 18px; left: 15px; font-size: 20px;"></i>
+                    <a href="/job_offering.html" id="nav-button-5" class="nav-button">Job offering</a><br>
+                </nav>
+            </div>
+
+
+            <div class="category-class">
+                <h3>Category</h3>
+                <div>
+                    <input type="checkbox" id="administration" name="scales" />
+                    <label for="administration">Administration and Office Support</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="it" name="horns" />
+                    <label for="it">Information Technology (IT)</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="healthcare" name="scales" />
+                    <label for="healthcare">Healthcare and Medical</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="education" name="horns" />
+                    <label for="education">Education and Training</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="finance" name="horns" />
+                    <label for="finance">Finance and Accounting</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="marketing" name="horns" />
+                    <label for="marketing">Marketing and Advertising</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="sales" name="scales" />
+                    <label for="sales">Sales and Customer Service</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="engineering" name="scales" />
+                    <label for="engineering">Engineering</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="legal" name="horns" />
+                    <label for="legal">Legal</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="construction" name="horns" />
+                    <label for="construction">Construction and Skilled Trades</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="hospitality" name="horns" />
+                    <label for="hospitality">Hospitality and Tourism</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="creative" name="scales" />
+                    <label for="creative">Creative and Design</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="manufacturing" name="horns" />
+                    <label for="manufacturing">Manufacturing and Production</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="transportation" name="horns" />
+                    <label for="transportation">Transportation</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="agriculture" name="scales" />
+                    <label for="agriculture">Agriculture and Forestry</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="security" name="horns" />
+                    <label for="security">Security and Protective Services</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="environmental" name="horns" />
+                    <label for="environmental">Environmental and Conservation</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="other" name="horns" />
+                    <label for="horns">other</label>
+                </div>
+            </div>
+
+        </div>
+
+        <div style="flex: 3;">
+            <div class="listing-class">
+                <h3 style="margin: 0px; padding: 0px;">Create new Job</h3>
+
+                <div class="myPostSection">
+                    <input type="text" id="name-of-product" placeholder="Name of the job">
+                    <input type="text" id="price-of-product" placeholder="Salery">
+                    <div class="myPostTop">
+
+                        <div class="postText">
+                            <!-- <input type="text" id="myPostText" placeholder="what's new"> -->
+                            <textarea name="myPostText" id="myPostText" placeholder="Description...."></textarea>
+
+                        </div>
+                    </div>
+                    <div class="myPostBottom">
+                        <div class="myFile">
+                            <label for="file">File</label>
+                            <input type="file" multiple>
+
+                            <select name="category-name" id="category-option">
+                                <option value="Administration">Administration and Office Support</option>
+                                <option value="IT">Information Technology (IT)</option>
+                                <option value="Healthcare">Healthcare and Medical</option>
+                                <option value="Education">Education and Training</option>
+                                <option value="Finance">Finance and Accounting</option>
+                                <option value="Marketing">Marketing and Advertising</option>
+                                <option value="Sales">Sales and Customer Service</option>
+                                <option value="Engineering">Engineering</option>
+                                <option value="Legal">Legal</option>
+                                <option value="Construction">Construction and Skilled Trades</option>
+                                <option value="Hospitality">Hospitality and Tourism</option>
+                                <option value="Creative">Creative and Design</option>
+                                <option value="Manufacturing">Manufacturing and Production</option>
+                                <option value="Transportation">Transportation</option>
+                                <option value="Agriculture">Agriculture and Forestry</option>
+                                <option value="Security">Security and Protective Services</option>
+                                <option value="Environmental">Environmental and Conservation</option>
+                                <option value="other">Other</option>
+                            </select>                            
+
+                        </div>
+                        <div class="postButton">
+                            <button type="submit" onclick="submitPost()" id="postSubmitButton">Post</button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div>
+                <div class="product-class">
+                    <div class="product">
+                        <img class="product-pic" src="iphone 15.jpg">
+                        <p class="price">
+                            $1050
+                        </p>
+                        <p class="product-name">
+                            iPhone 15 pro
+                        </p>
+                    </div>
+
+                    <div class="product">
+                        <img class="product-pic" src="iphone 15.jpg">
+                        <p class="price">
+                            $1050
+                        </p>
+                        <p class="product-name">
+                            iPhone 15 pro
+                        </p>
+
+                    </div>
+
+                    <div class="product">
+                        <img class="product-pic" src="iphone 15.jpg">
+                        <p class="price">
+                            $1050
+                        </p>
+                        <p class="product-name">
+                            iPhone 15 pro
+                        </p>
+
+                    </div>
+
+                    <div class="product">
+                        <img class="product-pic" src="iphone 15.jpg">
+                        <p class="price">
+                            $1050
+                        </p>
+                        <p class="product-name">
+                            iPhone 15 pro
+                        </p>
+
+                    </div>
+
+                    <div class="product">
+                        <img class="product-pic" src="iphone 15.jpg">
+                        <p class="price">
+                            $1050
+                        </p>
+                        <p class="product-name">
+                            iPhone 15 pro
+                        </p>
+
+                    </div>
+
+                    <div class="product">
+                        <img class="product-pic" src="iphone 15.jpg">
+                        <p class="price">
+                            $1050
+                        </p>
+                        <p class="product-name">
+                            iPhone 15 pro
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="JavaScript/cat2.js"></script>
+</body>
+
+</html>

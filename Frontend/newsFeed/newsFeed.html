@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feed</title>
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/fontawesome.min.css">
+    <link rel="stylesheet" href="../Profile_page/header.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="menuestyle.css">
+</head> -->
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>SyncUP</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+
+    <link rel="stylesheet" as="style" onload="this.rel='stylesheet'"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B700%3B800" />
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+
+    <style>
+        body {
+            font-family: "Plus Jakarta Sans", "Noto Sans", sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+    <link rel="stylesheet" href="menuestyle.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/fontawesome.min.css">
+</head>
+
+<body class="flex min-h-screen" id="body">
+
+
+    <aside class="w-72 bg-white shadow-lg p-6 flex flex-col fixed h-full">
+        <div class="flex items-center gap-3 mb-8 px-8">
+            <div class="size-6">
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M24 4H6V17.3333V30.6667H24V44H42V30.6667V17.3333H24V4Z" fill="currentColor"></path>
+                </svg>
+            </div>
+            <h1 class="text-3xl font-bold text-gray-800">SyncUP</h1>
+            <!-- <button class="p-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-400">
+                <span class="material-icons text-gray-600">close</span>
+            </button> -->
+        </div>
+        <div class="flex flex-col items-center mb-8">
+            <img id="user-profile-pic" alt="User avatar"
+                class="w-24 h-24 rounded-full object-cover mb-3 border-2 border-blue-500"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMJ4BcPbcIIgqJ5aIJ_NxtXHXhFh4d0iITe0y1O-vIFf8THCi6wqtk82me2oCioPZ6GF_Qj6nCrsWugAgEYzrOhIASI_cE8EL2Wx3iSfPfv8NzOuXXab-FR_1MPo_iAce4He85eWY4uttAgxktWs8D6-P41EEz6YB7ItS0Oww4CsKMhB97_-Do8RUMd59QqvuH8nm_GRSCYRb67mLo2PJwwfUrarEqPQtiay204M_GowwTmcp4_kd62xE5NrP5bNIw6h2wnAt9n38w" />
+            <h2 id="user-profile-name" for="ProfileName" class="profileName text-xl font-semibold text-gray-800">Name
+            </h2>
+            <p id="user-profile-username" for="userName" class="userName text-sm text-gray-500">username</p>
+            <div class="flex space-x-2 mt-4">
+
+                <button type="submit" id="goToProfilefromNewsFeed"
+                    class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition duration-150"><a
+                        href="../Profile_page/user_Profile.html">Profile</a></button>
+
+                <button type="submit" id="logout"
+                    class="Logout bg-gray-200 hover:bg-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium transition duration-150">Logout</button>
+            </div>
+        </div>
+        <nav class="flex-grow space-y-4">
+            <div>
+                <h3 class="text-xs font-semibold text-gray-400 uppercase mb-2">Main Menu</h3>
+                <a class="flex items-center text-gray-600 hover:text-blue-500 hover:bg-blue-50 px-3 py-2 rounded-lg transition duration-150"
+                    href="../chat">
+                    <span class="material-icons mr-3">chat_bubble_outline</span> Message
+                </a>
+                <a class="flex items-center text-gray-600 hover:text-blue-500 hover:bg-blue-50 px-3 py-2 rounded-lg transition duration-150"
+                    href="../timer/notification.html">
+                    <span class="material-icons mr-3">notifications_none</span> Set Notification
+                </a>
+                <a class="flex items-center text-gray-600 hover:text-blue-500 hover:bg-blue-50 px-3 py-2 rounded-lg transition duration-150"
+                    href="location.html">
+                    <span class="material-icons mr-3">location_on</span> Location
+                </a>
+                <a class="flex items-center text-gray-600 hover:text-blue-500 hover:bg-blue-50 px-3 py-2 rounded-lg transition duration-150"
+                    href="../Progressbar/progressbar.html">
+                    <span class="material-icons mr-3">timeline</span> Activity Tracker
+                </a>
+            </div>
+            <div>
+                <h3 class="text-xs font-semibold text-gray-400 uppercase mb-2 mt-6">Explore</h3>
+                <a class="flex items-center text-gray-600 hover:text-blue-500 hover:bg-blue-50 px-3 py-2 rounded-lg transition duration-150"
+                    href="../Marketplace">
+                    <span class="material-icons mr-3">storefront</span> Marketplace
+                </a>
+                <a class="flex items-center text-gray-600 hover:text-blue-500 hover:bg-blue-50 px-3 py-2 rounded-lg transition duration-150"
+                    href="../JobHTML/homePage.html">
+                    <span class="material-icons mr-3">work</span> Job Marketplace
+                </a>
+                <a class="flex items-center text-gray-600 hover:text-blue-500 hover:bg-blue-50 px-3 py-2 rounded-lg transition duration-150"
+                    href="../manageProject/dashboard.html">
+                    <span class="material-icons mr-3">business_center</span> Manage Project
+                </a>
+                <a class="flex items-center text-gray-600 hover:text-blue-500 hover:bg-blue-50 px-3 py-2 rounded-lg transition duration-150"
+                    href="../Report_problem/report_problem.html">
+                    <span class="material-icons mr-3">report_problem</span> Report a problem
+                </a>
+            </div>
+        </nav>
+    </aside>
+
+
+
+
+
+    <main class="flex-1 ml-72 p-8 space-y-6">
+        <header class="flex items-center justify-between">
+            <h2 class="text-2xl font-semibold text-gray-800">Feeds</h2>
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <span
+                        class="material-icons absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">search</span>
+                    <input id="search-profile" oninput="searching()" style="width: 470px;"
+                        class="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-64"
+                        placeholder="Search" type="text" />
+                </div>
+                <div class="relative">
+                    <button class="flex items-center text-gray-600 hover:text-gray-800" onclick="showFilter()">
+                        Filter <span class="material-icons">arrow_drop_down</span>
+                    </button>
+                </div>
+
+                <button id="notification-button"
+                    class="flex max-w-[480px]  cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 text-[#1b0e0e] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5">
+                    <div class="text-[#1b0e0e]" data-icon="Bell" data-size="20px" data-weight="regular">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" fill="currentColor"
+                            viewBox="0 0 256 256">
+                            <path
+                                d="M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z">
+                            </path>
+                        </svg>
+                    </div>
+                </button>
+            </div>
+        </header>
+
+        <div class="search-dropdown-1" id="search-dropdown-id" style="display: none;"></div>
+
+
+
+        <ul id="ulList" class="ulList">
+            <li><input type="checkbox" name="category" value="Education and Informative" id="education"><label
+                    for="education">Education and Informative</label></li>
+            <li><input type="checkbox" name="category" value="Technology" id="technology"><label
+                    for="technology">Technology</label></li>
+            <li><input type="checkbox" name="category" value="Sports" id="sports"><label for="sports">Sports</label>
+            </li>
+            <li><input type="checkbox" name="category" value="Politics" id="politics"><label
+                    for="politics">Politics</label></li>
+            <li><input type="checkbox" name="category" value="Music" id="music"><label for="music">Music</label></li>
+            <li><input type="checkbox" name="category" value="Movies or TV shows" id="movies"><label for="movies">Movies
+                    or TV shows</label></li>
+            <li><input type="checkbox" name="category" value="Food" id="food"><label for="food">Food</label></li>
+            <li><input type="checkbox" name="category" value="Business" id="business"><label
+                    for="business">Business</label></li>
+            <li><input type="checkbox" name="category" value="memes and humor" id="memes"><label for="memes">Memes and
+                    humor</label></li>
+            <li><button onclick="applyFilters()">Filter</button></li>
+        </ul>
+
+
+
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+            <div class="flex items-start space-x-4">
+                <img id="myPostPic" alt="User avatar for posting" class="w-12 h-12 rounded-full object-cover"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsNz9vafhLgI77VqPYZrBPld1OMarARy4zyhqXWTZu5tDBuJvJB0HWCReuzcZtc1Og8NCGqbL6X8ZbgAFlgvQhlQPS08JgsLZmfRcJ4Ot8XPYVkVV4EvEsdbnK6dhZDAeGeZ3qozpvlnYKLPsB7-tQVaH4uqMPjmXjetsyr6B58QiqBLp-2LUNYsORUwzbuOeiXbDPzvb_OLYuFtLht3weKWmMH6-20wjoJWnReXUaAEykQyAgU6HydUvaY0t4xReROpoGVieMZBIH" />
+
+                <textarea name="myPostText" id="myPostText"
+                    class="flex-1 p-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+                    placeholder="What's New?" rows="3"></textarea>
+            </div>
+            <div class="flex items-center justify-between mt-4">
+                <div class="flex items-center space-x-3">
+
+                    <label class="flex items-center text-sm text-gray-500 hover:text-blue-500 cursor-pointer">
+                        <span class="material-icons mr-1 text-blue-500">image</span>
+                        File
+                        <input id="fileInput" class="hidden" type="file" multiple onchange="showFileNames(event)" />
+                    </label>
+
+                    <div id="fileNames" class="text-sm text-gray-600 mt-2"></div>
+
+                    <div class="relative">
+                        <select name="whoCanSee" id="privacy-option"
+                            class="appearance-none bg-gray-100 border border-gray-200 text-gray-700 py-2 px-4 pr-8 rounded-lg leading-tight focus:outline-none focus:bg-white focus:border-blue-500 text-sm">
+                            <option>Public</option>
+                            <option>Friends</option>
+                            <option>Only Me</option>
+                        </select>
+                        <div
+                            class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                            <span class="material-icons text-sm">arrow_drop_down</span>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <select name="catagory-name" id="category-option" required
+                            class="appearance-none bg-gray-100 border border-gray-200 text-gray-700 py-2 px-4 pr-8 rounded-lg leading-tight focus:outline-none focus:bg-white focus:border-blue-500 text-sm">
+                            <option value="">--Select a category--</option>
+                            <option value="Education and Informative">Education and Informative</option>
+                            <option value="Technology">Technology</option>
+                            <option value="Games">Games</option>
+                            <option value="Sports">Sports</option>
+                            <option value="Music">Music</option>
+                            <option value="Politics">Politics</option>
+                            <option value="Movies or TV shows">Movies or TV shows</option>
+                            <option value="Lifestyle">Lifestyle</option>
+                            <option value="Food">Food</option>
+                            <option value="Business">Business</option>
+                            <option value="memes and humor">memes and humor</option>
+                        </select>
+                        <div
+                            class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                            <span class="material-icons text-sm">arrow_drop_down</span>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" onclick="submitPost()" id="postSubmitButton"
+                    class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg text-sm font-medium transition duration-150">Post</button>
+            </div>
+        </div>
+
+
+        <div class="fullFeedsArea" id="fullFeedsArea">
+            <div class="feedSectionMain">
+                <!-- <div class="feedSection">
+                
+                    <div class="feedsHeader">
+                        <div class="feedsProfile">
+                            <img src="ProfilePic.jpg" alt="" id="ownerPic">
+                            <div class="nameAndTime">
+                                <div class="feedOwnerName">Md.Rifat Hossain</div>
+                                <div class="feedsTime">Time and Date</div>
+                            </div>
+                            
+                        </div>
+
+                        <div style="position: relative;" class="feedsMenu">
+                            <div class="report-class">
+                                Report Post
+                            </div>
+                            <button >:</button>
+                        </div>
+                        
+                    </div>
+                    <div class="feedsMediaReaction">
+                        <div class="feedsArea">
+                            <details>
+                                <summary id="feedsTitle">New Story!!</summary>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure voluptas unde atque hic ut quaerat adipisci dignissimos voluptates quas, error dolorem officia nam facere consequuntur neque accusamus. Sapiente, consequuntur corporis?</p>
+                            </details>
+                        </div>
+                        
+                        <section class="container">
+                            <div class="slider-wrapper">
+                                <div class="slider">
+                                    <img id="slide-1" src="https://images.unsplash.com/photo-1656464868371-602be27fd4c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80" alt="3D rendering of an imaginary orange planet in space" />
+                                    <img id="slide-2" src="https://images.unsplash.com/photo-1657586640569-4a3d4577328c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80" alt="3D rendering of an imaginary green planet in space" />
+                                    <img id="slide-3" src="https://images.unsplash.com/photo-1656077217715-bdaeb06bd01f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80" alt="3D rendering of an imaginary blue planet in space" />
+                                    <video id="slide-4" controls muted loop>
+                                        <source src="../Facebook_6.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                                <div class="slider-nav">
+                                    <a href="#slide-1"></a>
+                                    <a href="#slide-2"></a>
+                                    <a href="#slide-3"></a>
+                                    <a href="#slide-4"></a>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <div class="feedsMediaArea"></div>
+                        <div class="feedReactionCount">
+                            <div class="likeComment">
+                                
+                                <div class="feedsLike reactionArea">
+                                    <div style="text-align: center;margin-left: 10px;">0</div>
+                                
+                                </div>
+                                <div class="feedsLike reactionArea">
+                                    <div style="text-align: center;margin-left: 20px;">0</div>
+                                
+                                </div>
+                                <div class="feedsComment reactionArea">
+                                    <div style="text-align: center;margin-left: 20px;">0</div>
+                                    
+                                </div>
+                            </div>
+                            <div class="shareSave">
+                                <div class="share reactionArea">
+                            
+                                </div>
+                                <div class="save reactionArea">
+                                
+                                </div>
+                            </div>
+                        </div>
+                        <div class="feedReactionArea">
+                            <div class="likeComment">
+                                
+                                <div class="feedsLike reactionArea">
+                                    
+                                    <i class="fa-regular fa-thumbs-up likeIcon"></i>
+                                </div>
+                                <div class="feedsLike reactionArea">
+                                    
+                                    <i class="fa-regular fa-thumbs-down dislikeIcon"></i>
+                                </div>
+                                <div class="feedsComment reactionArea">
+                                    
+                                    <i class="fa-regular fa-comment commentIcon"></i>
+                                </div>
+                            </div>
+                            <div class="shareSave">
+                                <div class="share reactionArea">
+                                    <i class="fa-solid fa-share shareIcon"></i>
+                                </div>
+                                <div class="save reactionArea">
+                                    <i class="fa-regular fa-bookmark saveIcon"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>     -->
+            </div>
+
+
+        </div>
+    </main>
+
+
+    <aside id="notification-panel"
+        class="w-80 bg-white ease-in-out duration-300 rounded-xl shadow-lg p-6 fixed right-0 top-20 h-full overflow-y-auto custom-scrollbar transition-transform transform translate-x-full">
+
+        <h2 class="text-xl font-semibold text-gray-800 mb-4">Notifications</h2>
+        <div id="notificaations" class="space-y-3 mb-8 max-h-60 overflow-y-auto custom-scrollbar pr-2">
+
+            <!-- <div class="bg-blue-50 p-3 rounded-lg border border-blue-100">
+                <p class="text-xs text-gray-500 mb-1">2024-10-15 02:41:41</p>
+                <p class="text-sm text-gray-700"><span class="font-medium text-blue-600">Ahmed</span> sent you a friend
+                    request
+                </p>
+            </div>
+            <div class="bg-blue-50 p-3 rounded-lg border border-blue-100">
+                <p class="text-xs text-gray-500 mb-1">2024-10-15 02:01:44</p>
+                <p class="text-sm text-gray-700"><span class="font-medium text-blue-600">Ahmed</span> sent you a friend
+                    request
+                </p>
+            </div>
+             -->
+        </div>
+        <h2 class="text-xl font-semibold text-gray-800 mb-4">Suggestion</h2>
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+            <p class="text-sm text-gray-600">Connect with more people based on your interests.</p>
+            <button
+                class="mt-3 w-full bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition duration-150">
+                Find Friends
+            </button>
+        </div>
+    </aside>
+
+
+
+    <script src="../newsFeed.js"></script>
+    <script src="../searching_profile.js"></script>
+    <script src="../load_notification.js"></script>
+
+</body>
+
+</html>
