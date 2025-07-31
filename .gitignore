@@ -5,6 +5,8 @@
 # Node.js
 Backend/node_modules/
 
+Frontend/lib/firebase-config.js
+
 # OS junk
 .DS_Store
 Thumbs.db
